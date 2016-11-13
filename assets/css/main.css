@@ -1662,8 +1662,6 @@
 	}
 
 		header.special:before, header.special:after {
-			border-bottom: solid 1.5px;
-			border-top: solid 1.5px;
 			content: '';
 			height: 7px;
 			opacity: 0.1;
@@ -1783,7 +1781,6 @@
 	}
 
 		.image:before {
-			background: url("images/overlay.png");
 			content: '';
 			height: 100%;
 			left: 0;
