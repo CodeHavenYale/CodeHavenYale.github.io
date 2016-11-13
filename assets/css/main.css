@@ -1656,7 +1656,7 @@
 
 	header.special {
 		margin-bottom: 5em;
-		padding-top: 7em;
+		padding-top: 3em;
 		position: relative;
 		text-align: center;
 	}
@@ -2543,7 +2543,7 @@
 		/* Section/Article */
 
 			header.special {
-				padding-top: 5.5em;
+				padding-top: 2em;
 				margin-bottom: 4em;
 			}
 
@@ -2708,7 +2708,7 @@
 
 			header.special {
 				margin-bottom: 4em;
-				padding-top: 5em;
+				padding-top: 1.75em;
 			}
 
 				header.special:before, header.special:after {
