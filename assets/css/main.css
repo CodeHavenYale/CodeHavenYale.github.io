@@ -1813,6 +1813,13 @@
 				width: 100%;
 			}
 
+	/* for the team images */
+	img.profile-image {
+		width: 80%;
+		border-radius: 50%;
+		margin-bottom: 1em;
+	}
+
 /* Icon */
 
 	.icon {
