@@ -2484,12 +2484,12 @@
 /* CTA */
 
 	#cta {
-		background-attachment: scroll, scroll, scroll, fixed;
+		background-attachment: fixed;
 		background-color: #645862;
-		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../../images/banner.jpg");
-		background-position: top left, top right, top left, bottom center;
-		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-		background-size: 25em, 25em, auto, cover;
+		background-image: url("../../images/footer.jpg");
+		background-position:  bottom center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		color: #fff;
 		padding: 5em;
 		text-align: center;
@@ -2682,7 +2682,7 @@
 		/* CTA */
 
 			#cta {
-				background-size: 15em, 15em, auto, cover;
+				background-size: cover;
 				padding: 3em;
 			}
 
@@ -3152,7 +3152,7 @@
 		/* CTA */
 
 			#cta {
-				background-size: 10em, 10em, auto, cover;
+				background-size: cover;
 				padding: 3em 1.5em;
 			}
 
