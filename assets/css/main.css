@@ -1615,6 +1615,11 @@
 		letter-spacing: 0.1em;
 	}
 
+	h2.real-header {
+		font-weight: 400;
+		font-size: 2.7em;
+	}
+
 	h3 {
 		font-size: 1.15em;
 		letter-spacing: 0.025em;
