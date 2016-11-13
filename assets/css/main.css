@@ -2393,12 +2393,12 @@
 	}
 
 	#banner {
-		background-attachment: scroll, scroll, scroll, fixed;
+		background-attachment:  scroll, fixed;
 		background-color: #645862;
-		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/overlay.png"), url("../../images/banner.jpg");
-		background-position: bottom left, bottom right, top left, top center;
-		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-		background-size: 25em, 25em, auto, cover;
+		background-image:  url("images/overlay.png"), url("../../images/banner.jpg");
+		background-position: top left, top center;
+		background-repeat:  repeat, no-repeat;
+		background-size: auto, cover;
 		color: #fff;
 		cursor: default;
 		padding: 6em 0;
@@ -2677,7 +2677,7 @@
 		/* Banner */
 
 			#banner {
-				background-size: 15em, 15em, auto, cover;
+				background-size: auto, cover;
 			}
 
 		/* Main */
@@ -3119,7 +3119,7 @@
 		/* Banner */
 
 			#banner {
-				background-size: 10em, 10em, auto, cover;
+				background-size: auto, cover;
 				padding: 6em 0;
 			}
 
