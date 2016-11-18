@@ -28,14 +28,95 @@
 
 					<!-- One -->
 	<!-- Two -->
+
 						<section class="wrapper style1 container special">
+
+						{% assign row_count = 0 %}
+
+							{% for member in site.data.team %}
+
+								{% if row_count == 0 %}
+									<div class="row">
+								{% endif %}
+								<div class="3u 12u(narrower)">
+									<section>
+										<img class="profile-image" src="{{ member.picture }}"></img>
+										<header>
+											<h4>{{ member.first_name }}<br> {{ member.last_name }}</h4>
+											<p class="team-college">{{ member.college}} '{{ member.year }}</p>
+										</header>
+										<p class="team-blurb">
+											{{ member.blurb }}
+										</p>
+									</section>
+								</div>
+								{% assign row_count = row_count | plus: 1 %}
+
+								{% if row_count == 4 %}
+									</div>
+									{% assign row_count = 0 %}
+								{% endif %}
+							{% endfor %}
+							
+
+							<!-- <div class="row">
+								<div class="3u 12u(narrower)">
+
+									<section>
+										<img class="profile-image" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"></img>
+										<header>
+											<h4>Someone<br> Somewhere</h4>
+											<p class="team-college">JE '19</p>
+										</header>
+										<p class="team-blurb">Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+								<div class="3u 12u(narrower)">
+
+									<section>
+										<img class="profile-image" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"></img>
+										<header>
+											<h4>Stephen<br> Slade</h4>
+											<p class="team-college">JE '19</p>
+										</header>
+										<p class="team-blurb">We could also add arbitrary frontmatter variables to all pages to achieve a number of different goals. For example, if we wanted to order the output of site.pages in some arbitrary way, we could add a weight frontmatter variable to each page and sort by said property before we start our loop.</p>
+									</section>
+
+								</div>
+								<div class="3u 12u(narrower)">
+
+									<section>
+										<img class="profile-image" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"></img>
+										<header>
+											<h4>Hugh<br> Jass</h4>
+											<p class="team-college">JE '19</p>
+										</header>
+										<p class="team-blurb">Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+								<div class="3u 12u(narrower)">
+
+									<section>
+										<img class="profile-image" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"></img>
+										<header>
+											<h4>Ron<br> Swanson</h4>
+											<p class="team-college">JE '19</p>
+										</header>
+										<p class="team-blurb">Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+							</div>
+
 							<div class="row">
 								<div class="3u 12u(narrower)">
 
 									<section>
 										<img class="profile-image" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"></img>
 										<header>
-											<h4>Annie<br> Chen</h4>
+											<h4>John<br> Cena</h4>
 											<p class="team-college">JE '19</p>
 										</header>
 										<p class="team-blurb">Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
@@ -78,7 +159,8 @@
 									</section>
 
 								</div>
-							</div>
+							</div> -->
+
 						</section>
 
 
