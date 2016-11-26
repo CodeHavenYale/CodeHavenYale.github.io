@@ -1,11 +1,10 @@
 [{
-    "first_name": "Stan",
-    "last_name": "Eisenstat",
+    "first_name": "Annie",
+    "last_name": "Chen",
     "college": "ES",
     "year": "2019",
-    "blurb": "REMINDERS:  Do not under any circumstances copy another student's code or give a copy of your code to another student.  After discussing the assignment with
-another student, do not take any written or electronic record away and engage in a full hour of mind-numbing activity before you work on it again.",
-    "picture": "/images/team/annie.jpg"
+  "blurb": "Annie is a sophomore studying Computer Science and Education. She spends a lot of time teaching CS through Code Haven and as a teaching assistant for CS50. Outside of that, she enjoys trying to improve her typing speed and taking pictures of other people's dogs.",
+    "picture": "/images/team/annie_chen.jpg"
 },
 {
     "first_name": "Dennis",
