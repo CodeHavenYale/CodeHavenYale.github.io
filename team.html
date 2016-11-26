@@ -5,76 +5,76 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>Team - Code Haven Yale</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
-	<body class="no-sidebar">
-		<div id="page-wrapper">
+<head>
+<title>Team - Code Haven Yale</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css" />
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body class="no-sidebar">
+<div id="page-wrapper">
 
-			{% include header.html %}
+{% include header.html %}
 
-			<!-- Main -->
-				<article id="main">
+<!-- Main -->
+<article id="main">
 
-					<header class="special container">
-						<h2 class= "real-header">Our Team</h2>
-					</header>
+<header class="special container">
+<h2 class= "real-header">Our Team</h2>
+</header>
 
-					<!-- One -->
-	<!-- Two -->
+<!-- One -->
+<!-- Two -->
 
-						<section class="wrapper style1 container special">
+<section class="wrapper style1 container special">
 
-						{% assign row_count = 0 %}
+{% assign row_count = 0 %}
 
-							{% for member in site.data.team %}
+{% for member in site.data.team %}
 
-								{% if row_count == 0 %}
-									<div class="row">
-								{% endif %}
-								<div class="3u 12u(narrower)">
-									<section>
-										<img class="profile-image" src="{{ member.picture }}"></img>
-										<header>
-											<h4>{{ member.first_name }}<br> {{ member.last_name }}</h4>
-											<p class="team-college">{{ member.college}} '{{ member.year }}</p>
-										</header>
-										<p class="team-blurb">
-											{{ member.blurb }}
-										</p>
-									</section>
-								</div>
-								{% assign row_count = row_count | plus: 1 %}
+{% if row_count == 0 %}
+<div class="row">
+{% endif %}
+<div class="3u 12u(narrower)">
+<section>
+<img class="profile-image" src="{{ member.picture }}"></img>
+<header>
+<h4>{{ member.first_name }}<br> {{ member.last_name }}</h4>
+<p class="team-college">{{ member.college}} '{{ member.year }}</p>
+</header>
+<p class="team-blurb">
+{{ member.blurb }}
+</p>
+</section>
+</div>
+{% assign row_count = row_count | plus: 1 %}
 
-								{% if row_count == 4 %}
-									</div>
-									{% assign row_count = 0 %}
-								{% endif %}
-							{% endfor %}
-							
-						</section>
+{% if row_count == 4 %}
+</div>
+{% assign row_count = 0 %}
+{% endif %}
+{% endfor %}
+
+</section>
 
 
-				</article>
+</article>
 
             {% include footer.html %}
-		</div>
+            </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollgress.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+            <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.dropotron.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/jquery.scrollgress.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+            <script src="assets/js/main.js"></script>
 
-	</body>
-</html>
+            </body>
+            </html>

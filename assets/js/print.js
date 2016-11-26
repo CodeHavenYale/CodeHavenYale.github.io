@@ -1,6 +1,6 @@
 function setString() {
-    var one = "anni";
-    var two = "e.che";
+    var one = "cod";
+    var two = "ehave";
     var three = "n";
     var four = "@yal";
     var five = "e.ed";
