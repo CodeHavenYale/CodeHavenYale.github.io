@@ -2,7 +2,7 @@
     "first_name": "Annie",
     "last_name": "Chen",
     "college": "ES",
-    "year": "2019",
+    "year": "19",
   "blurb": "Annie is a sophomore studying Computer Science and Education. She spends a lot of time teaching CS through Code Haven and as a teaching assistant for CS50. Outside of that, she enjoys trying to improve her typing speed and taking pictures of other people's dogs.",
     "picture": "/images/team/annie_chen.jpg"
 },
@@ -11,7 +11,7 @@
     "last_name": "Duan",
     "college": "ES",
     "year": "19",
-    "blurb": "Dennis is a sophomore in Ezra Stiles College majoring in Computer Science and Economics (hopefully). Aside from working with the community through Code Havem, he enjoys playing tennis, running, playing the saxophone, pretending to know how to beatbox, and trying to learn new things.",
+    "blurb": "Dennis is a sophomore in Ezra Stiles College majoring in Computer Science and Economics (hopefully). Aside from working with the community through Code Haven, he enjoys playing tennis, running, playing the saxophone, pretending to know how to beatbox, and trying to learn new things.",
     "picture": "/images/team/dennis_duan.jpg"
 },
 {
@@ -85,4 +85,13 @@
     "year": "19",
     "blurb": "Jared Weinstein is one cool dude who spends his time coding, playing soccer, and beating Will Merill in ping pong. As a declared CS major, Jared is excited to use his time at Yale to explore the intersection between computer science and design.",
     "picture": "/images/team/jared_weinstein.jpg"
-}]
+},
+{
+    "first_name": "Ellis",
+    "last_name": "Burgoon Miskell",
+    "college": "ES",
+    "year": "19",
+    "blurb": "I'm a sophomore in Ezra Stiles College at Yale University, likely majoring in Cognitive Science or Linguistics. I'm originally from Yarmouth, Maine. On campus, I'm also involved with Splash at Yale as a teacher and a member of the organizing team, and I'm a member of Pan Jam & Lime, a Caribbean steel drum band.",
+    "picture": "/images/team/ellis_burgoonmiskell.jpg"
+}
+]
