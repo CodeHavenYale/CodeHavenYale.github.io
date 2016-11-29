@@ -101,5 +101,13 @@
     "year": "20",
     "blurb": "Amanda is a freshman in Berkeley College currently interested in majoring in Economics and Computer Science. She enjoys eating ramen, ballroom dancing and petting cute dogs on campus. As an international student from the sunny country of Malaysia, Amanda is team metric system and also not ready for winter.",
     "picture": "/images/team/amanda_lee.jpg"
+},
+{
+    "first_name": "Sarah",
+    "last_name": "Wagner",
+    "college": "PC",
+    "year": "19",
+    "blurb": "Sarah is a sophomore in Pierson College from the Washington D.C. Metropolitan area, and plans to major in Computer Science. She spent five weeks in Spain last summer with the Summer Institute of Hispanic Studies. In her free time, she can be found in the pottery studio.",
+    "picture": "/images/team/sarah_wagner.jpg"
 }
 ]
