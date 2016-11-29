@@ -2214,7 +2214,7 @@
 		cursor: default;
 		font-size: 0.8em;
 		left: 0;
-		padding: 1em 1.5em;
+		padding: 1.5em 1.5em;  /* this used to be 1em 1.5em but I changed it for a super jank solution lord please forgive me */
 		position: fixed;
 		top: 0;
 		width: 100%;
