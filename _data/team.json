@@ -109,5 +109,13 @@
     "year": "19",
     "blurb": "Sarah is a sophomore in Pierson College from the Washington D.C. Metropolitan area, and plans to major in Computer Science. She spent five weeks in Spain last summer with the Summer Institute of Hispanic Studies. In her free time, she can be found in the pottery studio.",
     "picture": "/images/team/sarah_wagner.png"
+},
+{
+    "first_name": "Cynthia",
+    "last_name": "Vu",
+    "college": "PC",
+    "year": "19",
+  "blurb": "Cynthia is a sophomore in Pierson and is majoring in Computer Science. She's from the distant state of Connecticut , and has lived there all her life. She has interests in dance, art, basically everything--and she's very active in the Vietnamese community here at Yale and back home.",
+    "picture": "/images/team/cynthia_vu.png"
 }
 ]
