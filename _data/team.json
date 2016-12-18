@@ -117,5 +117,13 @@
     "year": "19",
   "blurb": "Cynthia is a sophomore in Pierson and is majoring in Computer Science. She's from the distant state of Connecticut , and has lived there all her life. She has interests in dance, art, basically everything--and she's very active in the Vietnamese community here at Yale and back home.",
     "picture": "/images/team/cynthia_vu.png"
+},
+{
+    "first_name": "Shannon",
+    "last_name": "Yasuda",
+    "college": "BK",
+    "year": "20",
+    "blurb": "Shannon is a freshman from New York City currently interested in Cognitive Science and Computer Science. Outside of Code Haven, she is an active member of the Yale Precision Marching Band and the Yale Computer Society. Shannon firmly believes that anyone has the ability to learn computer science and that naked mole-rats are the coolest animals ever.",
+    "picture": "/images/team/dennis_duan.jpg"
 }
 ]
