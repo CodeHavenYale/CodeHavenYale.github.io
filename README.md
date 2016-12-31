@@ -10,7 +10,11 @@ jekyll build
 jekyll serve
 ```
 
+# Writing Blog Posts
 
+[Jekyll Guide to Writing Posts](https://jekyllrb.com/docs/posts/)
+
+Create an html file in the _posts/ directory
 
 
 # Credits 
