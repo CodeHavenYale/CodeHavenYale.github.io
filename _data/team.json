@@ -1,0 +1,129 @@
+[{
+    "first_name": "Annie",
+    "last_name": "Chen",
+    "college": "ES",
+    "year": "19",
+  "blurb": "Annie is a sophomore studying Computer Science and Education. She spends a lot of time teaching CS through Code Haven and as a teaching assistant for CS50. Outside of that, she enjoys trying to improve her typing speed and taking pictures of other people's dogs.",
+    "picture": "/images/team/annie_chen.jpg"
+},
+{
+    "first_name": "Dennis",
+    "last_name": "Duan",
+    "college": "ES",
+    "year": "19",
+    "blurb": "Dennis is a sophomore in Ezra Stiles College majoring in Computer Science and Economics (hopefully). Aside from working with the community through Code Haven, he enjoys playing tennis, running, playing the saxophone, pretending to know how to beatbox, and trying to learn new things.",
+    "picture": "/images/team/dennis_duan.jpg"
+},
+{
+    "first_name": "Claire",
+    "last_name": "Gorman",
+    "college": "ES",
+    "year": "20",
+    "blurb": "Hello! I’m Claire, a freshman in Ezra Stiles college working towards a prospective Computing and the Arts major at Yale.",
+    "picture": "/images/team/claire_gorman.jpg"
+},
+{
+    "first_name": "Christopher",
+    "last_name": "Kim",
+    "college": "TC",
+    "year": "19",
+    "blurb": "Christopher Kim is a sophomore in Trumbull College majoring in Computer Science. In addition to Code Haven, he is primarily involved with organizing YHack (Yale's premier hackathon), CodeBoola (a one-day learnathon for middle and high school students in the Northeast) and works as a Media Tech with the STC. In his free time he enjoys reading and videography.",
+    "picture": "/images/team/christopher_kim.jpg"
+},
+{
+    "first_name": "Xiu",
+    "last_name": "Chen",
+    "college": "PC",
+    "year": "20",
+    "blurb": "Hello! My name is Xiu Chen. I am a freshman in Pierson College and I am planning to major in Computer Science. During my free time, I enjoy reading non-fiction books, listening to music, and taking naps.",
+    "picture": "/images/team/xiu_chen.jpg"
+},
+{
+    "first_name": "Mila",
+    "last_name": "Dorji",
+    "college": "BK",
+    "year": "20",
+    "blurb": "Mila is a prospective Cognitive Science and/or Global Affairs major, EMT, lifeguard, and photographer. He grew up in Bhutan and California, and first began coding during his freshman year. Mila is excited to continue exploring the ways in which computer science can make the world a better place.",
+    "picture": "/images/team/mila_dorji.jpg"
+},
+{
+    "first_name": "Omid",
+    "last_name": "Rooholfada",
+    "college": "ES",
+    "year": "20",
+    "blurb": "Omid Rooholfada is a freshman in Stiles. A prospective Computer Science and Math double major, Omid loves helping others understand the beauty in these subjects, whether through math competition training or coding mentorship. In his free time, he likes debating political issues, singing in the shower, and obliterating his suitemates at FIFA.",
+    "picture": "/images/team/omid_rooholfada.jpg"
+},
+{
+    "first_name": "Jessica",
+    "last_name": "Ambrosio",
+    "college": "JE",
+    "year": "19",
+    "blurb": "Jessica loves eating, coding, sleeping, and being part of Code Haven!",
+    "picture": "/images/team/jessica_ambrosio.jpg"
+},
+{
+    "first_name": "Lily",
+    "last_name": "Wu",
+    "college": "TC",
+    "year": "19",
+    "blurb": "Hailing from Los Angeles, Lily plans on majoring in Computer Science and History. Her favorite activities include playing rugby and getting to know the incredibly inspiring people she's met at Yale.",
+    "picture": "/images/team/lily_wu.jpg"
+},
+{
+    "first_name": "Will",
+    "last_name": "Merrill",
+    "college": "ES",
+    "year": "19",
+    "blurb": "Will is a sophomore in Ezra Stiles College studying computer science in linguistics. He has a passion for video games, Vikings, and ancient languages, and in his spare time enjoys beating random people at ping pong.",
+    "picture": "https://urldefense.proofpoint.com/v2/url?u=https-3A__graph.facebook.com_100002264291889_picture-3Fwidth-3D400-26height-3D400&d=CwMFaQ&c=-dg2m7zWuuDZ0MUcV7Sdqw&r=kAb_l3F41chHoLBn-gMyH7ki-VxSLgBHvOGQ-HSA5dQ&m=razhtH1NIZIqb4Zymr2mMZGTlALIznvFQqGhWvNQXNc&s=r9slkfnDGMJPmLdgVIrYP4ON2_vjGbM0SNHOo46vaI4&e="
+},
+{
+    "first_name": "Jared",
+    "last_name": "Weinstein",
+    "college": "ES",
+    "year": "19",
+    "blurb": "Jared Weinstein is one cool dude who spends his time coding, playing soccer, and beating Will Merill in ping pong. As a declared CS major, Jared is excited to use his time at Yale to explore the intersection between computer science and design.",
+    "picture": "/images/team/jared_weinstein.jpg"
+},
+{
+    "first_name": "Ellis",
+    "last_name": "Burgoon Miskell",
+    "college": "ES",
+    "year": "19",
+    "blurb": "I'm a sophomore in Ezra Stiles College at Yale University, likely majoring in Cognitive Science or Linguistics. I'm originally from Yarmouth, Maine. On campus, I'm also involved with Splash at Yale as a teacher and a member of the organizing team, and I'm a member of Pan Jam & Lime, a Caribbean steel drum band.",
+    "picture": "/images/team/ellis_burgoonmiskell.jpg"
+},
+{
+    "first_name": "Amanda",
+    "last_name": "Lee",
+    "college": "BK",
+    "year": "20",
+    "blurb": "Amanda is a freshman in Berkeley College currently interested in majoring in Economics and Computer Science. She enjoys eating ramen, ballroom dancing and petting cute dogs on campus. As an international student from the sunny country of Malaysia, Amanda is team metric system and also not ready for winter.",
+    "picture": "/images/team/amanda_lee.jpg"
+},
+{
+    "first_name": "Sarah",
+    "last_name": "Wagner",
+    "college": "PC",
+    "year": "19",
+    "blurb": "Sarah is a sophomore in Pierson College from the Washington D.C. Metropolitan area, and plans to major in Computer Science. She spent five weeks in Spain last summer with the Summer Institute of Hispanic Studies. In her free time, she can be found in the pottery studio.",
+    "picture": "/images/team/sarah_wagner.png"
+},
+{
+    "first_name": "Cynthia",
+    "last_name": "Vu",
+    "college": "PC",
+    "year": "19",
+  "blurb": "Cynthia is a sophomore in Pierson and is majoring in Computer Science. She's from the distant state of Connecticut , and has lived there all her life. She has interests in dance, art, basically everything--and she's very active in the Vietnamese community here at Yale and back home.",
+    "picture": "/images/team/cynthia_vu.png"
+},
+{
+    "first_name": "Shannon",
+    "last_name": "Yasuda",
+    "college": "BK",
+    "year": "20",
+    "blurb": "Shannon is a freshman from New York City currently interested in Cognitive Science and Computer Science. Outside of Code Haven, she is an active member of the Yale Precision Marching Band and the Yale Computer Society. Shannon firmly believes that anyone has the ability to learn computer science and that naked mole-rats are the coolest animals ever.",
+    "picture": "/images/team/shannon_yasuda.jpg"
+}
+]
