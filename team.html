@@ -45,9 +45,6 @@
 											<h4>{{ member.first_name }}<br> {{ member.last_name }}</h4>
 											<p class="team-college">{{ member.college}} '{{ member.year }}</p>
 										</header>
-										<p class="team-blurb">
-											{{ member.blurb }}
-										</p>
 									</section>
 								</div>
 								{% assign row_count = row_count | plus: 1 %}
@@ -57,7 +54,7 @@
 									{% assign row_count = 0 %}
 								{% endif %}
 							{% endfor %}
-							
+
 						</section>
 
 
@@ -75,7 +72,7 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-		<!-- google analytics tracker --> 
+		<!-- google analytics tracker -->
 			<script>
 			      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

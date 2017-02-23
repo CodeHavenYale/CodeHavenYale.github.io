@@ -23,14 +23,6 @@
     "picture": "/images/team/claire_gorman.jpg"
 },
 {
-    "first_name": "Christopher",
-    "last_name": "Kim",
-    "college": "TC",
-    "year": "19",
-    "blurb": "Christopher Kim is a sophomore in Trumbull College majoring in Computer Science. In addition to Code Haven, he is primarily involved with organizing YHack (Yale's premier hackathon), CodeBoola (a one-day learnathon for middle and high school students in the Northeast) and works as a Media Tech with the STC. In his free time he enjoys reading and videography.",
-    "picture": "/images/team/christopher_kim.jpg"
-},
-{
     "first_name": "Xiu",
     "last_name": "Chen",
     "college": "PC",
@@ -39,20 +31,44 @@
     "picture": "/images/team/xiu_chen.jpg"
 },
 {
-    "first_name": "Mila",
-    "last_name": "Dorji",
-    "college": "BK",
-    "year": "20",
-    "blurb": "Mila is a prospective Cognitive Science and/or Global Affairs major, EMT, lifeguard, and photographer. He grew up in Bhutan and California, and first began coding during his freshman year. Mila is excited to continue exploring the ways in which computer science can make the world a better place.",
-    "picture": "/images/team/mila_dorji.jpg"
-},
-{
     "first_name": "Omid",
     "last_name": "Rooholfada",
     "college": "ES",
     "year": "20",
     "blurb": "Omid Rooholfada is a freshman in Stiles. A prospective Computer Science and Math double major, Omid loves helping others understand the beauty in these subjects, whether through math competition training or coding mentorship. In his free time, he likes debating political issues, singing in the shower, and obliterating his suitemates at FIFA.",
     "picture": "/images/team/omid_rooholfada.jpg"
+},
+{
+    "first_name": "Ellis",
+    "last_name": "Burgoon Miskell",
+    "college": "ES",
+    "year": "19",
+    "blurb": "I'm a sophomore in Ezra Stiles College at Yale University, likely majoring in Cognitive Science or Linguistics. I'm originally from Yarmouth, Maine. On campus, I'm also involved with Splash at Yale as a teacher and a member of the organizing team, and I'm a member of Pan Jam & Lime, a Caribbean steel drum band.",
+    "picture": "/images/team/ellis_burgoonmiskell.jpg"
+},
+{
+    "first_name": "Amanda",
+    "last_name": "Lee",
+    "college": "BK",
+    "year": "20",
+    "blurb": "Amanda is a freshman in Berkeley College currently interested in majoring in Economics and Computer Science. She enjoys eating ramen, ballroom dancing and petting cute dogs on campus. As an international student from the sunny country of Malaysia, Amanda is team metric system and also not ready for winter.",
+    "picture": "/images/team/amanda_lee.jpg"
+},
+{
+    "first_name": "Christopher",
+    "last_name": "Kim",
+    "college": "TC",
+    "year": "19",
+    "blurb": "Christopher Kim is a sophomore in Trumbull College majoring in Computer Science. In addition to Code Haven, he is primarily involved with organizing YHack (Yale's premier hackathon), CodeBoola (a one-day learnathon for middle and high school students in the Northeast) and works as a Media Tech with the STC. In his free time he enjoys reading and videography.",
+    "picture": "/images/team/christopher_kim.jpg"
+},
+{
+    "first_name": "Mila",
+    "last_name": "Dorji",
+    "college": "BK",
+    "year": "20",
+    "blurb": "Mila is a prospective Cognitive Science and/or Global Affairs major, EMT, lifeguard, and photographer. He grew up in Bhutan and California, and first began coding during his freshman year. Mila is excited to continue exploring the ways in which computer science can make the world a better place.",
+    "picture": "/images/team/mila_dorji.jpg"
 },
 {
     "first_name": "Jessica",
@@ -87,22 +103,6 @@
     "picture": "/images/team/jared_weinstein.jpg"
 },
 {
-    "first_name": "Ellis",
-    "last_name": "Burgoon Miskell",
-    "college": "ES",
-    "year": "19",
-    "blurb": "I'm a sophomore in Ezra Stiles College at Yale University, likely majoring in Cognitive Science or Linguistics. I'm originally from Yarmouth, Maine. On campus, I'm also involved with Splash at Yale as a teacher and a member of the organizing team, and I'm a member of Pan Jam & Lime, a Caribbean steel drum band.",
-    "picture": "/images/team/ellis_burgoonmiskell.jpg"
-},
-{
-    "first_name": "Amanda",
-    "last_name": "Lee",
-    "college": "BK",
-    "year": "20",
-    "blurb": "Amanda is a freshman in Berkeley College currently interested in majoring in Economics and Computer Science. She enjoys eating ramen, ballroom dancing and petting cute dogs on campus. As an international student from the sunny country of Malaysia, Amanda is team metric system and also not ready for winter.",
-    "picture": "/images/team/amanda_lee.jpg"
-},
-{
     "first_name": "Sarah",
     "last_name": "Wagner",
     "college": "PC",
@@ -125,5 +125,47 @@
     "year": "20",
     "blurb": "Shannon is a freshman from New York City currently interested in Cognitive Science and Computer Science. Outside of Code Haven, she is an active member of the Yale Precision Marching Band and the Yale Computer Society. Shannon firmly believes that anyone has the ability to learn computer science and that naked mole-rats are the coolest animals ever.",
     "picture": "/images/team/shannon_yasuda.jpg"
+},
+{
+    "first_name": "Veena",
+    "last_name": "Advani",
+    "college": "DC",
+    "year": 18,
+    "picture": "/images/team/veena_advani.jpg"
+},
+{
+    "first_name": "Artin",
+    "last_name": "Kasumyan",
+    "college": "ES",
+    "year": 20,
+    "picture": "/images/team/artin_kasumyan.PNG"
+},
+{
+    "first_name": "Sanya",
+    "last_name": "Nijhawan",
+    "college": "SY",
+    "year": 20,
+    "picture": "/images/team/sanya_nijhawan.jpg"
+},
+{
+    "first_name": "Arthur",
+    "last_name": "Kasumyan",
+    "college": "ES",
+    "year": 20,
+    "picture": "/images/team/arthur_kasumyan.PNG"
+},
+{
+    "first_name": "Caitlin",
+    "last_name": "Westerfield",
+    "college": "PC",
+    "year": 20,
+    "picture": "/images/team/caitlin_westerfield.jpg"
+},
+{
+    "first_name": "André",
+    "last_name": "Monteiro",
+    "college": "DC",
+    "year": 18,
+    "picture": "/images/team/andre_monteiro.jpg"
 }
 ]
