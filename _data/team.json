@@ -167,5 +167,19 @@
     "college": "DC",
     "year": 18,
     "picture": "/images/team/andre_monteiro.jpg"
+},
+{
+	"first_name": "Devin",
+	"last_name": "Hilly",
+	"college": "SM",
+	"year": 18,
+	"picture": "/images/team/devin_hilly.jpg"
+},
+{
+	"first_name": "Sen",
+	"last_name": "Huang",
+	"college": "MC",
+	"year": 19,
+	"picture": "/images/team/sen_huang.jpg"
 }
 ]
