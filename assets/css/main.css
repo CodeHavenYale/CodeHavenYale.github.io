@@ -2439,7 +2439,7 @@
 			-webkit-animation-fill-mode: forwards;
 			-ms-animation-fill-mode: forwards;
 			animation-fill-mode: forwards;
-			background: rgba(52, 27, 43, 0.5);
+			background: rgba(0,0,0,0.4);
 			color: #fff;
 			display: inline-block;
 			opacity: 0;
@@ -3219,3 +3219,12 @@
 			}
 
 	}
+
+/* for the big number statistic stuff on the front page */
+p.statistic{
+	color: #7c8081;
+	font-size: 3em;
+	font-weight: bold;
+	margin-top: 0.25em;
+	margin-bottom: 1em;
+}
