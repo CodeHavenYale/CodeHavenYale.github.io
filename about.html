@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
@@ -32,7 +34,11 @@
 							<!-- Content -->
 								<div class="content">
 									<section>
-										<a href="#" class="image featured"><img src="images/about.jpg" alt="" /></a>
+										<div class="image featured slickify">
+											<img src="images/about.jpg" alt="" />
+											<img src="images/for-teachers1.jpg" alt="" />
+											<img src="images/for-students1.jpg" />
+										</div>
                                         <header>
 											<h3><strong>What We Do</strong></h3>
 										</header>
@@ -64,8 +70,10 @@
 			<script src="assets/js/jquery.scrollgress.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/slick-init.js"></script>
 
 	</body>
 </html>
