@@ -61,6 +61,11 @@
 					</header>
 
 					<!-- One -->
+					<section class="wrapper container special">
+						<div class="12u">
+							<iframe id="i-wideo" frameborder="no" width="560" height="315"></iframe>
+						</div>
+					</section>
 <!-- 						<section class="wrapper style2 container special-alt">
 							<div class="row 50%">
 								<div class="8u 12u(narrower)">
@@ -91,50 +96,6 @@
 							</div>
 						</section> -->
 
-					
-
-					<!-- Three -->
-						<section class="wrapper style3 container special">
-
-							<header class="major">
-								<h2>Interested in Joining?</h2>
-							</header>
-
-							<div class="row">
-								<div class="6u 12u(narrower)">
-
-									<section>
-										<div class="image featured"><img src="images/mentor-group.jpg" alt="" /></div>
-										<header>
-											<h3>For Yale Students</h3>
-										</header>
-										<p>Find out about our onboarding process and the perks of being a member</p>
-									</section>
-
-									<ul class="buttons">
-										<li><a href="/join-students.html" class="button">Learn More</a></li>
-									</ul>
-
-								</div>
-								<div class="6u 12u(narrower)">
-
-									<section>
-										<div class="image featured"><img src="images/for-teachers1.jpg" alt="" /></div>
-										<header>
-											<h3>For Teachers</h3>
-										</header>
-										<p>We're actively looking to expand and would love to come to your classroom</p>
-									</section>
-
-									<ul class="buttons">
-										<li><a href="join-teachers.html" class="button">Learn More</a></li>
-									</ul>
-
-								</div>
-							</div>
-
-						</section>
-
 <!-- Two -->
  						<section class="wrapper style1 container special">
 							<div class="row">
@@ -164,6 +125,49 @@
 								</div>
 							</div>
 						</section> 
+					
+
+					<!-- Three -->
+						<section class="wrapper style3 container special">
+
+							<header class="major">
+								<h2>Interested in Joining?</h2>
+							</header>
+
+							<div class="row">
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<div class="image featured"><img src="images/for-students1.jpg" alt="" /></div>
+										<header>
+											<h3>For Yale Students</h3>
+										</header>
+										<p>Find out about our onboarding process and the perks of being a member</p>
+									</section>
+
+									<ul class="buttons">
+										<li><a href="/join-students.html" class="button">Learn More</a></li>
+									</ul>
+
+								</div>
+								<div class="6u 12u(narrower)">
+
+									<section>
+										<div class="image featured"><img src="images/for-teachers1.jpg" alt="" /></div>
+										<header>
+											<h3>For Teachers</h3>
+										</header>
+										<p>We're actively looking to expand and would love to come to your classroom</p>
+									</section>
+
+									<ul class="buttons">
+										<li><a href="join-teachers.html" class="button">Learn More</a></li>
+									</ul>
+
+								</div>
+							</div>
+
+						</section>
 
 				</article>
 
@@ -210,9 +214,18 @@
               ga('send', 'pageview');
         </script>
 
-        <!-- load an image...kinda hacky -->
+		<!-- do the embedded wideo responsive nonsense -->
         <script>
-			document.getElementById("img-for-students").src = "images/for-students.jpg";
+			function embedWid(){
+				var sWidth = $("section.container.special.wrapper").width();
+				var vWidth = Math.floor(sWidth*0.9);
+				var vHeight = Math.floor(sWidth*9/16);
+				$("#i-wideo").attr("width", vWidth);
+				$("#i-wideo").attr("height", vHeight);
+				$("#i-wideo").attr("src", "http://www.wideo.co/embed/19637231492971843097?width=" + Math.floor(vWidth) + "height=" + Math.floor(vHeight) + "&repeat=false&autoplay=false");
+			}
+			embedWid();
+			$(window).resize(embedWid);
         </script>
 	</body>
 </html>
