@@ -16,6 +16,9 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+
     </head>
     <body class="no-sidebar">
         <div id="page-wrapper">
@@ -36,7 +39,12 @@
                             <!-- Content -->
                                 <div class="content">
                                     <section>
-                                        <div href="#" class="image featured"><img src="images/join-students.jpg" alt="" /></div>
+                                        <div class="image featured slickify">
+                                            <img src="images/for-students1.jpg" alt="" />
+                                            <img src="images/for-students2.jpg" alt="" />
+                                            <img src="images/for-students3.jpg"/>
+                                            <img src="images/for-students4.jpg"/>
+                                        </div>
                                         Interested in becoming a mentor, role model, leader, and teacher for students in New Haven? We take on new members at the start of every semester, and our onboarding process is quick and painless. We’ll just ask that you sit down for a short interview to get to know you, and then attend a workshop to help prepare you for the classroom. No prior teaching experience is necessary -- only patience, the willingness to learn, and an interest in our goals!
                                         <br>
                                         <br>
@@ -49,7 +57,16 @@
                                             <li>&nbsp;&nbsp;-&nbsp;&nbsp;Meet other Yale students interested in computer science</li>
                                         </ul>
 
-                                        If any of this sounds interesting to you, fill out <a href="https://goo.gl/forms/L52i7jUiqWRWSCbi1">THIS INTEREST FORM</a> to be notified when we open up applications in August!
+                                        <p>If any of this sounds interesting to you, reach out to us below to be notified when we open up applications in August!</p>
+                                        <div class="12u">
+                                            <section>
+                                                <footer>
+                                                    <ul class="buttons" style="text-align: center;">
+                                                        <li><a href="https://goo.gl/forms/L52i7jUiqWRWSCbi1" class="button small">Contact us!</a></li>
+                                                    </ul>
+                                                </footer>
+                                            </section>
+                                        </div>
                                     </section>
                                 </div>
 
@@ -67,6 +84,9 @@
             <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
             <script src="assets/js/main.js"></script>
             <script src="assets/js/print.js"></script>
+            <script src="assets/js/slick-init.js"></script>
+            <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
         <!-- google analytics tracker --> 
             <script>
                   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
