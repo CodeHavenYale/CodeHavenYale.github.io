@@ -63,7 +63,7 @@
 					<!-- One -->
 					<section class="wrapper container special">
 						<div class="12u">
-							<iframe id="i-wideo" frameborder="no" width="560" height="315"></iframe>
+							<iframe id="vid" width="90%"></iframe>						
 						</div>
 					</section>
 <!-- 						<section class="wrapper style2 container special-alt">
@@ -214,18 +214,20 @@
               ga('send', 'pageview');
         </script>
 
-		<!-- do the embedded wideo responsive nonsense -->
+		<!-- do the embedded video responsive nonsense -->
         <script>
-			function embedWid(){
+				
+			$("#vid").attr("src", "https://drive.google.com/file/d/0B1P-bki9Mm44OXF3enR3QV9lNXc/preview");
+
+			function embedVid(){
 				var sWidth = $("section.container.special.wrapper").width();
 				var vWidth = Math.floor(sWidth*0.9);
 				var vHeight = Math.floor(sWidth*9/16);
-				$("#i-wideo").attr("width", vWidth);
-				$("#i-wideo").attr("height", vHeight);
-				$("#i-wideo").attr("src", "http://www.wideo.co/embed/19637231492971843097?width=" + Math.floor(vWidth) + "height=" + Math.floor(vHeight) + "&repeat=false&autoplay=false");
+				$("#vid").attr("width", vWidth);
+				$("#vid").attr("height", vHeight);
 			}
-			embedWid();
-			$(window).resize(embedWid);
+			embedVid();
+			$(window).resize(embedVid);
         </script>
 	</body>
 </html>
