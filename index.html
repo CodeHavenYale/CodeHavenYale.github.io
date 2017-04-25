@@ -61,6 +61,11 @@
 					</header>
 
 					<!-- One -->
+					<section class="wrapper container special">
+						<div class="12u">
+							<iframe id="vid" width="90%"></iframe>						
+						</div>
+					</section>
 <!-- 						<section class="wrapper style2 container special-alt">
 							<div class="row 50%">
 								<div class="8u 12u(narrower)">
@@ -91,39 +96,36 @@
 							</div>
 						</section> -->
 
-					<!-- Two -->
-<!-- 						<section class="wrapper style1 container special">
+<!-- Two -->
+ 						<section class="wrapper style1 container special">
 							<div class="row">
-								<div class="6u 12u(narrower)">
+								<div class="4u 12u(narrow)">
 
 									<section>
-										<span class="icon featured fa-check"></span>
-										<header>
-											<h3>For Yale Students</h3>
-										</header>
-										<p>Find out about our onboarding process and the perks of being a member</p>
-										<ul class="buttons">
-											<li><a href="#" class="button">Find Out More</a></li>
-										</ul>
+										<p class="statistic">90</p>
+										<p>Middle school students reached</p>
 									</section>
 
 								</div>
-								<div class="6u 12u(narrower)">
+								<div class="4u 12u(narrow)">
 
 									<section>
-										<span class="icon featured fa-check"></span>
-										<header>
-											<h3>For Teachers</h3>
-										</header>
-										<p>We're actively looking to expand and would love to come to your classroom</p>
-										<ul class="buttons">
-											<li><a href="#" class="button">Find Out More</a></li>
-										</ul>
+										<p class="statistic">18,000+</p>
+										<p>Total lines of code written</p>
+									</section>
+
+								</div>
+								<div class="4u 12u(narrow)">
+
+									<section>
+										<p class="statistic">4:1</p> 
+										<p>Student-mentor ratio</p>
 									</section>
 
 								</div>
 							</div>
-						</section> -->
+						</section> 
+					
 
 					<!-- Three -->
 						<section class="wrapper style3 container special">
@@ -136,7 +138,7 @@
 								<div class="6u 12u(narrower)">
 
 									<section>
-										<a href="#" class="image featured"><img id = "img-for-students" alt="" /></a>
+										<div class="image featured"><img src="images/for-students1.jpg" alt="" /></div>
 										<header>
 											<h3>For Yale Students</h3>
 										</header>
@@ -151,7 +153,7 @@
 								<div class="6u 12u(narrower)">
 
 									<section>
-										<div class="image featured"><img src="images/for-teachers.jpg" alt="" /></div>
+										<div class="image featured"><img src="images/for-teachers1.jpg" alt="" /></div>
 										<header>
 											<h3>For Teachers</h3>
 										</header>
@@ -212,9 +214,20 @@
               ga('send', 'pageview');
         </script>
 
-        <!-- load an image...kinda hacky -->
+		<!-- do the embedded video responsive nonsense -->
         <script>
-			document.getElementById("img-for-students").src = "images/for-students.jpg";
+				
+			$("#vid").attr("src", "https://drive.google.com/file/d/0B1P-bki9Mm44OXF3enR3QV9lNXc/preview");
+
+			function embedVid(){
+				var sWidth = $("section.container.special.wrapper").width();
+				var vWidth = Math.floor(sWidth*0.9);
+				var vHeight = Math.floor(sWidth*9/16);
+				$("#vid").attr("width", vWidth);
+				$("#vid").attr("height", vHeight);
+			}
+			embedVid();
+			$(window).resize(embedVid);
         </script>
 	</body>
 </html>

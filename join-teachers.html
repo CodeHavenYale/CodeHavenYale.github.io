@@ -14,6 +14,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     </head>
@@ -36,11 +38,24 @@
                             <!-- Content -->
                                 <div class="content">
                                     <section>
-                                        <div href="#" class="image featured"><img src="images/for-teachers.jpg" alt="" /></div>
-                                        <p>Interested in bringing introductory computer science to your classroom? We are always looking to expand to new classrooms and would love to come to yours! Please email  <span id="e"></span>  with your name and school, plus details about your classroom (age, number of students, experience), and we’ll get back to you as soon as we can! </p>
-
-                                        <p>
-                                        Our current curriculum is designed for middle school students with no computer science experiences, with lessons for an hour a week. However, we are interested in expanding to different grades and levels of prior experience, so please contact us!</p>
+										<div class="image featured slickify">
+                                            <img src="images/for-teachers1.jpg" />
+                                            <img src="images/for-teachers2.jpg" />
+                                            <img src="images/for-teachers3.jpg" />
+                                            <img src="images/for-teachers4.jpg" />
+                                            <img src="images/for-teachers5.jpg" />
+                                        </div>
+                                        <p>Interested in bringing introductory computer science to your classroom? We are always looking to expand to new classrooms and would love to come to yours!
+                                        Our current curriculum is designed for middle school students with no computer science experiences, with lessons for an hour a week. However, we are interested in expanding to different grades and levels of prior experience, so please reach out!</p>
+                                        <div class="12u">
+                                            <section>
+                                                <footer>
+                                                    <ul class="buttons" style="text-align: center;">
+                                                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeAdJouJKM0SKGUOa4liHb2cgoGDHlIFf0xe-1UnGi0M8s3Rw/viewform" class="button small">Contact us!</a></li>
+                                                    </ul>
+                                                </footer>
+                                            </section>
+                                        </div>
                                     </section>
                                 </div>
 
@@ -58,6 +73,9 @@
             <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
             <script src="assets/js/main.js"></script>
             <script src="assets/js/print.js"></script>
+			<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+			<script src="assets/js/slick-init.js"></script>
 
         {% include footer.html %}
 
