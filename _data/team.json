@@ -181,5 +181,12 @@
 	"college": "MC",
 	"year": 19,
 	"picture": "/images/team/sen_huang.jpg"
+},
+{
+    "first_name": "Isabella",
+    "last_name": "Teng",
+    "college": "BK",
+    "year": 20,
+    "picture": "/images/team/isabella_teng.png"
 }
 ]
