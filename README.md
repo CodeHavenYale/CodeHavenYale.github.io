@@ -1,6 +1,6 @@
 # CodeHavenYale.com
 
-This repo contains the source code for [codehavenyale.com](codehavenyale.com), a website for Code Haven, a Yale student group that brings CS classes to middle schools in New Haven. 
+This repo contains the source code for [codehavenyale.com](https://codehavenyale.com), a website for Code Haven, a Yale student group that brings CS classes to middle schools in New Haven. 
 
 # To Run
 
