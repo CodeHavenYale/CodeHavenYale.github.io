@@ -55,36 +55,12 @@
     "picture": "/images/team/amanda_lee.jpg"
 },
 {
-    "first_name": "Christopher",
-    "last_name": "Kim",
-    "college": "TC",
-    "year": "19",
-    "blurb": "Christopher Kim is a sophomore in Trumbull College majoring in Computer Science. In addition to Code Haven, he is primarily involved with organizing YHack (Yale's premier hackathon), CodeBoola (a one-day learnathon for middle and high school students in the Northeast) and works as a Media Tech with the STC. In his free time he enjoys reading and videography.",
-    "picture": "/images/team/christopher_kim.jpg"
-},
-{
-    "first_name": "Mila",
-    "last_name": "Dorji",
-    "college": "BK",
-    "year": "20",
-    "blurb": "Mila is a prospective Cognitive Science and/or Global Affairs major, EMT, lifeguard, and photographer. He grew up in Bhutan and California, and first began coding during his freshman year. Mila is excited to continue exploring the ways in which computer science can make the world a better place.",
-    "picture": "/images/team/mila_dorji.jpg"
-},
-{
     "first_name": "Jessica",
     "last_name": "Ambrosio",
     "college": "JE",
     "year": "19",
     "blurb": "Jessica loves eating, coding, sleeping, and being part of Code Haven!",
     "picture": "/images/team/jessica_ambrosio.jpg"
-},
-{
-    "first_name": "Lily",
-    "last_name": "Wu",
-    "college": "TC",
-    "year": "19",
-    "blurb": "Hailing from Los Angeles, Lily plans on majoring in Computer Science and History. Her favorite activities include playing rugby and getting to know the incredibly inspiring people she's met at Yale.",
-    "picture": "/images/team/lily_wu.jpg"
 },
 {
     "first_name": "Will",
@@ -94,14 +70,7 @@
     "blurb": "Will is a sophomore in Ezra Stiles College studying computer science in linguistics. He has a passion for video games, Vikings, and ancient languages, and in his spare time enjoys beating random people at ping pong.",
     "picture": "https://urldefense.proofpoint.com/v2/url?u=https-3A__graph.facebook.com_100002264291889_picture-3Fwidth-3D400-26height-3D400&d=CwMFaQ&c=-dg2m7zWuuDZ0MUcV7Sdqw&r=kAb_l3F41chHoLBn-gMyH7ki-VxSLgBHvOGQ-HSA5dQ&m=razhtH1NIZIqb4Zymr2mMZGTlALIznvFQqGhWvNQXNc&s=r9slkfnDGMJPmLdgVIrYP4ON2_vjGbM0SNHOo46vaI4&e="
 },
-{
-    "first_name": "Jared",
-    "last_name": "Weinstein",
-    "college": "ES",
-    "year": "19",
-    "blurb": "Jared Weinstein is one cool dude who spends his time coding, playing soccer, and beating Will Merill in ping pong. As a declared CS major, Jared is excited to use his time at Yale to explore the intersection between computer science and design.",
-    "picture": "/images/team/jared_weinstein.jpg"
-},
+
 {
     "first_name": "Sarah",
     "last_name": "Wagner",
@@ -110,14 +79,7 @@
     "blurb": "Sarah is a sophomore in Pierson College from the Washington D.C. Metropolitan area, and plans to major in Computer Science. She spent five weeks in Spain last summer with the Summer Institute of Hispanic Studies. In her free time, she can be found in the pottery studio.",
     "picture": "/images/team/sarah_wagner.png"
 },
-{
-    "first_name": "Cynthia",
-    "last_name": "Vu",
-    "college": "PC",
-    "year": "19",
-  "blurb": "Cynthia is a sophomore in Pierson and is majoring in Computer Science. She's from the distant state of Connecticut , and has lived there all her life. She has interests in dance, art, basically everything--and she's very active in the Vietnamese community here at Yale and back home.",
-    "picture": "/images/team/cynthia_vu.png"
-},
+
 {
     "first_name": "Shannon",
     "last_name": "Yasuda",
@@ -134,25 +96,11 @@
     "picture": "/images/team/veena_advani.jpg"
 },
 {
-    "first_name": "Artin",
-    "last_name": "Kasumyan",
-    "college": "ES",
-    "year": 20,
-    "picture": "/images/team/artin_kasumyan.PNG"
-},
-{
     "first_name": "Sanya",
     "last_name": "Nijhawan",
     "college": "SY",
     "year": 20,
     "picture": "/images/team/sanya_nijhawan.jpg"
-},
-{
-    "first_name": "Arthur",
-    "last_name": "Kasumyan",
-    "college": "ES",
-    "year": 20,
-    "picture": "/images/team/arthur_kasumyan.PNG"
 },
 {
     "first_name": "Caitlin",
@@ -162,25 +110,46 @@
     "picture": "/images/team/caitlin_westerfield.jpg"
 },
 {
-    "first_name": "André",
-    "last_name": "Monteiro",
-    "college": "DC",
-    "year": 18,
-    "picture": "/images/team/andre_monteiro.jpg"
+    "first_name": "Zach",
+    "last_name": "Stanik",
+    "college": "MC",
+    "year": 21,
+    "picture": "/images/team/zachary_stanik.jpg"
 },
 {
-	"first_name": "Devin",
-	"last_name": "Hilly",
-	"college": "SM",
-	"year": 18,
-	"picture": "/images/team/devin_hilly.jpg"
+    "first_name": "Zhengdong",
+    "last_name": "Wang",
+    "college": "MC",
+    "year": 21,
+    "picture": "/images/team/zhengdong_wang.jpg"
 },
 {
-	"first_name": "Sen",
-	"last_name": "Huang",
-	"college": "MC",
-	"year": 19,
-	"picture": "/images/team/sen_huang.jpg"
+    "first_name": "Sanelma",
+    "last_name": "Heinonen",
+    "college": "SY",
+    "year": 20,
+    "picture": "/images/team/sanelma_heinonen.jpg"
+},
+{
+    "first_name": "Natasha",
+    "last_name": "Mboya",
+    "college": "MC",
+    "year": 19,
+    "picture": "/images/team/natasha_mboya.jpg"
+},
+{
+    "first_name": "Greg",
+    "last_name": "Naratil",
+    "college": "SM",
+    "year": 21,
+    "picture": "/images/team/greg_naratil.jpg"
+},
+{
+    "first_name": "Jacob",
+    "last_name": "Hillman",
+    "college": "MC",
+    "year": 19,
+    "picture": "/images/team/jacob_hillman.jpg"
 },
 {
     "first_name": "Isabella",
