@@ -152,6 +152,27 @@
     "picture": "/images/team/jacob_hillman.jpg"
 },
 {
+    "first_name": "Chris",
+    "last_name": "Yao",
+    "college": "MC",
+    "year": 19,
+    "picture": "/images/team/chris_yao.JPG"
+},
+{
+    "first_name": "Annie",
+    "last_name": "Gao",
+    "college": "BR",
+    "year": 21,
+    "picture": "/images/team/annie_gao.jpg"
+},
+{
+    "first_name": "Sara",
+    "last_name": "Lewis",
+    "college": "BF",
+    "year": 21,
+    "picture": "/images/team/sara_lewis.jpg"
+},
+{
     "first_name": "Isabella",
     "last_name": "Teng",
     "college": "BK",
