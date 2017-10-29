@@ -10,6 +10,15 @@ jekyll build
 jekyll serve
 ```
 
+# To add people to teams
+
+1. Add a square image titled <firstname>_<lastname>.<fileextension> to
+   /images/teams
+
+2. Add an entry to /_data/team.json formatted as the above entries. Run the
+   whole file through a json validator to make sure your json is valid
+
+3. Run `jekyll build; jekyll serve` and make sure the page looks right 
 
 
 
