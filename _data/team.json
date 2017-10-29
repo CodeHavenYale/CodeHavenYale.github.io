@@ -173,6 +173,27 @@
     "picture": "/images/team/sara_lewis.jpg"
 },
 {
+    "first_name": "Darwin",
+    "last_name": "Leuba",
+    "college": "JE",
+    "year": 21,
+    "picture": "/images/team/darwin_leuba.jpg"
+},
+{
+    "first_name": "Rachel",
+    "last_name": "Sterneck",
+    "college": "MY",
+    "year": 21,
+    "picture": "/images/team/rachel_sterneck.png"
+},
+{
+    "first_name": "William",
+    "last_name": "Hu",
+    "college": "PC",
+    "year": 21,
+    "picture": "/images/team/rachel_sterneck.png"
+},
+{
     "first_name": "Isabella",
     "last_name": "Teng",
     "college": "BK",
