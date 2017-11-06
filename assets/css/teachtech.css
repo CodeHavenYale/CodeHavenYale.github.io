@@ -2430,7 +2430,7 @@
 	#banner {
 		background-attachment:  fixed;
 		background-color: #645862;
-		background-image:   url("../../images/banner.jpg");
+		background-image:   url("../../images/teachtech-1.JPG");
 		background-position:  center center;
 		background-repeat:   no-repeat;
 		background-size: cover;
@@ -2523,8 +2523,7 @@
 
 	#cta {
 		background-attachment: fixed;
-		background-color: #645862;
-		background-image: url("../../images/footer.jpg");
+		background-color: #83d3c9;
 		background-position:  bottom center;
 		background-repeat: no-repeat;
 		background-size: cover;

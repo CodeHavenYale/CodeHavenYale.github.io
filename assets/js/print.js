@@ -6,11 +6,13 @@ function setString() {
     var five = "ail";
     var six = ".com";
     var total = one + two + three + four + five + six;
-    var element = $("#e");
-    console.log(element);
+    var elements = $(".e");
+    console.log(elements);
     console.log(total);
-    element.html(total);
-    console.log(element);
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].innerHTML = total;
+    }
+    console.log(elements);
 }
 
 $(document).ready(setString());
