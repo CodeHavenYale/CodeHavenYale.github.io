@@ -3238,3 +3238,30 @@ p.statistic{
 	margin-top: 0.25em;
 	margin-bottom: 1em;
 }
+
+/* for the banner for teachtech */
+div.banner-wrapper {
+    background-color: #83d3c9;
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+header.banner-header {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+h3.banner-text {
+    font-weight: bold;
+    margin-bottom: 0;
+    color: #eee;
+}
+
+a.banner-button {
+    color: #eee;
+    padding: 0;
+    font-size: 1em;
+    line-height: 150%;
+}
