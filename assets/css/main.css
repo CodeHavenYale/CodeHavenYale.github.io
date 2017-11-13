@@ -1747,7 +1747,7 @@
 		input[type="password"]:focus,
 		input[type="email"]:focus,
 		textarea:focus {
-			border-color: #83d3c9;
+			border-color: #3fb1a3;
 		}
 
 	input[type="text"],
@@ -2100,8 +2100,8 @@
 		input[type="submit"].special,
 		input[type="reset"].special,
 		.button.special {
-			background: #83d3c9;
-			border-color: #83d3c9;
+			background: #3fb1a3;
+			border-color: #3fb1a3;
 			color: #fff !important;
 		}
 
@@ -2141,7 +2141,7 @@
 		}
 
 		.wrapper.style2 {
-			background-color: #83d3c9;
+			background-color: #3fb1a3;
 			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
@@ -2156,7 +2156,7 @@
 			.wrapper.style2 .button.special {
 				background: #fff;
 				border-color: #fff;
-				color: #83d3c9 !important;
+				color: #3fb1a3 !important;
 			}
 
 				.wrapper.style2 .button.special:hover {
@@ -2377,7 +2377,7 @@
 			}
 
 			.dropotron > li:hover > a {
-				background: #83d3c9;
+				background: #3fb1a3;
 				color: #fff;
 			}
 
@@ -3242,7 +3242,7 @@ p.statistic{
 
 /* for the banner for teachtech */
 div.banner-wrapper {
-    background-color: #83d3c9;
+    background-color: #3fb1a3;
     margin: 0;
     padding-top: 1em;
     padding-bottom: 1em;
