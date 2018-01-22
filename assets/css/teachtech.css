@@ -3272,3 +3272,7 @@ a.banner-button {
 img.partner-image {
     width: 75%;
 }
+
+ul > li {
+    margin-left: 10px;
+}
