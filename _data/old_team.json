@@ -73,3 +73,26 @@
     "year": 20,
     "picture": "/images/team/arthur_kasumyan.PNG"
 },
+{
+    "first_name": "Isabella",
+    "last_name": "Teng",
+    "college": "BK",
+    "year": 20,
+    "picture": "/images/team/isabella_teng.png"
+},
+{
+    "first_name": "Veena",
+    "last_name": "Advani",
+    "college": "DC",
+    "year": 18,
+    "picture": "/images/team/veena_advani.jpg"
+},
+
+{
+    "first_name": "Sarah",
+    "last_name": "Wagner",
+    "college": "PC",
+    "year": "19",
+    "blurb": "Sarah is a sophomore in Pierson College from the Washington D.C. Metropolitan area, and plans to major in Computer Science. She spent five weeks in Spain last summer with the Summer Institute of Hispanic Studies. In her free time, she can be found in the pottery studio.",
+    "picture": "/images/team/sarah_wagner.png"
+},

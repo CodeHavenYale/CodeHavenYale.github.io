@@ -72,28 +72,12 @@
 },
 
 {
-    "first_name": "Sarah",
-    "last_name": "Wagner",
-    "college": "PC",
-    "year": "19",
-    "blurb": "Sarah is a sophomore in Pierson College from the Washington D.C. Metropolitan area, and plans to major in Computer Science. She spent five weeks in Spain last summer with the Summer Institute of Hispanic Studies. In her free time, she can be found in the pottery studio.",
-    "picture": "/images/team/sarah_wagner.png"
-},
-
-{
     "first_name": "Shannon",
     "last_name": "Yasuda",
     "college": "BK",
     "year": "20",
     "blurb": "Shannon is a freshman from New York City currently interested in Cognitive Science and Computer Science. Outside of Code Haven, she is an active member of the Yale Precision Marching Band and the Yale Computer Society. Shannon firmly believes that anyone has the ability to learn computer science and that naked mole-rats are the coolest animals ever.",
     "picture": "/images/team/shannon_yasuda.jpg"
-},
-{
-    "first_name": "Veena",
-    "last_name": "Advani",
-    "college": "DC",
-    "year": 18,
-    "picture": "/images/team/veena_advani.jpg"
 },
 {
     "first_name": "Sanya",
@@ -194,10 +178,10 @@
     "picture": "/images/team/william_hu.png"
 },
 {
-    "first_name": "Isabella",
-    "last_name": "Teng",
-    "college": "BK",
-    "year": 20,
-    "picture": "/images/team/isabella_teng.png"
-}
+    "first_name": "SK",
+    "last_name": "Bong",
+    "college": "GH",
+    "year": 21,
+    "picture": "/images/team/sk_bong.jpg"
+},
 ]
