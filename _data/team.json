@@ -1,18 +1,18 @@
-[{
-    "first_name": "Annie",
-    "last_name": "Chen",
-    "college": "ES",
-    "year": "19",
-  "blurb": "Annie is a sophomore studying Computer Science and Education. She spends a lot of time teaching CS through Code Haven and as a teaching assistant for CS50. Outside of that, she enjoys trying to improve her typing speed and taking pictures of other people's dogs.",
-    "picture": "/images/team/annie_chen.jpg"
+[
+{
+    "first_name": "Sanya",
+    "last_name": "Nijhawan",
+    "college": "SY",
+    "year": 20,
+    "picture": "/images/team/sanya_nijhawan.jpg"
 },
 {
-    "first_name": "Dennis",
-    "last_name": "Duan",
+    "first_name": "Omid",
+    "last_name": "Rooholfada",
     "college": "ES",
-    "year": "19",
-    "blurb": "Dennis is a sophomore in Ezra Stiles College majoring in Computer Science and Economics (hopefully). Aside from working with the community through Code Haven, he enjoys playing tennis, running, playing the saxophone, pretending to know how to beatbox, and trying to learn new things.",
-    "picture": "/images/team/dennis_duan.jpg"
+    "year": "20",
+    "blurb": "Omid Rooholfada is a freshman in Stiles. A prospective Computer Science and Math double major, Omid loves helping others understand the beauty in these subjects, whether through math competition training or coding mentorship. In his free time, he likes debating political issues, singing in the shower, and obliterating his suitemates at FIFA.",
+    "picture": "/images/team/omid_rooholfada.jpg"
 },
 {
     "first_name": "Claire",
@@ -23,20 +23,11 @@
     "picture": "/images/team/claire_gorman.jpg"
 },
 {
-    "first_name": "Xiu",
-    "last_name": "Chen",
+    "first_name": "Caitlin",
+    "last_name": "Westerfield",
     "college": "PC",
-    "year": "20",
-    "blurb": "Hello! My name is Xiu Chen. I am a freshman in Pierson College and I am planning to major in Computer Science. During my free time, I enjoy reading non-fiction books, listening to music, and taking naps.",
-    "picture": "/images/team/xiu_chen.jpg"
-},
-{
-    "first_name": "Omid",
-    "last_name": "Rooholfada",
-    "college": "ES",
-    "year": "20",
-    "blurb": "Omid Rooholfada is a freshman in Stiles. A prospective Computer Science and Math double major, Omid loves helping others understand the beauty in these subjects, whether through math competition training or coding mentorship. In his free time, he likes debating political issues, singing in the shower, and obliterating his suitemates at FIFA.",
-    "picture": "/images/team/omid_rooholfada.jpg"
+    "year": 20,
+    "picture": "/images/team/caitlin_westerfield.jpg"
 },
 {
     "first_name": "Ellis",
@@ -53,6 +44,37 @@
     "year": "20",
     "blurb": "Amanda is a freshman in Berkeley College currently interested in majoring in Economics and Computer Science. She enjoys eating ramen, ballroom dancing and petting cute dogs on campus. As an international student from the sunny country of Malaysia, Amanda is team metric system and also not ready for winter.",
     "picture": "/images/team/amanda_lee.jpg"
+},
+{
+    "first_name": "Darwin",
+    "last_name": "Leuba",
+    "college": "JE",
+    "year": 21,
+    "picture": "/images/team/darwin_leuba.png"
+},
+{
+    "first_name": "Annie",
+    "last_name": "Chen",
+    "college": "ES",
+    "year": "19",
+  "blurb": "Annie is a sophomore studying Computer Science and Education. She spends a lot of time teaching CS through Code Haven and as a teaching assistant for CS50. Outside of that, she enjoys trying to improve her typing speed and taking pictures of other people's dogs.",
+    "picture": "/images/team/annie_chen.jpg"
+},
+{
+    "first_name": "Dennis",
+    "last_name": "Duan",
+    "college": "ES",
+    "year": "19",
+    "blurb": "Dennis is a sophomore in Ezra Stiles College majoring in Computer Science and Economics (hopefully). Aside from working with the community through Code Haven, he enjoys playing tennis, running, playing the saxophone, pretending to know how to beatbox, and trying to learn new things.",
+    "picture": "/images/team/dennis_duan.jpg"
+},
+{
+    "first_name": "Xiu",
+    "last_name": "Chen",
+    "college": "PC",
+    "year": "20",
+    "blurb": "Hello! My name is Xiu Chen. I am a freshman in Pierson College and I am planning to major in Computer Science. During my free time, I enjoy reading non-fiction books, listening to music, and taking naps.",
+    "picture": "/images/team/xiu_chen.jpg"
 },
 {
     "first_name": "Jessica",
@@ -78,20 +100,6 @@
     "year": "20",
     "blurb": "Shannon is a freshman from New York City currently interested in Cognitive Science and Computer Science. Outside of Code Haven, she is an active member of the Yale Precision Marching Band and the Yale Computer Society. Shannon firmly believes that anyone has the ability to learn computer science and that naked mole-rats are the coolest animals ever.",
     "picture": "/images/team/shannon_yasuda.jpg"
-},
-{
-    "first_name": "Sanya",
-    "last_name": "Nijhawan",
-    "college": "SY",
-    "year": 20,
-    "picture": "/images/team/sanya_nijhawan.jpg"
-},
-{
-    "first_name": "Caitlin",
-    "last_name": "Westerfield",
-    "college": "PC",
-    "year": 20,
-    "picture": "/images/team/caitlin_westerfield.jpg"
 },
 {
     "first_name": "Zach",
@@ -155,13 +163,6 @@
     "college": "BF",
     "year": 21,
     "picture": "/images/team/sara_lewis.jpg"
-},
-{
-    "first_name": "Darwin",
-    "last_name": "Leuba",
-    "college": "JE",
-    "year": 21,
-    "picture": "/images/team/darwin_leuba.png"
 },
 {
     "first_name": "Rachel",
