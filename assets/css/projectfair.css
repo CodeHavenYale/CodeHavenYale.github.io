@@ -1689,11 +1689,12 @@
 
 		header.special h2 {
 			margin-bottom: 0;
+			margin-top: 1em;
 		}
 
 		header.special h2 + p {
 			margin-bottom: 0;
-			padding-top: 1.5em;
+			padding-top: 5em;
 		}
 
 		header.special .icon {
@@ -2429,8 +2430,8 @@
 
 	#banner {
 		background-attachment:  fixed;
-		background-color: #645862;
-		background-image:   url("../../images/project-fair-banner.JPG");
+		/*background-color: #645862;*/
+		/*background-image:   url("../../images/project-fair-banner.JPG");*/
 		background-position:  center center;
 		background-repeat:   no-repeat;
 		background-size: cover;
@@ -2516,7 +2517,7 @@
 			}
 
 	body.index #main {
-		padding-top: 5em;
+		padding-top: 2em;
 	}
 
 /* CTA */
@@ -2580,8 +2581,8 @@
 		/* Section/Article */
 
 			header.special {
-				padding-top: 2em;
-				margin-bottom: 4em;
+				padding-top: 4em;
+				margin-bottom: 2em;
 			}
 
 	}
