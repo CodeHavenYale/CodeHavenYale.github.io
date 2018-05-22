@@ -15,11 +15,27 @@
     "picture": "/images/team/omid_rooholfada.jpg"
 },
 {
+    "first_name": "Claire",
+    "last_name": "Gorman",
+    "college": "ES",
+    "year": "20",
+    "blurb": "Hello! I’m Claire, a freshman in Ezra Stiles college working towards a prospective Computing and the Arts major at Yale.",
+    "picture": "/images/team/claire_gorman.jpg"
+},
+{
     "first_name": "Caitlin",
     "last_name": "Westerfield",
     "college": "PC",
     "year": 20,
     "picture": "/images/team/caitlin_westerfield.jpg"
+},
+{
+    "first_name": "Ellis",
+    "last_name": "Burgoon Miskell",
+    "college": "ES",
+    "year": "19",
+    "blurb": "I'm a sophomore in Ezra Stiles College at Yale University, likely majoring in Cognitive Science or Linguistics. I'm originally from Yarmouth, Maine. On campus, I'm also involved with Splash at Yale as a teacher and a member of the organizing team, and I'm a member of Pan Jam & Lime, a Caribbean steel drum band.",
+    "picture": "/images/team/ellis_burgoonmiskell.jpg"
 },
 {
     "first_name": "Amanda",
@@ -35,14 +51,6 @@
     "college": "JE",
     "year": 21,
     "picture": "/images/team/darwin_leuba.png"
-},
-{
-    "first_name": "Ellis",
-    "last_name": "Burgoon Miskell",
-    "college": "ES",
-    "year": "19",
-    "blurb": "I'm a sophomore in Ezra Stiles College at Yale University, likely majoring in Cognitive Science or Linguistics. I'm originally from Yarmouth, Maine. On campus, I'm also involved with Splash at Yale as a teacher and a member of the organizing team, and I'm a member of Pan Jam & Lime, a Caribbean steel drum band.",
-    "picture": "/images/team/ellis_burgoonmiskell.jpg"
 },
 {
     "first_name": "Annie",
@@ -113,6 +121,13 @@
     "college": "SY",
     "year": 20,
     "picture": "/images/team/sanelma_heinonen.jpg"
+},
+{
+    "first_name": "Natasha",
+    "last_name": "Mboya",
+    "college": "MC",
+    "year": 19,
+    "picture": "/images/team/natasha_mboya.jpg"
 },
 {
     "first_name": "Greg",
