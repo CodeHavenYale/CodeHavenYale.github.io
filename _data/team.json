@@ -44,6 +44,20 @@
     "picture": "/images/team/daniel_urke.jpg"
 },
 {
+    "first_name": "Stephanie",
+    "last_name": "Bang",
+    "college": "MY",
+    "year": 21,
+    "picture": "/images/team/stephanie_bang.jpg"
+},
+{
+    "first_name": "Rachel",
+    "last_name": "Sterneck",
+    "college": "MY",
+    "year": 21,
+    "picture": "/images/team/rachel_sterneck.png"
+},
+{
     "first_name": "Ellis",
     "last_name": "Burgoon Miskell",
     "college": "ES",
@@ -155,13 +169,6 @@
     "college": "BF",
     "year": 21,
     "picture": "/images/team/sara_lewis.jpg"
-},
-{
-    "first_name": "Rachel",
-    "last_name": "Sterneck",
-    "college": "MY",
-    "year": 21,
-    "picture": "/images/team/rachel_sterneck.png"
 },
 {
     "first_name": "William",
