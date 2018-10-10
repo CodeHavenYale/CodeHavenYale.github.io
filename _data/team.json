@@ -58,46 +58,6 @@
     "picture": "/images/team/rachel_sterneck.jpg"
 },
 {
-    "first_name": "Ellis",
-    "last_name": "Burgoon Miskell",
-    "college": "ES",
-    "year": "19",
-    "blurb": "I'm a sophomore in Ezra Stiles College at Yale University, likely majoring in Cognitive Science or Linguistics. I'm originally from Yarmouth, Maine. On campus, I'm also involved with Splash at Yale as a teacher and a member of the organizing team, and I'm a member of Pan Jam & Lime, a Caribbean steel drum band.",
-    "picture": "/images/team/ellis_burgoonmiskell.jpg"
-},
-{
-    "first_name": "Annie",
-    "last_name": "Chen",
-    "college": "ES",
-    "year": "19",
-  "blurb": "Annie is a sophomore studying Computer Science and Education. She spends a lot of time teaching CS through Code Haven and as a teaching assistant for CS50. Outside of that, she enjoys trying to improve her typing speed and taking pictures of other people's dogs.",
-    "picture": "/images/team/annie_chen.jpg"
-},
-{
-    "first_name": "Dennis",
-    "last_name": "Duan",
-    "college": "ES",
-    "year": "19",
-    "blurb": "Dennis is a sophomore in Ezra Stiles College majoring in Computer Science and Economics (hopefully). Aside from working with the community through Code Haven, he enjoys playing tennis, running, playing the saxophone, pretending to know how to beatbox, and trying to learn new things.",
-    "picture": "/images/team/dennis_duan.jpg"
-},
-{
-    "first_name": "Xiu",
-    "last_name": "Chen",
-    "college": "PC",
-    "year": "20",
-    "blurb": "Hello! My name is Xiu Chen. I am a freshman in Pierson College and I am planning to major in Computer Science. During my free time, I enjoy reading non-fiction books, listening to music, and taking naps.",
-    "picture": "/images/team/xiu_chen.jpg"
-},
-{
-    "first_name": "Jessica",
-    "last_name": "Ambrosio",
-    "college": "JE",
-    "year": "19",
-    "blurb": "Jessica loves eating, coding, sleeping, and being part of Code Haven!",
-    "picture": "/images/team/jessica_ambrosio.jpg"
-},
-{
     "first_name": "Will",
     "last_name": "Merrill",
     "college": "ES",
@@ -105,7 +65,6 @@
     "blurb": "Will is a sophomore in Ezra Stiles College studying computer science in linguistics. He has a passion for video games, Vikings, and ancient languages, and in his spare time enjoys beating random people at ping pong.",
     "picture": "https://urldefense.proofpoint.com/v2/url?u=https-3A__graph.facebook.com_100002264291889_picture-3Fwidth-3D400-26height-3D400&d=CwMFaQ&c=-dg2m7zWuuDZ0MUcV7Sdqw&r=kAb_l3F41chHoLBn-gMyH7ki-VxSLgBHvOGQ-HSA5dQ&m=razhtH1NIZIqb4Zymr2mMZGTlALIznvFQqGhWvNQXNc&s=r9slkfnDGMJPmLdgVIrYP4ON2_vjGbM0SNHOo46vaI4&e="
 },
-
 {
     "first_name": "Shannon",
     "last_name": "Yasuda",
@@ -113,20 +72,6 @@
     "year": "20",
     "blurb": "Shannon is a freshman from New York City currently interested in Cognitive Science and Computer Science. Outside of Code Haven, she is an active member of the Yale Precision Marching Band and the Yale Computer Society. Shannon firmly believes that anyone has the ability to learn computer science and that naked mole-rats are the coolest animals ever.",
     "picture": "/images/team/shannon_yasuda.jpg"
-},
-{
-    "first_name": "Zach",
-    "last_name": "Stanik",
-    "college": "MC",
-    "year": 21,
-    "picture": "/images/team/zachary_stanik.jpg"
-},
-{
-    "first_name": "Zhengdong",
-    "last_name": "Wang",
-    "college": "MC",
-    "year": 21,
-    "picture": "/images/team/zhengdong_wang.jpg"
 },
 {
     "first_name": "Sanelma",
@@ -143,27 +88,6 @@
     "picture": "/images/team/greg_naratil.jpg"
 },
 {
-    "first_name": "Jacob",
-    "last_name": "Hillman",
-    "college": "MC",
-    "year": 19,
-    "picture": "/images/team/jacob_hillman.jpg"
-},
-{
-    "first_name": "Chris",
-    "last_name": "Yao",
-    "college": "JE",
-    "year": 19,
-    "picture": "/images/team/chris_yao.JPG"
-},
-{
-    "first_name": "Annie",
-    "last_name": "Gao",
-    "college": "BR",
-    "year": 21,
-    "picture": "/images/team/annie_gao.JPG"
-},
-{
     "first_name": "Sara",
     "last_name": "Lewis",
     "college": "BF",
@@ -171,24 +95,60 @@
     "picture": "/images/team/sara_lewis.jpg"
 },
 {
-    "first_name": "William",
-    "last_name": "Hu",
-    "college": "PC",
-    "year": 21,
-    "picture": "/images/team/william_hu.png"
-},
-{
-    "first_name": "SK",
-    "last_name": "Bong",
-    "college": "GH",
-    "year": 21,
-    "picture": "/images/team/sk_bong.jpg"
-},
-{
     "first_name": "Jau Tung",
     "last_name": "Chan",
     "college": "GH",
     "year": 21,
     "picture": "images/team/jau_tung_chan.jpg"
-}
+},
+{
+    "first_name": "Ryan",
+    "last_name": "Sandler",
+    "college": "JE",
+    "year": 22,
+    "picture": "images/team/ryan_sandler.jpg"
+},
+{
+    "first_name": "Bernardo Eilert",
+    "last_name": "Trevisan",
+    "college": "TD",
+    "year": 22,
+    "picture": "images/team/bernardo_trevisan.jpg"
+},
+{
+    "first_name": "Alara",
+    "last_name": "Degirmenci",
+    "college": "BR",
+    "year": 22,
+    "picture": "images/team/alara_degirmenci.jpg"
+},
+{
+    "first_name": "Mary",
+    "last_name": "Callanan",
+    "college": "SY",
+    "year": 22,
+    "picture": "images/team/mary_callanan.jpg"
+},
+{
+    "first_name": "Gabriel",
+    "last_name": "Buchdahl",
+    "college": "JE",
+    "year": 22,
+    "picture": "images/team/gabriel_buchdahl.jpg"
+},
+{
+    "first_name": "Gabriel",
+    "last_name": "Buchdahl",
+    "college": "JE",
+    "year": 22,
+    "picture": "images/team/gabriel_buchdahl.jpg"
+},
+{
+    "first_name": "Gabriel",
+    "last_name": "Buchdahl",
+    "college": "JE",
+    "year": 22,
+    "picture": "images/team/gabriel_buchdahl.jpg"
+},
+
 ]
