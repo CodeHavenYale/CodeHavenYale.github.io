@@ -106,7 +106,7 @@
     "last_name": "Sandler",
     "college": "JE",
     "year": 22,
-    "picture": "images/team/ryan_sandler.jpg"
+    "picture": "images/team/ryan_sandler.jpeg"
 },
 {
     "first_name": "Bernardo Eilert",
@@ -128,20 +128,6 @@
     "college": "SY",
     "year": 22,
     "picture": "images/team/mary_callanan.jpg"
-},
-{
-    "first_name": "Gabriel",
-    "last_name": "Buchdahl",
-    "college": "JE",
-    "year": 22,
-    "picture": "images/team/gabriel_buchdahl.jpg"
-},
-{
-    "first_name": "Gabriel",
-    "last_name": "Buchdahl",
-    "college": "JE",
-    "year": 22,
-    "picture": "images/team/gabriel_buchdahl.jpg"
 },
 {
     "first_name": "Gabriel",
