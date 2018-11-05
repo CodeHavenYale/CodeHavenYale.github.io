@@ -3264,7 +3264,7 @@ h3.banner-text {
 
 a.banner-button {
     color: #eee;
-    padding: 0;
+    padding: 1;
     font-size: 1em;
     line-height: 150%;
 }
