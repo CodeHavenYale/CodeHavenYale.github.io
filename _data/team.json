@@ -1,5 +1,54 @@
 [
 {
+    "first_name": "Daniel",
+    "last_name": "Urke",
+    "college": "PC",
+    "year": 21,
+    "picture": "/images/team/daniel_urke.jpg"
+},
+{
+    "first_name": "Stephanie",
+    "last_name": "Bang",
+    "college": "BF",
+    "year": 21,
+    "picture": "/images/team/stephanie_bang.jpg"
+},
+{
+    "first_name": "Rachel",
+    "last_name": "Sterneck",
+    "college": "MY",
+    "year": 21,
+    "picture": "/images/team/rachel_sterneck.jpg"
+},
+{
+    "first_name": "Darwin",
+    "last_name": "Leuba",
+    "college": "JE",
+    "year": 21,
+    "picture": "/images/team/darwin_leuba.png"
+},
+{
+    "first_name": "Sara",
+    "last_name": "Lewis",
+    "college": "BF",
+    "year": 21,
+    "picture": "/images/team/sara_lewis.jpg"
+},
+{
+    "first_name": "Gabriel",
+    "last_name": "Buchdahl",
+    "college": "JE",
+    "year": 22,
+    "picture": "images/team/gabriel_buchdahl.jpg"
+},
+{
+    "first_name": "Bernardo Eilert",
+    "last_name": "Trevisan",
+    "college": "TD",
+    "year": 22,
+    "picture": "images/team/bernardo_trevisan.jpg"
+},
+{
     "first_name": "Sanya",
     "last_name": "Nijhawan",
     "college": "SY",
@@ -28,34 +77,6 @@
     "year": "20",
     "blurb": "Amanda is a freshman in Berkeley College currently interested in majoring in Economics and Computer Science. She enjoys eating ramen, ballroom dancing and petting cute dogs on campus. As an international student from the sunny country of Malaysia, Amanda is team metric system and also not ready for winter.",
     "picture": "/images/team/amanda_lee.jpg"
-},
-{
-    "first_name": "Darwin",
-    "last_name": "Leuba",
-    "college": "JE",
-    "year": 21,
-    "picture": "/images/team/darwin_leuba.png"
-},
-{
-    "first_name": "Daniel",
-    "last_name": "Urke",
-    "college": "PC",
-    "year": 21,
-    "picture": "/images/team/daniel_urke.jpg"
-},
-{
-    "first_name": "Stephanie",
-    "last_name": "Bang",
-    "college": "BF",
-    "year": 21,
-    "picture": "/images/team/stephanie_bang.jpg"
-},
-{
-    "first_name": "Rachel",
-    "last_name": "Sterneck",
-    "college": "MY",
-    "year": 21,
-    "picture": "/images/team/rachel_sterneck.jpg"
 },
 {
     "first_name": "Will",
@@ -88,13 +109,6 @@
     "picture": "/images/team/greg_naratil.jpg"
 },
 {
-    "first_name": "Sara",
-    "last_name": "Lewis",
-    "college": "BF",
-    "year": 21,
-    "picture": "/images/team/sara_lewis.jpg"
-},
-{
     "first_name": "Jau Tung",
     "last_name": "Chan",
     "college": "GH",
@@ -108,13 +122,7 @@
     "year": 21,
     "picture": "images/team/ryan_sandler.jpg"
 },
-{
-    "first_name": "Bernardo Eilert",
-    "last_name": "Trevisan",
-    "college": "TD",
-    "year": 22,
-    "picture": "images/team/bernardo_trevisan.jpg"
-},
+
 {
     "first_name": "Alara",
     "last_name": "Degirmenci",
@@ -129,12 +137,6 @@
     "year": 22,
     "picture": "images/team/mary_callanan.jpg"
 },
-{
-    "first_name": "Gabriel",
-    "last_name": "Buchdahl",
-    "college": "JE",
-    "year": 22,
-    "picture": "images/team/gabriel_buchdahl.jpg"
-},
+
 
 ]
