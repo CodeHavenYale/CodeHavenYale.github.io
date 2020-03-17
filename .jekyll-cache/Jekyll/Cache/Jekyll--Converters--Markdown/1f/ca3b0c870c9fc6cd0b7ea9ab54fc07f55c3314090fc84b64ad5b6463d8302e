@@ -1,0 +1,71 @@
+I"�<p>Topics Covered: Variables, conditionals</p>
+
+<!--more-->
+
+<h1 id="code-haven-week-3">Code Haven Week 3</h1>
+
+<h3 id="part-1-scratching-an-itch">Part 1: Scratching an Itch!</h3>
+
+<p>Let’s have the Scratch Cat keep track of how many times we hover over him!</p>
+
+<p><img src="/assets/images/week4/img1.png" alt="image #1" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- First, set up the program so that it starts when we click the flag and runs forever. We should also set the variable to 0 at first.
+
+- Next, create a conditional that runs if the pointer is touching Scratch.
+    
+- Finally, complete the conditional to make the variable increase, and then wait a second!
+</code></pre></div></div>
+
+<p>Here’s the Block Bank:</p>
+
+<p><img src="/assets/images/week4/bb1.png" alt="bb #1" /></p>
+
+<h3 id="part-2-count-scratchula">Part 2: Count Scratchula!</h3>
+
+<p>Scratch is already keeping track of how many times we touch him, but he should be able to tell us how many!</p>
+
+<p>When we press the spacebar, Scratch should say “You touched me ___ times!” and then reset his count.</p>
+
+<p><img src="/assets/images/week4/img2.png" alt="image #2" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Create a new conditional that runs if we press the spacebar!
+
+- When we do, Scratch should say how many times we touched him, and then reset the variable.
+</code></pre></div></div>
+
+<p>Here’s the Block Bank:</p>
+
+<p><img src="/assets/images/week4/bb2.png" alt="bb #2" /></p>
+
+<h3 id="part-3-a-visit-to-dr-scratch">Part 3: A Visit to Dr. Scratch!</h3>
+
+<p>The Scratch cat is hungry! Eating cake makes him more powerful, but running into a pufferfish hurts him.</p>
+
+<p>Let’s keep track of his health level!</p>
+
+<p><img src="/assets/images/week4/img3.png" alt="image #3" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- First, set up the program so that it starts when we click the flag and runs forever. We should also set Scratch’s health variable to 10, and make him draggable.
+</code></pre></div></div>
+
+<p><img src="/assets/images/week4/bb31.png" alt="bb #31" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Next, create two conditionals that run if Scratch runs into the cake or the pufferfish.
+- Finally, complete each conditional to make the variable increase or decrease.
+</code></pre></div></div>
+
+<p><img src="/assets/images/week4/bb3.png" alt="bb #32" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Add another conditional to have Scratch say “Power up!” if his health gets too low. He should then reset his health to 10.
+</code></pre></div></div>
+
+<p><img src="/assets/images/week4/bb3.png" alt="bb #33" /></p>
+
+<h3 id="challenges">Challenges:</h3>
+
+<p>Can you change your drawing so that it uses two loops?</p>
+
+<p>How else can we use randomness to make your drawing even more unique?</p>
+
+:ET

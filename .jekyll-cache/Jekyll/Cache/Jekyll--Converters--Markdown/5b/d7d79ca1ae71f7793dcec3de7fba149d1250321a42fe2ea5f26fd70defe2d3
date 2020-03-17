@@ -1,0 +1,70 @@
+I"�	<p>Covered concepts: Conditionals, character movement</p>
+
+<!--more-->
+
+<h1 id="code-haven-week-2">Code Haven Week 2</h1>
+
+<h3 id="part-1-cats-on-the-run">Part 1: Cats on the Run!</h3>
+
+<p>Let’s make the Scratch Cat run away from the mouse pointer!</p>
+
+<p><img src="/assets/images/week2/img1.png" alt="image #1" /></p>
+
+<ul>
+  <li>
+    <p>First, set up the program so that it starts when we click the flag and runs forever.</p>
+  </li>
+  <li>
+    <p>Then, create a conditional that runs if the pointer gets too close to Scratch.</p>
+  </li>
+  <li>
+    <p>Finally, complete the conditional to make Scratch run away from the pointer!</p>
+  </li>
+</ul>
+
+<p>Here’s a block bank to get you started!</p>
+
+<p><img src="/assets/images/week2/bb1.png" alt="block bank #1" /></p>
+
+<h3 id="part-2-a-wild-cat-chase">Part 2: A Wild Cat Chase!</h3>
+
+<p>Let’s make the Scratch Cat run towards the mouse whenever it’s held down! Whenever the user lets go of the mouse, Scratch should spin around!</p>
+
+<p><img src="/assets/images/week2/img2.png" alt="image #2" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Again, set up the program so that it starts when we click the flag and runs forever.
+
+- Next, create a conditional that runs if the mouse is held down.
+
+- Finally, complete the conditional to make Scratch run to the pointer or spin around!!
+</code></pre></div></div>
+
+<p>Here are the blocks you should use!</p>
+
+<p><img src="/assets/images/week2/bb2.png" alt="block bank #2" /></p>
+
+<h3 id="part-3-upside-downsizing">Part 3: Upside-Downsizing!</h3>
+
+<p>Let’s make Scratch grow or shrink when we press the arrow keys!</p>
+
+<p><img src="/assets/images/week2/img3.png" alt="image #3" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- One more time, set up the program so that it starts when we click the flag and runs forever.
+
+- Now, create two conditionals: one that runs if the up arrow, and one that runs if the down arrow is pressed.
+
+- Finally, complete the conditionals to make Scratch grow or shrink!
+</code></pre></div></div>
+
+<p>Here’s one more block bank, but beware! You might need to use some of these twice!</p>
+
+<p><img src="/assets/images/week2/bb3.png" alt="block bank #3" /></p>
+
+<h3 id="questions-to-discuss">Questions to Discuss</h3>
+
+<p>How do conditionals fit into our maze game?</p>
+
+<p>What else can you imagine doing in Scratch with conditionals?</p>
+
+<p>Where do you see conditionals in your daily life?</p>
+:ET

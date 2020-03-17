@@ -1,0 +1,65 @@
+I"�	<p>Topics Covered: Loops</p>
+
+<!--more-->
+
+<h1 id="code-haven-week-3">Code Haven Week 3</h1>
+
+<h3 id="part-1-painting-in-scratch">Part 1: Painting in Scratch!</h3>
+
+<p>Let’s make the Scratch Cat paint a line on the screen!</p>
+
+<p><img src="/assets/images/week3/img1.png" alt="image #1" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Click the + button in the bottom left corner and add the pen extension to your Scratch environment
+
+- First, make the cat put the pen down when the flag is clicked 
+
+- Then, make the cat take 20 steps forward and wait 1 second. This should repeat 10 times.
+</code></pre></div></div>
+
+<p>Here’s the Block Bank:</p>
+
+<p><img src="/assets/images/week3/bb1.png" alt="bb #1" /></p>
+
+<p>Question: What does your cat draw when you click the flag?</p>
+
+<h3 id="part-2-painting-with-many-colors">Part 2: Painting With Many Colors!</h3>
+
+<p>Let’s make the Scratch Cat draw a multicolored shape on the screen!</p>
+
+<p><img src="/assets/images/week2/img2.png" alt="image #2" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Again, make Scratch put the pen down when we press the flag.
+
+- Then, make the Scratch Cat move 50 steps, turn 45 degrees, and change pen colors - 8 times in a row.
+</code></pre></div></div>
+
+<p>Here’s the Block Bank:</p>
+
+<p><img src="/assets/images/week2/bb2.png" alt="bb #2" /></p>
+
+<p>Question: What’s the difference between what your cat draws in part 1 and part 2? What new blocks are used in part 2?</p>
+
+<h3 id="part-3-randomness">Part 3: Randomness!</h3>
+
+<p>Let’s make the Scratch Cat draw a picture that includes random elements!</p>
+
+<p><img src="/assets/images/week2/img3.png" alt="image #3" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Again, make Scratch put the pen down when we press the flag.
+- Now, create a loop that will repeat 100 times.
+- Inside the loop, move a random number of steps, turn a random number of degrees, and change pen color by a random number.
+- Finally, add a block to make sure that Scratch will bounce when he hits the edge of the screen!
+</code></pre></div></div>
+
+<p>Here are some blocks to get you started:</p>
+
+<p><img src="/assets/images/week2/bb3.png" alt="bb #3" /></p>
+
+<h3 id="challenges">Challenges:</h3>
+
+<p>Can you change your drawing so that it uses two loops?</p>
+
+<p>How else can we use randomness to make your drawing even more unique?</p>
+
+:ET
