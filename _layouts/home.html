@@ -3,23 +3,50 @@ layout: articles
 title: Code Haven Curriculum
 # show_title: true
 
-articles:
-  data_source: paginator.posts
-  article_type: brief
-  # <!-- show_cover: true -->
-  show_excerpt: true
-  # <!-- show_readmore: true -->
-  show_info: true
+# articles:
+# data_source: paginator.posts
+# article_type: brief
+# #
+<!-- show_cover: true -->
+# show_excerpt: true
+# #
+<!-- show_readmore: true -->
+# show_info: true
 ---
 
-<!-- FUCK -->
-
 <div class="layout--home">
-  {{ content }}
 
-  {%- include paginator.html -%}
+  <br>
+  <h1>An Open-Souce Curriculum</h1>
+  <br>
+  <p style="font-size:1.3em;">At Code Haven, we have spent years helping students in the New Haven area learn to code.
+    Through that process, we have developed a curriculum, and we'd like to share it with the world!
+  </p>
+  <div style='text-align: center;'>
+    <a class="homebutton" href="/lessons.html">Check it out!</a>
+  </div>
+  <br>
+  <!-- {{ content }} -->
+
+  <!-- {%- include paginator.html -%} -->
 </div>
 <script>
-  {%- include scripts/home.js -%}
+  // {%- include scripts/home.js -%}
 </script>
 
+<style>
+  .homebutton {
+    border-radius: 8px;
+    background-color: #ffa650;
+    border: none;
+    color: white;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+  }
+</style>
