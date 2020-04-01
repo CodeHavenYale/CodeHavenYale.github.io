@@ -63,7 +63,7 @@
           {%- if _show_date -%}
             <li>
               {%- include snippets/get-locale-string.html key='ARTICLE_DATE_FORMAT' -%}
-              <i class="far fa-calendar-alt"></i> <span>{{ include.article.date | date: __return }}</span>
+              <!--<i class="far fa-calendar-alt"></i> <span>{{ include.article.date | date: __return }}</span>-->
             </li>
           {%- endif -%}
 
@@ -87,7 +87,7 @@
     <meta itemprop="author" content="{{ _author.name }}"/>
   {%- endif -%}
   {%- if include.article.date -%}
-    <meta itemprop="datePublished" content="{{ include.article.date | date_to_xmlschema }}">
+    <!--<meta itemprop="datePublished" content="{{ include.article.date | date_to_xmlschema }}">-->
   {%- endif -%}
   {%- if include.article.tags[0] -%}
     {%- assign _keywords = include.article.tags | join: ',' %}

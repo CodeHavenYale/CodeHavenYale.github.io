@@ -11,6 +11,8 @@ header:
     url:        /archive.html
   - title:      About
     url:        /about.html
+  - title:      FAQ
+    url:        /faq.html
   - title:      GitHub
     url:        https://github.com/kitian616/jekyll-TeXt-theme
 

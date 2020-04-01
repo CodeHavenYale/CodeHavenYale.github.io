@@ -2,7 +2,7 @@
 layout: page
 titles:
   # @start locale config
-  en      : &EN       Lesson Plans
+  en      : &EN       Code Haven Lesson Plans
   en-GB   : *EN
   en-US   : *EN
   en-CA   : *EN
@@ -26,9 +26,9 @@ titles:
 ---
 
 <div class="layout--archive js-all">
-  {%- include tags.html -%}
+  <!--{%- include tags.html -%}-->
   <div class="js-result layout--archive__result d-none">
-    {%- include article-list.html articles=site.posts type='brief' show_info=true reverse=true group_by='year' -%}
+    {%- include article-list.html articles=site.posts type='brief' show_info=false reverse=false group_by='year' -%}
   </div>
 </div>
 
