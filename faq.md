@@ -23,21 +23,30 @@ titles:
   fr-FR   : *FR
   fr-LU   : *FR
   # @end locale config
-key: page-about
+key: page-faq
 ---
 
-## Who Are We?
-Code Haven was founded in 2016 with the mission of increasing access to Computer Science Education in the greater area. Since our founding, we've expanded from our beginnings in a single classroom to reaching more than 150 students across the Elm City. We've helped many years of middle school students learn about CS fundamentals, and go from knowing no code to creating their apps over the course of a year.
+## Who do you recommend this curriculum for?
 
-## Open Source Curriculum
+Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
 
-We've created this site in order to help further our mission of CS accessibility. We hope that having access to the curriculum we've developed over the past four years will serve as a useful resource in the mission of making CS education accessible. 
+## Do I need to have prior computer science knowledge to use this curriculum?
 
-However, we are not the only people with ideas, and we want to hear from everyone! If you have comments, advice, or changes, go ahead and click the edit button on any of our pages. We want to keep learning ourselves!
+Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
 
-## Disclaimer
+## How can I modify this curriculum to work in a classroom without several mentors?
 
-This curriculum works for us, in our context. We employ teams of college students to keep our student:teacher ratio quite low, and we give each student a lot of individual attention. What works for us may not work for everyone! Despite this, we wanted to share what we've created with the world. 
+Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+
+## How can I make changes to this curriculum or give you feedback?
+
+Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+
+## How has Code Haven used this curriculum in a classroom?
+
+Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+
+#### Still have questions? Send us an email at [codehavenyale@gmail.com](mailto:codehavenyale@gmail.com).
 
 <!-- 
 ![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)

@@ -27,17 +27,20 @@ key: page-about
 ---
 
 ## Who Are We?
-Code Haven was founded in 2016 with the mission of increasing access to Computer Science Education in the greater area. Since our founding, we've expanded from our beginnings in a single classroom to reaching more than 150 students across the Elm City. We've helped many years of middle school students learn about CS fundamentals, and go from knowing no code to creating their apps over the course of a year.
+
+Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+
+To learn more about Code Haven, visit our organization's website at [codehavenyale.com](http://codehavenyale.com/).
 
 ## Open Source Curriculum
 
-We've created this site in order to help further our mission of CS accessibility. We hope that having access to the curriculum we've developed over the past four years will serve as a useful resource in the mission of making CS education accessible. 
+We believe that sharing our curriculum with the world will help us pursue our mission of inclusively increasing access to computer science education. We hope that by providing these resources that we've developed over the past four years, we can reduce the barriers for teachers who share our missions and want to integrate computer science in their classrooms.
 
-However, we are not the only people with ideas, and we want to hear from everyone! If you have comments, advice, or changes, go ahead and click the edit button on any of our pages. We want to keep learning ourselves!
+Another key reason why we have created this website is to receive feedback from educators, other student groups, and anyone else using this curriculum to let us know how we can improve our lessons. We depend on feedback to improve our curriculum every year, and we hope that you will help us make changes! Visit our FAQ page to learn how to do this.
 
-## Disclaimer
+## A Note From Us
 
-This curriculum works for us, in our context. We employ teams of college students to keep our student:teacher ratio quite low, and we give each student a lot of individual attention. What works for us may not work for everyone! Despite this, we wanted to share what we've created with the world. 
+Code Haven is fortunate to have a team of over 50 mentors to help us keep our student-to-mentor ratio very low. As a result, many of our lesson plans and activities that we have published here incorporate small group discussions and are dependent on students receiving individual attention. We realize that this is often not possible in classroom settings, and we have offered some suggestions for how to modify our lessons on our FAQ page. Despite these challenges, we still wanted to make our curriculum available for anyone who wants to use it as a resource.
 
 <!-- 
 ![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)
