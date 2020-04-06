@@ -38,15 +38,21 @@ While any previous experience with computer science will be beneficial, it is de
 
 ### How can I modify this curriculum to work in a classroom without several mentors?
 
+Here are some ways to make the curriculum more usable for teachers who don't have mentors in their classroom:
+- Spend more time on the lecture and unplugged activities
+- Do more live coding examples, and consider working through parts of the worksheet as a whole class
+- Talk through the entire worksheet as a class and address potential challenges before allowing students to start coding on their own
+- Encourage students who reach checkpoints quickly to help other students get there
+- Consider the last parts of the worksheet to be challenges if there is not enough class time for everyone to complete them 
 
 ### How can I make changes to this curriculum or give you feedback?
 
-To edit one of the pages, click on the little edit button next to the title. That will bring you to a GitHub Markdown editor, where you can edit the page and submit your changes as a pull request. 
+To edit one of our lessons, click on the pencil edit button next to the title (ex: "Code Haven Week 1"). That will bring you to a GitHub Markdown editor, where you can edit the page and submit your changes as a pull request (see this [Github help article](https://help.github.com/en/github/managing-files-in-a-repository/editing-files-in-another-users-repository) to learn how to do this). 
 If that sounds like nonsense to you, but you still want to submit feedback, no problem! [Shoot us an email!](mailto:codehavenyale@gmail.com)
 
 ### How has Code Haven used this curriculum in a classroom?
 
-Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+In classrooms where Code Haven teaches, we typically divide students into groups of around 4 and assign a mentor to each group. All of our small group discussions take place in these groups with the mentor facilitating, and each mentor also helps the students in their group as they work individually on the worksheet. All of our lectures, live coding, and unplugged activities are led by the classroom lead and bring the entire class together.
 
 #### Still have questions? Send us an email at [codehavenyale@gmail.com](mailto:codehavenyale@gmail.com).
 
