@@ -28,15 +28,17 @@ key: page-faq
 
 ## Who do you recommend this curriculum for?
 
-Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+This curriculum was designed for students with no previous computer science experience. We believe that the pace of the curriculum is a good fit for students in the middle school age range, and older students may not find it as interesting. We still hope that teachers with younger or older students will find this resource useful and make the appropriate modifications for their students.
+
+We created this website with the intended audience of K-12 educators, students groups at other universities interested in using our curriculum to teach computer science, and individual students who want to learn CS on their own.
 
 ## Do I need to have prior computer science knowledge to use this curriculum?
 
-Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+While any previous experience with computer science will be beneficial, it is definitely possible to learn alongside the students and use our curriculum without it. We would encourage you to spend more time reading through our detailed lesson plans which provide explanations of how to teach the weekly concepts, and be sure to work through the worksheets ahead of time and review our solutions in Scratch.
 
 ## How can I modify this curriculum to work in a classroom without several mentors?
 
-Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
+
 
 ## How can I make changes to this curriculum or give you feedback?
 
