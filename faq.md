@@ -28,13 +28,13 @@ key: page-faq
 
 ### Who do you recommend this curriculum for?
 
-This curriculum was designed for students with no previous computer science experience. We believe that the pace of the curriculum is a good fit for students in the middle school age range, and older students may not find it as interesting. We still hope that teachers with younger or older students will find this resource useful and make the appropriate modifications for their students.
+This curriculum was designed for students with no previous computer science experience. We believe that the pace of the curriculum is a good fit for students in the middle school age range, and older students may need more of a challenge. We still hope that teachers with younger or older students will find this resource useful and make the appropriate modifications for their students.
 
 We created this website with the intended audience of K-12 educators, students groups at other universities interested in using our curriculum to teach computer science, and individual students who want to learn CS on their own.
 
 ### Do I need to have prior computer science knowledge to use this curriculum?
 
-While any previous experience with computer science will be beneficial, it is definitely possible to learn alongside the students and use our curriculum without it. We would encourage you to spend more time reading through our detailed lesson plans which provide explanations of how to teach the weekly concepts, and be sure to work through the worksheets ahead of time and review our solutions in Scratch.
+While any previous experience with computer science will be beneficial, it is definitely possible to learn alongside the students and use our curriculum without it. We would encourage you to spend more time reading through our detailed lesson plans which provide explanations of how to teach the weekly concepts, and be sure to work through the worksheets ahead of time and review our solutions in Scratch. We will also be coming out with tutorial videos soon!
 
 ### How can I modify this curriculum to work in a classroom without several mentors?
 
@@ -42,8 +42,7 @@ Here are some ways to make the curriculum more usable for teachers who don't hav
 - Spend more time on the lecture and unplugged activities
 - Do more live coding examples, and consider working through parts of the worksheet as a whole class
 - Talk through the entire worksheet as a class and address potential challenges before allowing students to start coding on their own
-- Encourage students who reach checkpoints quickly to help other students get there
-- Consider the last parts of the worksheet to be challenges if there is not enough class time for everyone to complete them 
+- Change the pacing of the curriculum and spend more than one hour per week on each lesson
 
 ### How can I make changes to this curriculum or give you feedback?
 
@@ -53,6 +52,12 @@ If that sounds like nonsense to you, but you still want to submit feedback, no p
 ### How has Code Haven used this curriculum in a classroom?
 
 In classrooms where Code Haven teaches, we typically divide students into groups of around 4 and assign a mentor to each group. All of our small group discussions take place in these groups with the mentor facilitating, and each mentor also helps the students in their group as they work individually on the worksheet. All of our lectures, live coding, and unplugged activities are led by the classroom lead and bring the entire class together.
+
+### What are unplugged activities and debugging activities?
+
+Unplugged activities are fun excercises that we do during our fall semester to teach students fundamental computer science concepts, without the use of a computer! We design these activities to relate each new concept with ideas that students already know from the real world. For example, we teach loops with a dance that repeats the same steps several times.
+
+We do debugging activities during the spring, when students start to work on their own projects. We believe that debugging is one of the most crucial skills that students can develop. We present the class with a version of an app that is clearly broken in some way, and encourage the students to think about where the code might be going worng. Then we fix the broken code and show the students the functional app. 
 
 #### Still have questions? Send us an email at [codehavenyale@gmail.com](mailto:codehavenyale@gmail.com).
 

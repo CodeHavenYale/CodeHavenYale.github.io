@@ -40,7 +40,7 @@ Another key reason why we have created this website is to receive feedback from 
 
 ## A Note From Us
 
-Code Haven is fortunate to have a team of over 50 mentors to help us keep our student-to-mentor ratio very low. As a result, many of our lesson plans and activities that we have published here incorporate small group discussions and are dependent on students receiving individual attention. We realize that this is often not possible in classroom settings, and we have offered some suggestions for how to modify our lessons on our FAQ page. Despite these challenges, we still wanted to make our curriculum available for anyone who wants to use it as a resource.
+Code Haven is fortunate to have a team of over 50 mentors to help us keep our student-to-mentor ratio very low. As a result, many of our lesson plans and activities that we have published here incorporate small group discussions and are dependent on students receiving individual attention. We realize that this is often not possible in classroom settings, and we have offered some suggestions for how to modify our lessons on our [FAQ page](/faq.html#how-can-i-modify-this-curriculum-to-work-in-a-classroom-without-several-mentors). Despite these challenges, we still wanted to make our curriculum available for anyone who wants to use it as a resource.
 
 <!-- 
 ![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)
