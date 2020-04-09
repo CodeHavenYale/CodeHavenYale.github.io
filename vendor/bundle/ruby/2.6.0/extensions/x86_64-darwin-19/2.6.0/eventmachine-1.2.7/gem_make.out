@@ -1,5 +1,5 @@
 current directory: /Users/gbuchdahl/code/CodeHavenYale.github.io/vendor/bundle/ruby/2.6.0/gems/eventmachine-1.2.7/ext/fastfilereader
-/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/2.6.5/lib/ruby/2.6.0 -r ./siteconf20200406-42685-1qyodry.rb extconf.rb
+/usr/local/opt/ruby/bin/ruby -I /usr/local/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200409-44409-eeasl8.rb extconf.rb
 creating Makefile
 
 current directory: /Users/gbuchdahl/code/CodeHavenYale.github.io/vendor/bundle/ruby/2.6.0/gems/eventmachine-1.2.7/ext/fastfilereader
@@ -13,4 +13,4 @@ linking shared-object fastfilereaderext.bundle
 
 current directory: /Users/gbuchdahl/code/CodeHavenYale.github.io/vendor/bundle/ruby/2.6.0/gems/eventmachine-1.2.7/ext/fastfilereader
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 fastfilereaderext.bundle ./.gem.20200406-42685-1hs2knp
+/usr/bin/install -c -m 0755 fastfilereaderext.bundle ./.gem.20200409-44409-6i078a

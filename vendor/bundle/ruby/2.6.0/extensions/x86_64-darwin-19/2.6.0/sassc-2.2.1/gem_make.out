@@ -1,5 +1,5 @@
 current directory: /Users/gbuchdahl/code/CodeHavenYale.github.io/vendor/bundle/ruby/2.6.0/gems/sassc-2.2.1/ext
-/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/2.6.5/lib/ruby/2.6.0 -r ./siteconf20200406-42685-1wrcap7.rb extconf.rb
+/usr/local/opt/ruby/bin/ruby -I /usr/local/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200409-44409-112kze7.rb extconf.rb
 creating Makefile
 
 current directory: /Users/gbuchdahl/code/CodeHavenYale.github.io/vendor/bundle/ruby/2.6.0/gems/sassc-2.2.1/ext
@@ -72,4 +72,4 @@ linking shared-object sassc/libsass.bundle
 
 current directory: /Users/gbuchdahl/code/CodeHavenYale.github.io/vendor/bundle/ruby/2.6.0/gems/sassc-2.2.1/ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20200406-42685-17koja8/sassc
+/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20200409-44409-1dufb5a/sassc
