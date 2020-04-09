@@ -1,0 +1,96 @@
+I"�<h6 id="topics-variables-conditionals">Topics: Variables, Conditionals</h6>
+<!--more-->
+
+<h2 id="week-4-overview">Week 4 Overview</h2>
+<h3 id="objectives">Objectives</h3>
+<ul>
+  <li>Introduce the concept of variables</li>
+  <li>Practice using variables in Scratch</li>
+  <li>Ensure that students know when to use variables in their coding</li>
+</ul>
+
+<h3 id="materials-and-resources">Materials and Resources</h3>
+<ul>
+  <li>Materials needed: Envelopes, slips of paper for each student</li>
+  <li>Week 4 <a href="https://drive.google.com/open?id=1VDl3XSgpBZOJAZXcgwAoc_yelKL7cXz6amnn_7xVawM">Lesson Plan</a></li>
+  <li>Week 4 <a href="https://drive.google.com/open?id=1NfGzW9qEZeMhcs9OTQdoFBD1gci_l3A6QMVIHIPtebE">Worksheet</a></li>
+  <li>Week 4 <a href="https://scratch.mit.edu/projects/379931714/">Worksheet Solution</a></li>
+  <li>Week 4 <a href="https://drive.google.com/open?id=1jMm6FrYxKxwvn_k9-erEohVc6wSnqp-hc0cDweeMi_M">Presentation</a></li>
+</ul>
+
+<h3 id="lesson-plan-overview">Lesson Plan Overview</h3>
+<p>View our detailed lesson plan <a href="https://drive.google.com/open?id=1VDl3XSgpBZOJAZXcgwAoc_yelKL7cXz6amnn_7xVawM">here</a>.</p>
+<ul>
+  <li><strong>Introduction</strong> (10 min): Review loops and conditionals</li>
+  <li><strong>Unplugged Activity</strong> (10 min): Mad Libs activity!</li>
+  <li><strong>[Optional] Live Coding</strong> (5 min): Demonstrate variables in Scratch, use “ask” and “join” blocks</li>
+  <li><strong>Worksheet</strong> (30 min): Log into Scratch accounts and work on the worksheet</li>
+  <li><strong>Wrap up</strong> (5 min): See how variables fit with the maze activity</li>
+</ul>
+
+<h2 id="worksheet">Worksheet</h2>
+<h3 id="part-1-scratching-an-itch">Part 1: Scratching an Itch!</h3>
+
+<p>Let’s have the Scratch Cat keep track of how many times we hover over him!</p>
+
+<p><img src="/assets/images/week4/img1.png" alt="image #1" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- First, set up the program so that it starts when we click the flag and runs forever. We should also set the variable to 0 at first.
+
+- Next, create a conditional that runs if the pointer is touching Scratch.
+    
+- Finally, complete the conditional to make the variable increase, and then wait a second!
+</code></pre></div></div>
+
+<p>Here’s the Block Bank:</p>
+
+<p><img src="/assets/images/week4/bb1.png" alt="bb #1" /></p>
+
+<h3 id="part-2-count-scratchula">Part 2: Count Scratchula!</h3>
+
+<p>Scratch is already keeping track of how many times we touch him, but he should be able to tell us how many!</p>
+
+<p>When we press the spacebar, Scratch should say “You touched me ___ times!” and then reset his count.</p>
+
+<p><img src="/assets/images/week4/img2.png" alt="image #2" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Create a new conditional that runs if we press the spacebar!
+
+- When we do, Scratch should say how many times we touched him, and then reset the variable.
+</code></pre></div></div>
+
+<p>Here’s the Block Bank:</p>
+
+<p><img src="/assets/images/week4/bb2.png" alt="bb #2" /></p>
+
+<h3 id="part-3-a-visit-to-dr-scratch">Part 3: A Visit to Dr. Scratch!</h3>
+
+<p>The Scratch cat is hungry! Eating cake makes him more powerful, but running into a pufferfish hurts him.</p>
+
+<p>Let’s keep track of his health level!</p>
+
+<p><img src="/assets/images/week4/img3.png" alt="image #3" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- First, set up the program so that it starts when we click the flag and runs forever. We should also set Scratch’s health variable to 10, and make him draggable.
+</code></pre></div></div>
+
+<p><img src="/assets/images/week4/bb31.png" alt="bb #31" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Next, create two conditionals that run if Scratch runs into the cake or the pufferfish.
+- Finally, complete each conditional to make the variable increase or decrease.
+</code></pre></div></div>
+
+<p><img src="/assets/images/week4/bb32.png" alt="bb #32" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Add another conditional to have Scratch say “Power up!” if his health gets too low. He should then reset his health to 10.
+</code></pre></div></div>
+
+<p><img src="/assets/images/week4/bb33.png" alt="bb #33" /></p>
+
+<h3 id="challenges">Challenges:</h3>
+
+<p>Can you change your drawing so that it uses two loops?</p>
+
+<p>How else can we use randomness to make your drawing even more unique?</p>
+
+:ET

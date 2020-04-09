@@ -1,0 +1,85 @@
+I"<h3 id="who-do-you-recommend-this-curriculum-for">Who do you recommend this curriculum for?</h3>
+
+<p>This curriculum was designed for students with no previous computer science experience. We believe that the pace of the curriculum is a good fit for students in the middle school age range, and older students may need more of a challenge. We still hope that teachers with younger or older students will find this resource useful and make the appropriate modifications for their students.</p>
+
+<p>We created this website with the intended audience of K-12 educators, students groups at other universities interested in using our curriculum to teach computer science, and individual students who want to learn CS on their own.</p>
+
+<h3 id="do-i-need-to-have-prior-computer-science-knowledge-to-use-this-curriculum">Do I need to have prior computer science knowledge to use this curriculum?</h3>
+
+<p>While any previous experience with computer science will be beneficial, it is definitely possible to learn alongside the students and use our curriculum without it. We would encourage you to spend more time reading through our detailed lesson plans which provide explanations of how to teach the weekly concepts, and be sure to work through the worksheets ahead of time and review our solutions in Scratch. We will also be coming out with tutorial videos soon!</p>
+
+<h3 id="how-can-i-modify-this-curriculum-to-work-in-a-classroom-without-several-mentors">How can I modify this curriculum to work in a classroom without several mentors?</h3>
+
+<p>Here are some ways to make the curriculum more usable for teachers who don’t have mentors in their classroom:</p>
+<ul>
+  <li>Spend more time on the lecture and unplugged activities</li>
+  <li>Do more live coding examples, and consider working through parts of the worksheet as a whole class</li>
+  <li>Talk through the entire worksheet as a class and address potential challenges before allowing students to start coding on their own</li>
+  <li>Change the pacing of the curriculum and spend more than one hour per week on each lesson</li>
+</ul>
+
+<h3 id="how-can-i-make-changes-to-this-curriculum-or-give-you-feedback">How can I make changes to this curriculum or give you feedback?</h3>
+
+<p>To edit one of our lessons, click on the pencil edit button next to the title (ex: “Code Haven Week 1”). That will bring you to a GitHub Markdown editor, where you can edit the page and submit your changes as a pull request (see this <a href="https://help.github.com/en/github/managing-files-in-a-repository/editing-files-in-another-users-repository">Github help article</a> to learn how to do this). 
+If that sounds like nonsense to you, but you still want to submit feedback, no problem! <a href="mailto:codehavenyale@gmail.com">Shoot us an email!</a></p>
+
+<h3 id="how-has-code-haven-used-this-curriculum-in-a-classroom">How has Code Haven used this curriculum in a classroom?</h3>
+
+<p>In classrooms where Code Haven teaches, we typically divide students into groups of around 4 and assign a mentor to each group. All of our small group discussions take place in these groups with the mentor facilitating, and each mentor also helps the students in their group as they work individually on the worksheet. All of our lectures, live coding, and unplugged activities are led by the classroom lead and bring the entire class together.</p>
+
+<h3 id="what-are-unplugged-activities-and-debugging-activities">What are unplugged activities and debugging activities?</h3>
+
+<p>Unplugged activities are fun excercises that we do during our fall semester to teach students fundamental computer science concepts, without the use of a computer! We design these activities to relate each new concept with ideas that students already know from the real world. For example, we teach loops with a dance that repeats the same steps several times.</p>
+
+<p>We do debugging activities during the spring, when students start to work on their own projects. We believe that debugging is one of the most crucial skills that students can develop. We present the class with a version of an app that is clearly broken in some way, and encourage the students to think about where the code might be going worng. Then we fix the broken code and show the students the functional app.</p>
+
+<h4 id="still-have-questions-send-us-an-email-at-codehavenyalegmailcom">Still have questions? Send us an email at <a href="mailto:codehavenyale@gmail.com">codehavenyale@gmail.com</a>.</h4>
+
+<!-- 
+![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)
+
+TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc. Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
+
+```javascript
+(() => console.log('Hello, World!'))();
+```
+
+## Features
+
+- Responsive
+- Semantic HTML
+- Skins
+- Highlight Theme
+- Internationalization
+- Search
+- Table of contents
+- Authors
+- Additional styles (alert, tag, image, icon, button, grid, etc)
+- Extensions (audios, videos, slides, demos)
+- Markdown enhancements ([MathJax](https://www.mathjax.org/), [mermaid](https://mermaidjs.github.io/), [chartjs](http://www.chartjs.org/))
+- Sharing ([AddToAny](https://www.addtoany.com/), [AddThis](https://www.addthis.com/))
+- Comments ([Disqus](https://disqus.com/), [Gitalk](https://gitalk.github.io/), [Valine](https://valine.js.org/en/))
+- Pageview ([LeanCloud](https://leancloud.cn/))
+- Analytics ([Google Analytics](https://analytics.google.com/analytics/web/))
+- RSS ([jekyll-feed](https://github.com/jekyll/jekyll-feed))
+
+## Skins
+
+TeXt has 6 built-in skins, you can also set up your own skin.
+
+| `default` | `dark` | `forest` |
+| --- |  --- | --- |
+| ![Default](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_default.jpg) | ![Dark](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_dark.jpg) | ![Forest](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_forest.jpg) |
+
+| `ocean` | `chocolate` | `orange` |
+| --- |  --- | --- |
+| ![Ocean](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_ocean.jpg) | ![Chocolate](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_chocolate.jpg) | ![Orange](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg) |
+
+### Highlight Theme
+
+TeXt use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
+
+| `tomorrow` | `tomorrow-night` | `tomorrow-night-eighties` | `tomorrow-night-blue` | `tomorrow-night-bright` |
+| --- |  --- | --- | --- |  --- |
+| ![Tomorrow](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow.png) | ![Tomorrow Night](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night.png) | ![Tomorrow Night Eighties](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-eighties.png) | ![Tomorrow Night Blue](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-blue.png) | ![Tomorrow Night Bright](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-bright.png) | -->
+:ET

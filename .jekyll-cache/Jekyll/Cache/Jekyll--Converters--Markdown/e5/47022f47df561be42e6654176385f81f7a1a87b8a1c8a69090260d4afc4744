@@ -1,0 +1,90 @@
+I"M<h6 id="topics-game-design">Topics: Game Design</h6>
+<!--more-->
+
+<h2 id="week-7-overview">Week 7 Overview</h2>
+<h3 id="objectives">Objectives</h3>
+<ul>
+  <li>Apply coordinates to the game design process!</li>
+</ul>
+
+<h3 id="materials-and-resources">Materials and Resources</h3>
+<ul>
+  <li>Materials needed: None</li>
+  <li>Week 7 <a href="https://drive.google.com/open?id=1vrBSSUcQEfKuMjCRLQkwNAxEJSgIA_dXHJ4hsK75lvs">Lesson Plan</a></li>
+  <li>Week 6 <a href="https://drive.google.com/open?id=11Th9ErVbP9gbHyC6OwwKvOUkQIhpCV53K1CBYJ8pono">Worksheet</a></li>
+  <li>Week 7 <a href="https://drive.google.com/open?id=1O6jnFuYKs2M4crQCivFpE4_rtN_PewQkXjsmrcdp3cY">Challenge Worksheet</a></li>
+  <li>Week 6/7 <a href="https://scratch.mit.edu/projects/379997943/">Completed Maze</a></li>
+</ul>
+
+<h3 id="lesson-plan-overview">Lesson Plan Overview</h3>
+<p>View our detailed lesson plan <a href="https://drive.google.com/open?id=1vrBSSUcQEfKuMjCRLQkwNAxEJSgIA_dXHJ4hsK75lvs">here</a>.</p>
+<ul>
+  <li><strong>Introduction</strong> (5 min): Explain what we’re doing this week: making our mazes even better!</li>
+  <li><strong>[Optional] Live Coding</strong> (5 min): If needed, clear up confusion from the previous week</li>
+  <li><strong>Worksheet</strong> (45 min): Finish last week’s worksheet and work on challenges</li>
+  <li><strong>Wrap up</strong> (5 min): Review worksheets and have students publish their projects</li>
+</ul>
+
+<h2 id="challenge-worksheet">Challenge Worksheet</h2>
+<h3 id="make-a-start-page">Make a start page!</h3>
+
+<p>We want to welcome people to our maze, so let’s make a start screen!</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- First, choose a new backdrop for your maze by pressing the button in the bottom right corner.
+
+- Then, play around with these blocks to make a start page!
+</code></pre></div></div>
+
+<p><img src="/assets/images/week7/bb1.png" alt="bb #1" /></p>
+
+<h3 id="make-a-you-win-page">Make a “you win” page!</h3>
+
+<p>Let’s reward our players for beating the maze with a “you win” screen. It’s very similar to making a start page, so use the blocks above!</p>
+
+<h3 id="add-a-points-system">Add a points system!</h3>
+
+<p>When players get to the end or touch an object, they should get a point!</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> - First, make your own variable by pressing the make a variable button under the variables tab.
+
+- Then, think about when you want your cat to earn points! For example, you could earn points when you win, when you touch a certain object, or when you press a certain keyboard key. 
+
+- Set up a conditional that will check if this has happened, and then increases the points variable!
+</code></pre></div></div>
+
+<p>Here are some blocks to start with:</p>
+
+<p><img src="/assets/images/week7/bb2.png" alt="bb #2" /></p>
+
+<h3 id="add-more-levels">Add more levels!</h3>
+
+<p>This is a tricky one! Here are some questions to think about:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- When should my cat play a new level? 
+- Should the rules be different in the new level? 
+- How is the code similar in the new level? 
+
+- Consider making a new background and using these blocks to get started: 
+</code></pre></div></div>
+
+<p><img src="/assets/images/week7/bb3.png" alt="bb #3" /></p>
+
+<h3 id="add-sounds">Add sounds!</h3>
+
+<p>Cats love to meow! Let’s make our Scratch cat speak out loud as he plays the game. Here are some blocks to start with:</p>
+
+<p><img src="/assets/images/week7/bb4.png" alt="bb #4" /></p>
+
+<h3 id="make-your-cat-teleport">Make your cat teleport!</h3>
+
+<p>Add some teleportation portals to your maze! When the cat reaches a teleportation portal, it should change locations.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- How should you change the maze background so that teleportation makes sense? 
+
+- Make sure you figure out the coordinates correctly!
+
+- Here are some blocks to get started with: 
+</code></pre></div></div>
+
+<p><img src="/assets/images/week7/bb5.png" alt="bb #5" /></p>
+:ET
