@@ -1,0 +1,15 @@
+---
+layout: page
+---
+<div class="classroom-page">
+  <p class="classroom-intro">Write Python, solve a puzzle, and watch your character follow your plan. <a href="{{ '/about.html#class-code' | relative_url }}">Need the class code?</a></p>
+  <p class="classroom-open"><a class="button button--primary button--rounded" href="{{ '/classroom/' | relative_url }}" target="_blank" rel="noopener">Open lessons in a full window</a></p>
+  <iframe class="classroom-frame" src="{{ '/classroom/' | relative_url }}" title="CodeHaven Python lessons" allow="fullscreen" loading="eager"></iframe>
+</div>
+<style>
+  .classroom-page { width: 100%; }
+  .classroom-intro { margin: 0 0 12px; }
+  .classroom-open { margin: 0 0 16px; }
+  .classroom-frame { display: block; width: 100%; height: 1140px; border: 1px solid #d4d4d4; border-radius: 8px; background: #f5f5f5; }
+  @media (max-width: 760px) { .classroom-frame { height: 1500px; } }
+</style>

@@ -31,8 +31,6 @@ key: page-about
 
 Code Haven is an undergraduate student organization at Yale University dedicated to introducing students to computer science starting at a young age. Every week, our mentors teach computing lessons at several middle schools in the New Haven area, engaging the students with online lessons, group activities, and class-wide demonstrations. The students we work with go from having no knowledge of CS to programming their own Android apps over the course of the year. Since we were founded in 2016, we have gone from teaching 18 students in a single classroom to working with over 180 students this year across 7 classrooms.
 
-To learn more about Code Haven, visit our organization's website at [codehavenyale.com](http://codehavenyale.com/).
-
 ## Open Source Curriculum
 
 We believe that sharing our curriculum with the world will help us pursue our mission of inclusively increasing access to computer science education. We hope that by providing these resources that we've developed over the past four years, we can reduce the barriers for teachers who share our missions and want to integrate computer science in their classrooms.
@@ -90,3 +88,14 @@ TeXt use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highl
 | `tomorrow` | `tomorrow-night` | `tomorrow-night-eighties` | `tomorrow-night-blue` | `tomorrow-night-bright` |
 | --- |  --- | --- | --- |  --- |
 | ![Tomorrow](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow.png) | ![Tomorrow Night](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night.png) | ![Tomorrow Night Eighties](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-eighties.png) | ![Tomorrow Night Blue](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-blue.png) | ![Tomorrow Night Bright](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-bright.png) | -->
+
+
+## Class code
+
+Everyone is welcome to try the lessons. Reveal the class code below, then use it to sign in on the [Lessons page](/lessons.html).
+
+<div class="class-code-box">
+  <button type="button" id="reveal-class-code" class="button button--primary button--rounded" aria-expanded="false" aria-controls="shared-class-code">Show class code</button>
+  <p id="shared-class-code" role="status" hidden></p>
+</div>
+<script src="{{ '/assets/js/class-code.js' | relative_url }}" defer></script>
