@@ -1,4 +1,4 @@
-const RUNTIME_REVISION = '20260927-appearance-4';
+const RUNTIME_REVISION = '20261006-remember-codes-4';
 let heroApi = null, stopRequested = false;
 let executionPromise = null, runTransition = false, lastRunSource = null;
 let pyodide = null, runtimeApi = null, runtimeReady = false, runtimeLoading = false, isRunning = false;

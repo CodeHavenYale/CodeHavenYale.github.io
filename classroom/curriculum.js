@@ -6,41 +6,36 @@ const WEEKS = [
   },
   {
     "number": 2,
-    "topic": "Variables",
-    "title": "Pack your bag"
+    "topic": "Variables & Numbers",
+    "title": "Make numbers do the work"
   },
   {
     "number": 3,
-    "topic": "Numbers",
-    "title": "Pick your strength"
-  },
-  {
-    "number": 4,
     "topic": "Conditionals",
     "title": "Check the path"
   },
   {
-    "number": 5,
+    "number": 4,
     "topic": "Loops",
     "title": "Save your typing"
   },
   {
-    "number": 6,
+    "number": 5,
     "topic": "Functions",
     "title": "Make your own move"
   },
   {
-    "number": 7,
+    "number": 6,
     "topic": "Lists",
     "title": "Plan a route"
   },
   {
-    "number": 8,
+    "number": 7,
     "topic": "Combine your skills",
     "title": "The old fort"
   },
   {
-    "number": 9,
+    "number": 8,
     "topic": "Final challenge",
     "title": "Bring it home"
   }
@@ -1348,19 +1343,19 @@ const LEVELS = [
     "revision": 2
   },
   {
-    "id": "2-1",
+    "id": "2-vars-1",
     "week": 2,
     "stage": 1,
-    "title": "Two store rooms",
-    "topic": "Variables",
-    "teach": "A variable gives a value a name. Save your directions as variables and reuse them. Pick up a key with hero.collect(). Stand next to its door and use hero.unlock(direction).",
-    "example": "east = \"right\"\nhero.move(east)\n# Next to a locked door:\nhero.unlock(\"down\")",
-    "objective": "Collect all 5 coins and reach the exit. Find the keys in the side rooms and open 1 locked door.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\neast = \"right\"\nwest = \"left\"\n# Give up and down names too. Then plan your route.\n",
+    "title": "Remember one code",
+    "topic": "Variables & Numbers",
+    "teach": "A variable remembers a value. Write code = hero.read() while on sign A. After walking away, code still holds that reading. Pass it to hero.enter_code to open door I. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
+    "example": "code = hero.read()\n# Walk beside the matching door.\nhero.enter_code(\"right\", code)",
+    "objective": "Remember the sign codes and open every door. I uses A.",
+    "hint": "Read A before continuing to the door. The variable keeps its number even after you leave the sign. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
-      "width": 10,
-      "height": 6,
+      "width": 11,
+      "height": 7,
       "path": [
         [
           1,
@@ -1384,59 +1379,51 @@ const LEVELS = [
         ],
         [
           5,
-          0
+          5
         ],
         [
           6,
           1
         ],
         [
+          6,
+          5
+        ],
+        [
           7,
           1
         ],
         [
+          7,
+          5
+        ],
+        [
           8,
           1
         ],
         [
           8,
+          5
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
           2
         ],
         [
-          8,
+          9,
           3
         ],
         [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          5,
+          9,
           4
         ],
         [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
+          9,
+          5
         ]
       ],
       "start": [
@@ -1444,62 +1431,66 @@ const LEVELS = [
         1
       ],
       "exit": [
-        1,
-        3
+        5,
+        5
       ],
       "coins": [
         [
-          5,
-          0
-        ],
-        [
-          5,
+          3,
           1
         ],
         [
-          8,
-          1
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          5,
-          3
+          9,
+          5
         ]
       ],
-      "keys": [
-        [
-          5,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          8,
-          2
-        ]
-      ],
+      "keys": [],
+      "doors": [],
       "potions": [],
-      "enemies": []
+      "enemies": [],
+      "number_clues": [
+        {
+          "x": 3,
+          "y": 1,
+          "label": "A"
+        }
+      ],
+      "code_doors": [
+        {
+          "x": 6,
+          "y": 1,
+          "label": "I",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        }
+      ]
     },
-    "mapNote": "10 \u00d7 6 map \u00b7 20 steps on the full supply route"
+    "mapNote": "Cyan letters are signs. Purple Roman numerals are doors. Door codes: I uses A.",
+    "goals": [
+      "Read every sign and save its code.",
+      "Open all code doors: I uses A.",
+      "Collect all 2 coins and reach E."
+    ]
   },
   {
-    "id": "2-2",
+    "id": "2-vars-2",
     "week": 2,
     "stage": 2,
-    "title": "Find the brass key",
-    "topic": "Variables",
-    "teach": "A variable gives a value a name. Save your directions as variables and reuse them. Pick up a key with hero.collect(). Stand next to its door and use hero.unlock(direction).",
-    "example": "east = \"right\"\nhero.move(east)\n# Next to a locked door:\nhero.unlock(\"down\")",
-    "objective": "Collect all 5 coins and reach the exit. Find the keys in the side rooms and open 1 locked door.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\neast = \"right\"\nwest = \"left\"\n# Give up and down names too. Then plan your route.\n",
+    "title": "Use the same code again",
+    "topic": "Variables & Numbers",
+    "teach": "Reading a sign once is enough. Save A in one variable, then use that same variable for two doors. Opening a door does not use up or change the variable. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
+    "example": "code = hero.read()\n# Walk beside the matching door.\nhero.enter_code(\"right\", code)",
+    "objective": "Remember the sign codes and open every door. I uses A; II uses A.",
+    "hint": "Keep A after opening I: you will need it again at II. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 11,
-      "height": 6,
+      "height": 7,
       "path": [
         [
           1,
@@ -1523,19 +1514,31 @@ const LEVELS = [
         ],
         [
           5,
-          0
+          5
         ],
         [
           6,
           1
         ],
         [
+          6,
+          5
+        ],
+        [
           7,
           1
         ],
         [
+          7,
+          5
+        ],
+        [
           8,
           1
+        ],
+        [
+          8,
+          5
         ],
         [
           9,
@@ -1550,40 +1553,12 @@ const LEVELS = [
           3
         ],
         [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          4,
+          9,
           4
         ],
         [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
+          9,
+          5
         ]
       ],
       "start": [
@@ -1591,62 +1566,78 @@ const LEVELS = [
         1
       ],
       "exit": [
-        1,
-        3
+        5,
+        5
       ],
       "coins": [
         [
-          5,
-          0
-        ],
-        [
-          5,
+          3,
           1
         ],
         [
           9,
-          1
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          4,
-          3
+          5
         ]
       ],
-      "keys": [
-        [
-          5,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          9,
-          2
-        ]
-      ],
+      "keys": [],
+      "doors": [],
       "potions": [],
-      "enemies": []
+      "enemies": [],
+      "number_clues": [
+        {
+          "x": 3,
+          "y": 1,
+          "label": "A"
+        }
+      ],
+      "code_doors": [
+        {
+          "x": 6,
+          "y": 1,
+          "label": "I",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 9,
+          "y": 3,
+          "label": "II",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        }
+      ]
     },
-    "mapNote": "11 \u00d7 6 map \u00b7 22 steps on the full supply route"
+    "mapNote": "Cyan letters are signs. Purple Roman numerals are doors. Door codes: I uses A; II uses A.",
+    "goals": [
+      "Read every sign and save its code.",
+      "Open all code doors: I uses A; II uses A.",
+      "Collect all 2 coins and reach E."
+    ]
   },
   {
-    "id": "2-3",
+    "id": "2-vars-3",
     "week": 2,
     "stage": 3,
-    "title": "The locked courtyard",
-    "topic": "Variables",
-    "teach": "A variable gives a value a name. Save your directions as variables and reuse them. Pick up a key with hero.collect(). Stand next to its door and use hero.unlock(direction).",
-    "example": "east = \"right\"\nhero.move(east)\n# Next to a locked door:\nhero.unlock(\"down\")",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 1 locked door.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\neast = \"right\"\nwest = \"left\"\n# Give up and down names too. Then plan your route.\n",
+    "title": "Keep two codes",
+    "topic": "Variables & Numbers",
+    "teach": "Different variables can remember different values at the same time. Save sign A as a and sign B as b. Reading B into b leaves a unchanged. The first door wants B; the next wants A. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
+    "example": "a = hero.read()\n# At a different sign:\nb = hero.read()\n# Keep both a and b for their matching doors.",
+    "objective": "Remember the sign codes and open every door. I uses B; II uses A.",
+    "hint": "Use two different names. If you put both readings into code, the second assignment replaces the first. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
-      "width": 12,
-      "height": 8,
+      "width": 11,
+      "height": 7,
       "path": [
         [
           1,
@@ -1669,119 +1660,51 @@ const LEVELS = [
           1
         ],
         [
+          5,
+          5
+        ],
+        [
           6,
           1
         ],
         [
           6,
-          0
+          5
         ],
         [
           7,
           1
         ],
         [
+          7,
+          5
+        ],
+        [
           8,
           1
+        ],
+        [
+          8,
+          5
         ],
         [
           9,
           1
         ],
         [
-          10,
-          1
-        ],
-        [
-          10,
+          9,
           2
         ],
         [
-          10,
-          3
-        ],
-        [
           9,
           3
         ],
         [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
+          9,
           4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          8,
-          5
         ],
         [
           9,
-          5
-        ],
-        [
-          10,
           5
         ]
       ],
@@ -1790,101 +1713,90 @@ const LEVELS = [
         1
       ],
       "exit": [
-        10,
+        5,
         5
       ],
       "coins": [
         [
-          6,
-          0
-        ],
-        [
-          6,
+          3,
           1
         ],
         [
-          10,
+          5,
           1
         ],
         [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          6,
+          9,
           5
         ]
       ],
-      "keys": [
-        [
-          6,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          10,
-          2
-        ]
-      ],
+      "keys": [],
+      "doors": [],
       "potions": [],
-      "enemies": []
+      "enemies": [],
+      "number_clues": [
+        {
+          "x": 3,
+          "y": 1,
+          "label": "A"
+        },
+        {
+          "x": 5,
+          "y": 1,
+          "label": "B"
+        }
+      ],
+      "code_doors": [
+        {
+          "x": 7,
+          "y": 1,
+          "label": "I",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 9,
+          "y": 3,
+          "label": "II",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        }
+      ]
     },
-    "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
+    "mapNote": "Cyan letters are signs. Purple Roman numerals are doors. Door codes: I uses B; II uses A.",
+    "goals": [
+      "Read every sign and save its code.",
+      "Open all code doors: I uses B; II uses A.",
+      "Collect all 3 coins and reach E."
+    ]
   },
   {
-    "id": "2-4",
+    "id": "2-vars-4",
     "week": 2,
     "stage": 4,
-    "title": "The west wing",
-    "topic": "Variables",
-    "teach": "A variable gives a value a name. Save your directions as variables and reuse them. Pick up a key with hero.collect(). Stand next to its door and use hero.unlock(direction).",
-    "example": "east = \"right\"\nhero.move(east)\n# Next to a locked door:\nhero.unlock(\"down\")",
-    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 1 locked door.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\neast = \"right\"\nwest = \"left\"\n# Give up and down names too. Then plan your route.\n",
+    "title": "Bring both codes back",
+    "topic": "Variables & Numbers",
+    "teach": "The signs are in side rooms. Bring both readings back to the main corridor in separate variables. Door I wants A, II wants B, and III wants A again. A variable is useful because you can carry information far from where you found it. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
+    "example": "a = hero.read()\n# At sign B:\nb = hero.read()\n# At a door that wants A:\nhero.enter_code(\"left\", a)",
+    "objective": "Remember the sign codes and open every door. I uses A; II uses B; III uses A.",
+    "hint": "Visit both side rooms before leaving the top corridor. Do not overwrite a after opening the first door. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
-      "width": 11,
-      "height": 8,
+      "width": 13,
+      "height": 7,
       "path": [
         [
-          9,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          5,
-          0
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          3,
+          1,
           1
         ],
         [
@@ -1892,1754 +1804,521 @@ const LEVELS = [
           1
         ],
         [
-          1,
+          3,
           1
         ],
         [
-          1,
+          3,
           2
         ],
         [
-          1,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
           3,
           3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          5
         ],
         [
           3,
           5
         ],
         [
-          2,
+          4,
+          1
+        ],
+        [
+          4,
           5
         ],
         [
-          1,
+          5,
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          11,
           5
         ]
       ],
       "start": [
-        9,
+        1,
         1
       ],
       "exit": [
-        1,
+        3,
         5
       ],
       "coins": [
         [
-          5,
-          0
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
+          3,
           3
         ],
         [
-          9,
+          7,
           3
         ],
         [
-          5,
-          4
-        ],
-        [
-          5,
+          11,
           5
         ]
       ],
-      "keys": [
-        [
-          5,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          1,
-          2
-        ]
-      ],
+      "keys": [],
+      "doors": [],
       "potions": [],
-      "enemies": []
-    },
-    "mapNote": "11 \u00d7 8 map \u00b7 34 steps on the full supply route"
-  },
-  {
-    "id": "2-5",
-    "week": 2,
-    "stage": 5,
-    "title": "The return route",
-    "topic": "Variables",
-    "teach": "A variable gives a value a name. Save your directions as variables and reuse them. Pick up a key with hero.collect(). Stand next to its door and use hero.unlock(direction).",
-    "example": "east = \"right\"\nhero.move(east)\n# Next to a locked door:\nhero.unlock(\"down\")",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 1 locked door.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\neast = \"right\"\nwest = \"left\"\n# Give up and down names too. Then plan your route.\n",
-    "world": {
-      "width": 12,
-      "height": 8,
-      "path": [
-        [
-          1,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          10,
-          2
-        ]
+      "enemies": [],
+      "number_clues": [
+        {
+          "x": 3,
+          "y": 3,
+          "label": "A"
+        },
+        {
+          "x": 7,
+          "y": 3,
+          "label": "B"
+        }
       ],
-      "start": [
-        1,
-        6
-      ],
-      "exit": [
-        10,
-        2
-      ],
-      "coins": [
-        [
-          6,
-          7
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          6,
-          2
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          7
-        ]
-      ],
-      "doors": [
-        [
-          10,
-          5
-        ]
-      ],
-      "potions": [],
-      "enemies": []
-    },
-    "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
-  },
-  {
-    "id": "2-6",
-    "week": 2,
-    "stage": 6,
-    "title": "Put it to the test",
-    "topic": "Variables",
-    "teach": "A variable gives a value a name. Save your directions as variables and reuse them. Pick up a key with hero.collect(). Stand next to its door and use hero.unlock(direction).",
-    "example": "east = \"right\"\nhero.move(east)\n# Next to a locked door:\nhero.unlock(\"down\")",
-    "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 1 locked door.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\neast = \"right\"\nwest = \"left\"\n# Give up and down names too. Then plan your route.\n",
-    "world": {
-      "width": 13,
-      "height": 10,
-      "path": [
-        [
-          11,
-          8
-        ],
-        [
-          10,
-          8
-        ],
-        [
-          9,
-          8
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          6,
-          9
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          4,
-          8
-        ],
-        [
-          3,
-          8
-        ],
-        [
-          2,
-          8
-        ],
-        [
-          1,
-          8
-        ],
-        [
-          1,
-          7
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          11,
-          2
-        ]
-      ],
-      "start": [
-        11,
-        8
-      ],
-      "exit": [
-        11,
-        2
-      ],
-      "coins": [
-        [
-          6,
-          9
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          1,
-          8
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          2
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          9
-        ]
-      ],
-      "doors": [
-        [
-          1,
-          7
-        ]
-      ],
-      "potions": [],
-      "enemies": []
-    },
-    "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
-  },
-  {
-    "id": "3-1",
-    "week": 3,
-    "stage": 1,
-    "title": "Three guards",
-    "topic": "Numbers",
-    "teach": "Work out your attack strength with numbers. Each hit can do 1, 2, or 3 damage. A guard that survives a hit takes 1 health from you. Pick enough strong hits to finish the fight.",
-    "example": "strength = 1 + 2\nhero.attack(\"right\", strength)",
-    "objective": "Collect all 5 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 2 guards. Keep an eye on your health.",
-    "hint": "Read the number below each guard. A guard with 6 health needs two hits at strength 3. Get the key before going through the door.",
-    "starter": "from hero_game import hero\n\nbase = 2\nbonus = 1\nstrength = base + bonus\n# Use strength when you reach a guard.\n",
-    "world": {
-      "width": 11,
-      "height": 6,
-      "path": [
-        [
-          1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        1,
-        3
-      ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          5,
-          3
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          9,
-          2
-        ]
-      ],
-      "potions": [],
-      "enemies": [
+      "code_doors": [
+        {
+          "x": 9,
+          "y": 1,
+          "label": "I",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 11,
+          "y": 3,
+          "label": "II",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B",
+              "multiplier": 1
+            }
+          ]
+        },
         {
           "x": 8,
-          "y": 1,
-          "health": 3
-        },
-        {
-          "x": 2,
-          "y": 3,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "11 \u00d7 6 map \u00b7 22 steps on the full supply route"
-  },
-  {
-    "id": "3-2",
-    "week": 3,
-    "stage": 2,
-    "title": "Choose your hits",
-    "topic": "Numbers",
-    "teach": "Work out your attack strength with numbers. Each hit can do 1, 2, or 3 damage. A guard that survives a hit takes 1 health from you. Pick enough strong hits to finish the fight.",
-    "example": "strength = 1 + 2\nhero.attack(\"right\", strength)",
-    "objective": "Collect all 5 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 2 guards. Keep an eye on your health.",
-    "hint": "Read the number below each guard. A guard with 6 health needs two hits at strength 3. Get the key before going through the door.",
-    "starter": "from hero_game import hero\n\nbase = 2\nbonus = 1\nstrength = base + bonus\n# Use strength when you reach a guard.\n",
-    "world": {
-      "width": 12,
-      "height": 6,
-      "path": [
-        [
-          1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          5,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        1,
-        3
-      ],
-      "coins": [
-        [
-          5,
-          0
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          5,
-          3
-        ]
-      ],
-      "keys": [
-        [
-          5,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          10,
-          2
-        ]
-      ],
-      "potions": [],
-      "enemies": [
-        {
-          "x": 9,
-          "y": 1,
-          "health": 3
-        },
-        {
-          "x": 2,
-          "y": 3,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "12 \u00d7 6 map \u00b7 24 steps on the full supply route"
-  },
-  {
-    "id": "3-3",
-    "week": 3,
-    "stage": 3,
-    "title": "Guard the bridge",
-    "topic": "Numbers",
-    "teach": "Work out your attack strength with numbers. Each hit can do 1, 2, or 3 damage. A guard that survives a hit takes 1 health from you. Pick enough strong hits to finish the fight.",
-    "example": "strength = 1 + 2\nhero.attack(\"right\", strength)",
-    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Read the number below each guard. A guard with 6 health needs two hits at strength 3. Get the key before going through the door.",
-    "starter": "from hero_game import hero\n\nbase = 2\nbonus = 1\nstrength = base + bonus\n# Use strength when you reach a guard.\n",
-    "world": {
-      "width": 13,
-      "height": 8,
-      "path": [
-        [
-          1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          0
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          11,
-          5
-        ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        11,
-        5
-      ],
-      "coins": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          5
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          11,
-          2
-        ]
-      ],
-      "potions": [],
-      "enemies": [
-        {
-          "x": 10,
-          "y": 1,
-          "health": 3
-        },
-        {
-          "x": 2,
-          "y": 3,
-          "health": 6
-        },
-        {
-          "x": 10,
           "y": 5,
-          "health": 6
+          "label": "III",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
         }
       ]
     },
-    "mapNote": "13 \u00d7 8 map \u00b7 40 steps on the full supply route"
+    "mapNote": "Cyan letters are signs. Purple Roman numerals are doors. Door codes: I uses A; II uses B; III uses A.",
+    "goals": [
+      "Read every sign and save its code.",
+      "Open all code doors: I uses A; II uses B; III uses A.",
+      "Collect all 3 coins and reach E."
+    ]
   },
   {
-    "id": "3-4",
-    "week": 3,
-    "stage": 4,
-    "title": "The west wing",
-    "topic": "Numbers",
-    "teach": "Work out your attack strength with numbers. Each hit can do 1, 2, or 3 damage. A guard that survives a hit takes 1 health from you. Pick enough strong hits to finish the fight.",
-    "example": "strength = 1 + 2\nhero.attack(\"right\", strength)",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Read the number below each guard. A guard with 6 health needs two hits at strength 3. Get the key before going through the door.",
-    "starter": "from hero_game import hero\n\nbase = 2\nbonus = 1\nstrength = base + bonus\n# Use strength when you reach a guard.\n",
-    "world": {
-      "width": 12,
-      "height": 8,
-      "path": [
-        [
-          10,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          1,
-          5
-        ]
-      ],
-      "start": [
-        10,
-        1
-      ],
-      "exit": [
-        1,
-        5
-      ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          6,
-          5
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          1,
-          2
-        ]
-      ],
-      "potions": [],
-      "enemies": [
-        {
-          "x": 2,
-          "y": 1,
-          "health": 3
-        },
-        {
-          "x": 9,
-          "y": 3,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 5,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
-  },
-  {
-    "id": "3-5",
-    "week": 3,
+    "id": "2-vars-5",
+    "week": 2,
     "stage": 5,
-    "title": "The return route",
-    "topic": "Numbers",
-    "teach": "Work out your attack strength with numbers. Each hit can do 1, 2, or 3 damage. A guard that survives a hit takes 1 health from you. Pick enough strong hits to finish the fight.",
-    "example": "strength = 1 + 2\nhero.attack(\"right\", strength)",
-    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Read the number below each guard. A guard with 6 health needs two hits at strength 3. Get the key before going through the door.",
-    "starter": "from hero_game import hero\n\nbase = 2\nbonus = 1\nstrength = base + bonus\n# Use strength when you reach a guard.\n",
+    "title": "Three codes, four doors",
+    "topic": "Variables & Numbers",
+    "teach": "Keep three readings at once using a, b, and c. Doors do not have to use codes in the order you read them. Plan which variable each door needs, and keep all three until you reach the exit. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
+    "example": "c = hero.read()\n# a and b still hold the earlier readings.\nhero.enter_code(\"down\", c)",
+    "objective": "Remember the sign codes and open every door. I uses C; II uses A; III uses B; IV uses C.",
+    "hint": "Read A, B, and C in their side rooms first. The doors ask for C, A, B, then C again. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
-      "width": 13,
-      "height": 8,
+      "width": 15,
+      "height": 11,
       "path": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
         [
           1,
           6
         ],
         [
-          2,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          7,
+          1,
           7
         ],
         [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          9
+        ],
+        [
           8,
-          6
+          1
+        ],
+        [
+          8,
+          5
         ],
         [
           9,
-          6
+          1
+        ],
+        [
+          9,
+          5
         ],
         [
           10,
-          6
+          1
+        ],
+        [
+          10,
+          5
         ],
         [
           11,
-          6
+          1
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          11,
+          3
         ],
         [
           11,
           5
         ],
         [
-          11,
-          4
+          12,
+          1
         ],
         [
-          10,
-          4
+          12,
+          5
         ],
         [
-          9,
-          4
+          13,
+          1
         ],
         [
-          8,
-          4
+          13,
+          2
         ],
         [
-          7,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
+          13,
           3
         ],
         [
-          5,
+          13,
           4
         ],
         [
-          4,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          11,
-          2
+          13,
+          5
         ]
       ],
       "start": [
         1,
-        6
+        1
       ],
       "exit": [
-        11,
-        2
+        7,
+        9
       ],
       "coins": [
         [
-          7,
-          7
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          6,
+          3,
           3
         ],
         [
-          6,
-          4
+          7,
+          3
+        ],
+        [
+          11,
+          3
         ],
         [
           1,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          2
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          7
-        ]
-      ],
-      "doors": [
-        [
-          11,
           5
-        ]
-      ],
-      "potions": [],
-      "enemies": [
-        {
-          "x": 10,
-          "y": 6,
-          "health": 3
-        },
-        {
-          "x": 2,
-          "y": 4,
-          "health": 6
-        },
-        {
-          "x": 10,
-          "y": 2,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "13 \u00d7 8 map \u00b7 40 steps on the full supply route"
-  },
-  {
-    "id": "3-6",
-    "week": 3,
-    "stage": 6,
-    "title": "Put it to the test",
-    "topic": "Numbers",
-    "teach": "Work out your attack strength with numbers. Each hit can do 1, 2, or 3 damage. A guard that survives a hit takes 1 health from you. Pick enough strong hits to finish the fight.",
-    "example": "strength = 1 + 2\nhero.attack(\"right\", strength)",
-    "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Read the number below each guard. A guard with 6 health needs two hits at strength 3. Get the key before going through the door.",
-    "starter": "from hero_game import hero\n\nbase = 2\nbonus = 1\nstrength = base + bonus\n# Use strength when you reach a guard.\n",
-    "world": {
-      "width": 14,
-      "height": 10,
-      "path": [
-        [
-          12,
-          8
-        ],
-        [
-          11,
-          8
-        ],
-        [
-          10,
-          8
-        ],
-        [
-          9,
-          8
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          7,
-          8
         ],
         [
           7,
           9
-        ],
+        ]
+      ],
+      "keys": [],
+      "doors": [],
+      "potions": [],
+      "enemies": [],
+      "number_clues": [
+        {
+          "x": 3,
+          "y": 3,
+          "label": "A"
+        },
+        {
+          "x": 7,
+          "y": 3,
+          "label": "B"
+        },
+        {
+          "x": 11,
+          "y": 3,
+          "label": "C"
+        }
+      ],
+      "code_doors": [
+        {
+          "x": 13,
+          "y": 3,
+          "label": "I",
+          "formula": "C",
+          "terms": [
+            {
+              "clue": "C",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 10,
+          "y": 5,
+          "label": "II",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "label": "III",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 3,
+          "y": 9,
+          "label": "IV",
+          "formula": "C",
+          "terms": [
+            {
+              "clue": "C",
+              "multiplier": 1
+            }
+          ]
+        }
+      ]
+    },
+    "mapNote": "Cyan letters are signs. Purple Roman numerals are doors. Door codes: I uses C; II uses A; III uses B; IV uses C.",
+    "goals": [
+      "Read every sign and save its code.",
+      "Open all code doors: I uses C; II uses A; III uses B; IV uses C.",
+      "Collect all 5 coins and reach E."
+    ]
+  },
+  {
+    "id": "2-vars-6",
+    "week": 2,
+    "stage": 6,
+    "title": "Five doors to remember",
+    "topic": "Variables & Numbers",
+    "teach": "Use three stored readings to open five doors. Some codes are reused after several other doors. Keep the original variables instead of replacing a with b or c. Saving a value once lets you use it whenever the route needs it. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
+    "example": "hero.enter_code(\"left\", a)\n# Much later, a can open another matching door.\nhero.enter_code(\"down\", a)",
+    "objective": "Remember the sign codes and open every door. I uses C; II uses A; III uses B; IV uses A; V uses C.",
+    "hint": "Keep all three original readings. Follow the door mapping: C, A, B, A, C. Opening a door leaves its variable available. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
+    "world": {
+      "width": 15,
+      "height": 11,
+      "path": [
         [
-          6,
-          8
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          4,
-          8
-        ],
-        [
-          3,
-          8
-        ],
-        [
-          2,
-          8
+          1,
+          1
         ],
         [
           1,
-          8
+          5
+        ],
+        [
+          1,
+          6
         ],
         [
           1,
@@ -3647,185 +2326,424 @@ const LEVELS = [
         ],
         [
           1,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          12,
-          6
-        ],
-        [
-          12,
-          5
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          2,
-          4
+          8
         ],
         [
           1,
-          4
+          9
         ],
         [
-          1,
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
           3
         ],
         [
-          1,
-          2
-        ],
-        [
-          2,
-          2
+          3,
+          5
         ],
         [
           3,
-          2
+          9
         ],
         [
           4,
-          2
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          9
         ],
         [
           5,
-          2
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          9
         ],
         [
           6,
-          2
+          1
         ],
         [
-          7,
-          2
+          6,
+          5
+        ],
+        [
+          6,
+          9
         ],
         [
           7,
           1
         ],
         [
-          8,
+          7,
           2
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          5
         ],
         [
           9,
-          2
+          1
+        ],
+        [
+          9,
+          5
         ],
         [
           10,
-          2
+          1
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          11,
+          1
         ],
         [
           11,
           2
         ],
         [
+          11,
+          3
+        ],
+        [
+          11,
+          5
+        ],
+        [
           12,
+          1
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          13,
           2
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          13,
+          4
+        ],
+        [
+          13,
+          5
         ]
       ],
       "start": [
-        12,
-        8
+        1,
+        1
       ],
       "exit": [
-        12,
-        2
+        7,
+        9
       ],
       "coins": [
         [
-          7,
-          9
+          3,
+          3
         ],
         [
           7,
-          8
+          3
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "keys": [],
+      "doors": [],
+      "potions": [],
+      "enemies": [],
+      "number_clues": [
+        {
+          "x": 3,
+          "y": 3,
+          "label": "A"
+        },
+        {
+          "x": 7,
+          "y": 3,
+          "label": "B"
+        },
+        {
+          "x": 11,
+          "y": 3,
+          "label": "C"
+        }
+      ],
+      "code_doors": [
+        {
+          "x": 13,
+          "y": 3,
+          "label": "I",
+          "formula": "C",
+          "terms": [
+            {
+              "clue": "C",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 10,
+          "y": 5,
+          "label": "II",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 6,
+          "y": 5,
+          "label": "III",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 1,
+          "y": 7,
+          "label": "IV",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 4,
+          "y": 9,
+          "label": "V",
+          "formula": "C",
+          "terms": [
+            {
+              "clue": "C",
+              "multiplier": 1
+            }
+          ]
+        }
+      ]
+    },
+    "mapNote": "Cyan letters are signs. Purple Roman numerals are doors. Door codes: I uses C; II uses A; III uses B; IV uses A; V uses C.",
+    "goals": [
+      "Read every sign and save its code.",
+      "Open all code doors: I uses C; II uses A; III uses B; IV uses A; V uses C.",
+      "Collect all 5 coins and reach E."
+    ]
+  },
+  {
+    "id": "2-vars-7",
+    "week": 2,
+    "stage": 7,
+    "title": "The four-code vault",
+    "topic": "Variables & Numbers",
+    "teach": "Remember four separate codes through six doors and a long winding route. A, B, and C are in the top side rooms. D is in the middle side room. Keep the earlier readings when you add d: the final doors still need codes you found near the start. Plan your side-room visits before writing the full route. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
+    "example": "d = hero.read()\n# Keep a, b, and c unchanged.\n# Use each saved variable at its matching door.",
+    "objective": "Remember the sign codes and open every door. I uses B; II uses A; III uses C; IV uses D; V uses B; VI uses A.",
+    "hint": "Use a, b, c, and d as four independent memories. Do not miss D before leaving the middle corridor. The six doors ask for B, A, C, D, B, A: the first two readings must survive to the very end. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
+    "world": {
+      "width": 15,
+      "height": 15,
+      "path": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
         ],
         [
           1,
           8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          7,
+          3
         ],
         [
           7,
@@ -3836,72 +2754,304 @@ const LEVELS = [
           6
         ],
         [
-          12,
-          6
-        ],
-        [
           7,
-          4
+          7
         ],
-        [
-          1,
-          4
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          2
-        ]
-      ],
-      "keys": [
         [
           7,
           9
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          11,
+          5
+        ],
+        [
+          11,
+          9
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          12,
+          9
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          13,
+          4
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          13,
+          10
+        ],
+        [
+          13,
+          11
+        ],
+        [
+          13,
+          12
+        ],
+        [
+          13,
+          13
         ]
       ],
-      "doors": [
+      "start": [
+        1,
+        1
+      ],
+      "exit": [
+        3,
+        13
+      ],
+      "coins": [
+        [
+          3,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          7,
+          7
+        ],
         [
           1,
-          7
+          5
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          3,
+          13
         ]
       ],
+      "keys": [],
+      "doors": [],
       "potions": [],
-      "enemies": [
+      "enemies": [],
+      "number_clues": [
         {
-          "x": 2,
-          "y": 8,
-          "health": 3
+          "x": 3,
+          "y": 3,
+          "label": "A"
+        },
+        {
+          "x": 7,
+          "y": 3,
+          "label": "B"
         },
         {
           "x": 11,
-          "y": 6,
-          "health": 6
+          "y": 3,
+          "label": "C"
         },
         {
-          "x": 2,
-          "y": 4,
-          "health": 6
+          "x": 7,
+          "y": 7,
+          "label": "D"
+        }
+      ],
+      "code_doors": [
+        {
+          "x": 13,
+          "y": 3,
+          "label": "I",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B",
+              "multiplier": 1
+            }
+          ]
         },
         {
-          "x": 11,
-          "y": 2,
-          "health": 6
+          "x": 10,
+          "y": 5,
+          "label": "II",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 4,
+          "y": 5,
+          "label": "III",
+          "formula": "C",
+          "terms": [
+            {
+              "clue": "C",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 3,
+          "y": 9,
+          "label": "IV",
+          "formula": "D",
+          "terms": [
+            {
+              "clue": "D",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "label": "V",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B",
+              "multiplier": 1
+            }
+          ]
+        },
+        {
+          "x": 9,
+          "y": 13,
+          "label": "VI",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A",
+              "multiplier": 1
+            }
+          ]
         }
       ]
     },
-    "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
+    "mapNote": "Cyan letters are signs. Purple Roman numerals are doors. Door codes: I uses B; II uses A; III uses C; IV uses D; V uses B; VI uses A.",
+    "goals": [
+      "Read every sign and save its code.",
+      "Open all code doors: I uses B; II uses A; III uses C; IV uses D; V uses B; VI uses A.",
+      "Collect all 8 coins and reach E."
+    ]
   },
   {
     "id": "4-1",
-    "week": 4,
+    "week": 3,
     "stage": 1,
     "title": "Check each corner",
     "topic": "Conditionals",
     "teach": "Use if to decide what to do. Check for a guard or a door before moving. Check for coins, keys, and potions after moving. Some guards need two hits.",
-    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
+    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
     "objective": "Collect all 5 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 2 guards. Keep an eye on your health.",
     "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
     "starter": "from hero_game import hero\n\n# Move through the map. Check each tile before you enter it.\n",
@@ -4062,12 +3212,12 @@ const LEVELS = [
   },
   {
     "id": "4-2",
-    "week": 4,
+    "week": 3,
     "stage": 2,
     "title": "Two locked doors",
     "topic": "Conditionals",
     "teach": "Use if to decide what to do. Check for a guard or a door before moving. Check for coins, keys, and potions after moving. Some guards need two hits.",
-    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
+    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
     "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
     "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
     "starter": "from hero_game import hero\n\n# Move through the map. Check each tile before you enter it.\n",
@@ -4309,12 +3459,12 @@ const LEVELS = [
   },
   {
     "id": "4-3",
-    "week": 4,
+    "week": 3,
     "stage": 3,
     "title": "The split path",
     "topic": "Conditionals",
     "teach": "Use if to decide what to do. Check for a guard or a door before moving. Check for coins, keys, and potions after moving. Some guards need two hits.",
-    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
+    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
     "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
     "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
     "starter": "from hero_game import hero\n\n# Move through the map. Check each tile before you enter it.\n",
@@ -4576,12 +3726,12 @@ const LEVELS = [
   },
   {
     "id": "4-4",
-    "week": 4,
+    "week": 3,
     "stage": 4,
     "title": "The west wing",
     "topic": "Conditionals",
     "teach": "Use if to decide what to do. Check for a guard or a door before moving. Check for coins, keys, and potions after moving. Some guards need two hits.",
-    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
+    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
     "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
     "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
     "starter": "from hero_game import hero\n\n# Move through the map. Check each tile before you enter it.\n",
@@ -4823,12 +3973,12 @@ const LEVELS = [
   },
   {
     "id": "4-5",
-    "week": 4,
+    "week": 3,
     "stage": 5,
     "title": "The return route",
     "topic": "Conditionals",
     "teach": "Use if to decide what to do. Check for a guard or a door before moving. Check for coins, keys, and potions after moving. Some guards need two hits.",
-    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
+    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
     "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
     "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
     "starter": "from hero_game import hero\n\n# Move through the map. Check each tile before you enter it.\n",
@@ -5090,12 +4240,12 @@ const LEVELS = [
   },
   {
     "id": "4-6",
-    "week": 4,
+    "week": 3,
     "stage": 6,
     "title": "Put it to the test",
     "topic": "Conditionals",
     "teach": "Use if to decide what to do. Check for a guard or a door before moving. Check for coins, keys, and potions after moving. Some guards need two hits.",
-    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
+    "example": "if hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nif hero.door_at(\"right\"):\n    hero.unlock(\"right\")",
     "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
     "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
     "starter": "from hero_game import hero\n\n# Move through the map. Check each tile before you enter it.\n",
@@ -5442,12 +4592,12 @@ const LEVELS = [
   },
   {
     "id": "5-1",
-    "week": 5,
+    "week": 4,
     "stage": 1,
     "title": "Patrol the halls",
     "topic": "Loops",
     "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nhero.move(\"right\")",
+    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
     "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
     "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
     "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
@@ -5690,12 +4840,12 @@ const LEVELS = [
   },
   {
     "id": "5-2",
-    "week": 5,
+    "week": 4,
     "stage": 2,
     "title": "The supply run",
     "topic": "Loops",
     "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nhero.move(\"right\")",
+    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
     "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
     "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
     "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
@@ -5950,12 +5100,12 @@ const LEVELS = [
   },
   {
     "id": "5-3",
-    "week": 5,
+    "week": 4,
     "stage": 3,
     "title": "Clear the barracks",
     "topic": "Loops",
     "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nhero.move(\"right\")",
+    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
     "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
     "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
     "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
@@ -6230,12 +5380,12 @@ const LEVELS = [
   },
   {
     "id": "5-4",
-    "week": 5,
+    "week": 4,
     "stage": 4,
     "title": "The west wing",
     "topic": "Loops",
     "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nhero.move(\"right\")",
+    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
     "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
     "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
     "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
@@ -6567,12 +5717,12 @@ const LEVELS = [
   },
   {
     "id": "5-5",
-    "week": 5,
+    "week": 4,
     "stage": 5,
     "title": "The return route",
     "topic": "Loops",
     "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nhero.move(\"right\")",
+    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
     "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
     "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
     "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
@@ -6928,12 +6078,12 @@ const LEVELS = [
   },
   {
     "id": "5-6",
-    "week": 5,
+    "week": 4,
     "stage": 6,
     "title": "Put it to the test",
     "topic": "Loops",
     "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\", 3)\nhero.move(\"right\")",
+    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
     "objective": "Collect all 12 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 5 guards. Keep an eye on your health.",
     "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
     "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
@@ -7374,7 +6524,7 @@ const LEVELS = [
   },
   {
     "id": "6-1",
-    "week": 6,
+    "week": 5,
     "stage": 1,
     "title": "Build a travel kit",
     "topic": "Functions",
@@ -7626,7 +6776,7 @@ const LEVELS = [
   },
   {
     "id": "6-2",
-    "week": 6,
+    "week": 5,
     "stage": 2,
     "title": "Search each room",
     "topic": "Functions",
@@ -7906,7 +7056,7 @@ const LEVELS = [
   },
   {
     "id": "6-3",
-    "week": 6,
+    "week": 5,
     "stage": 3,
     "title": "The watchtower",
     "topic": "Functions",
@@ -8190,7 +7340,7 @@ const LEVELS = [
   },
   {
     "id": "6-4",
-    "week": 6,
+    "week": 5,
     "stage": 4,
     "title": "The west wing",
     "topic": "Functions",
@@ -8551,7 +7701,7 @@ const LEVELS = [
   },
   {
     "id": "6-5",
-    "week": 6,
+    "week": 5,
     "stage": 5,
     "title": "The return route",
     "topic": "Functions",
@@ -8920,7 +8070,7 @@ const LEVELS = [
   },
   {
     "id": "6-6",
-    "week": 6,
+    "week": 5,
     "stage": 6,
     "title": "Put it to the test",
     "topic": "Functions",
@@ -9402,7 +8552,7 @@ const LEVELS = [
   },
   {
     "id": "7-1",
-    "week": 7,
+    "week": 6,
     "stage": 1,
     "title": "Write the route",
     "topic": "Lists",
@@ -9654,7 +8804,7 @@ const LEVELS = [
   },
   {
     "id": "7-2",
-    "week": 7,
+    "week": 6,
     "stage": 2,
     "title": "Change the plan",
     "topic": "Lists",
@@ -10015,7 +9165,7 @@ const LEVELS = [
   },
   {
     "id": "7-3",
-    "week": 7,
+    "week": 6,
     "stage": 3,
     "title": "The winding tunnels",
     "topic": "Lists",
@@ -10384,7 +9534,7 @@ const LEVELS = [
   },
   {
     "id": "7-4",
-    "week": 7,
+    "week": 6,
     "stage": 4,
     "title": "The west wing",
     "topic": "Lists",
@@ -10745,7 +9895,7 @@ const LEVELS = [
   },
   {
     "id": "7-5",
-    "week": 7,
+    "week": 6,
     "stage": 5,
     "title": "The return route",
     "topic": "Lists",
@@ -11114,7 +10264,7 @@ const LEVELS = [
   },
   {
     "id": "7-6",
-    "week": 7,
+    "week": 6,
     "stage": 6,
     "title": "Put it to the test",
     "topic": "Lists",
@@ -11596,7 +10746,7 @@ const LEVELS = [
   },
   {
     "id": "8-1",
-    "week": 8,
+    "week": 7,
     "stage": 1,
     "title": "The outer fort",
     "topic": "Combine your skills",
@@ -11935,7 +11085,7 @@ const LEVELS = [
   },
   {
     "id": "8-2",
-    "week": 8,
+    "week": 7,
     "stage": 2,
     "title": "The supply rooms",
     "topic": "Combine your skills",
@@ -12306,7 +11456,7 @@ const LEVELS = [
   },
   {
     "id": "8-3",
-    "week": 8,
+    "week": 7,
     "stage": 3,
     "title": "Break through",
     "topic": "Combine your skills",
@@ -12762,7 +11912,7 @@ const LEVELS = [
   },
   {
     "id": "8-4",
-    "week": 8,
+    "week": 7,
     "stage": 4,
     "title": "The west wing",
     "topic": "Combine your skills",
@@ -13214,7 +12364,7 @@ const LEVELS = [
   },
   {
     "id": "8-5",
-    "week": 8,
+    "week": 7,
     "stage": 5,
     "title": "The return route",
     "topic": "Combine your skills",
@@ -13670,7 +12820,7 @@ const LEVELS = [
   },
   {
     "id": "8-6",
-    "week": 8,
+    "week": 7,
     "stage": 6,
     "title": "Put it to the test",
     "topic": "Combine your skills",
@@ -14251,7 +13401,7 @@ const LEVELS = [
   },
   {
     "id": "9-1",
-    "week": 9,
+    "week": 8,
     "stage": 1,
     "title": "The lower keep",
     "topic": "Final challenge",
@@ -14590,7 +13740,7 @@ const LEVELS = [
   },
   {
     "id": "9-2",
-    "week": 9,
+    "week": 8,
     "stage": 2,
     "title": "The last patrol",
     "topic": "Final challenge",
@@ -14961,7 +14111,7 @@ const LEVELS = [
   },
   {
     "id": "9-3",
-    "week": 9,
+    "week": 8,
     "stage": 3,
     "title": "The whole castle",
     "topic": "Final challenge",
@@ -15417,7 +14567,7 @@ const LEVELS = [
   },
   {
     "id": "9-4",
-    "week": 9,
+    "week": 8,
     "stage": 4,
     "title": "The west wing",
     "topic": "Final challenge",
@@ -15869,7 +15019,7 @@ const LEVELS = [
   },
   {
     "id": "9-5",
-    "week": 9,
+    "week": 8,
     "stage": 5,
     "title": "The return route",
     "topic": "Final challenge",
@@ -16325,7 +15475,7 @@ const LEVELS = [
   },
   {
     "id": "9-6",
-    "week": 9,
+    "week": 8,
     "stage": 6,
     "title": "Put it to the test",
     "topic": "Final challenge",

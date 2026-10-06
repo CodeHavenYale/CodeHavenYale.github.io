@@ -7,8 +7,8 @@ let courseStorageBlocked = false;
 try {
     const value=JSON.parse(localStorage.getItem('codehaven.course.v2') || 'null');
     if (value) {
-        if (!LEVELS.some(l=>l.id===value.id) || !value.drafts || typeof value.drafts!=='object' || !Array.isArray(value.completed)) throw Error('Invalid course save');
-        course={mode:value.mode==='free'?'free':'levels',id:value.id,drafts:value.drafts,completed:value.completed.filter(id=>LEVELS.some(l=>l.id===id)),weekOneRevision:value.weekOneRevision};
+        if (!value.drafts || typeof value.drafts!=='object' || !Array.isArray(value.completed)) throw Error('Invalid course save');
+        course={mode:value.mode==='free'?'free':'levels',id:LEVELS.some(l=>l.id===value.id)?value.id:'1-1',drafts:value.drafts,completed:value.completed.filter(id=>LEVELS.some(l=>l.id===id)),weekOneRevision:value.weekOneRevision};
     }
 } catch {courseStorageBlocked=true;$('saveStatus').textContent='Could not load saved levels';}
 if(course.weekOneRevision!==2) {course.completed=course.completed.filter(id=>!id.startsWith('1-'));course.weekOneRevision=2;}
@@ -44,7 +44,7 @@ function renderLesson() {
         const button=document.createElement('button');button.dataset.week=String(w.number);button.textContent=`Week ${w.number}${isWeekUnlocked(w.number)?'':' · Locked'}`;
         const small=document.createElement('span');small.textContent=w.topic;button.append(small);
         button.classList.toggle('active',w.number===level.week);button.setAttribute('aria-current',String(w.number===level.week));button.disabled=isRunning || !isWeekUnlocked(w.number);button.title=isWeekUnlocked(w.number)?w.topic:'Your teacher will open this week later.';
-        button.onclick=()=>chooseLevel(`${w.number}-1`);$('weekTabs').append(button);
+        button.onclick=()=>chooseLevel(LEVELS.find(l=>l.week===w.number).id);$('weekTabs').append(button);
     }
     $('weekTitle').textContent=week.title;$('levelList').replaceChildren();
     for(const l of LEVELS.filter(l=>l.week===level.week)) {
@@ -57,6 +57,8 @@ function renderLesson() {
     $('canvas').setAttribute('aria-label', `Hero map. Coordinates are column, row. Start: ${level.world.start.join(',')}. Exit: ${level.world.exit.join(',')}. Coins: ${level.world.coins.map(p=>p.join(',')).join('; ')}. Keys: ${level.world.keys.map(p=>p.join(',')).join('; ') || 'none'}. Doors: ${level.world.doors.map(p=>p.join(',')).join('; ') || 'none'}. Potions: ${level.world.potions.map(p=>p.join(',')).join('; ') || 'none'}. Enemies: ${level.world.enemies.map(e=>`${e.x},${e.y}, health ${e.health}`).join('; ') || 'none'}.`);
     const coloredItems=[...(level.world.key_colors || []).map(k=>`${k.color} key at ${k.x},${k.y}`),...(level.world.door_colors || []).map(d=>`${d.color} door at ${d.x},${d.y}`),...(level.world.switches || []).map(s=>`${s.color} switch at ${s.x},${s.y}`),...(level.world.gates || []).map(g=>`${g.color} gate at ${g.x},${g.y}`)].join('; ');
     $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+coloredItems+'.');
+    const numberItems=[...(level.world.number_clues || []).map(c=>`Number sign ${c.label} at ${c.x},${c.y}; stand here and save hero.read()`),...(level.world.code_doors || []).map(d=>`Code door ${d.label} at ${d.x},${d.y}; code is ${d.formula}`)].join('; ');
+    if(numberItems) $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+numberItems+'.');
     $('mapDescription').textContent = $('canvas').getAttribute('aria-label') + ' Walkable tiles: ' + level.world.path.map(p=>p.join(',')).join('; ') + '.';
     $('currentFile').textContent='hero.py';$('codeInput').value=courseFile().content;$('codeInput').readOnly=false;lines();
     $('courseProgress').textContent=progressText();
