@@ -1,4 +1,4 @@
-const RUNTIME_REVISION = '20261007-action-counts-1';
+const RUNTIME_REVISION = '20261007-game-feedback-1';
 let heroApi = null, stopRequested = false;
 let executionPromise = null, runTransition = false, lastRunSource = null;
 let pyodide = null, runtimeApi = null, runtimeReady = false, runtimeLoading = false, isRunning = false;
@@ -35,7 +35,7 @@ async function initPyodide() {
     runtimeLoading=true; $('retryRuntime').hidden=true; $('runtimeStatus').textContent='Loading Python…';
     try {
         if (typeof loadPyodide!=='function') await loadExternalScript('https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js');
-        if (!pyodide) pyodide=await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.0/full/',stdout:text=>log(text),stderr:text=>log(text,'error')});
+        if (!pyodide) pyodide=await loadPyodide({indexURL:'https://cdn.jsdelivr.net/pyodide/v0.27.0/full/',stdout:text=>log(text,'print'),stderr:text=>log(text,'error')});
         pyodide.canvas.setCanvas2D($('canvas'));
         await pyodide.runPythonAsync("import os\nos.environ['SDL_EMSCRIPTEN_KEYBOARD_ELEMENT'] = '#canvas'");
         await pyodide.loadPackage('pygame-ce');
@@ -106,7 +106,6 @@ importlib.invalidate_caches()`);
             if(!outcome.passed || status!=='finished') resetHeroAfterRun(level);
             reportLevel(outcome,status,error);
         }
-        if (result==='error' && !lessonRun) showOutput(false);
         log(result==='error'?'Run failed.':stopRequested || result==='stopped'?'Stopped.':'Finished.');
     } catch(error) {log(error.stack || String(error),'error');showOutput(lessonRun);showError(error,'Could not finish this run.');if(lessonRun) resetHeroAfterRun(level);}
     finally {

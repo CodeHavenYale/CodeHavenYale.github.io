@@ -100,7 +100,13 @@ function log(text, kind='output') {
     for (const id of targets) {
         const out=$(id); out.textContent=(out.textContent+String(text)+'\n').slice(-100000); out.scrollTop=out.scrollHeight;
     }
-    $('runDetails').hidden=false;
+    $('runDetails').hidden=false;$('runDetails').open=true;
+    if(kind==='print') {
+        const out=$('gamePrintOutput');
+        out.textContent=(out.textContent+String(text)+'\n').slice(-100000);
+        $('gamePrint').hidden=false;
+        out.scrollTop=out.scrollHeight;
+    }
 }
 function showError(error, title='Check your code.') {
     $('winScreen').hidden=true;
@@ -108,7 +114,7 @@ function showError(error, title='Check your code.') {
     const candidates=String(raw).split('\n').map(s=>s.trim()).filter(Boolean);
     const pythonLine=[...candidates].reverse().find(s=>/^[A-Za-z_][\w.]*(?:Error|Exception):/.test(s));
     let message=pythonLine || candidates[0] || 'The program stopped without a message.';
-    if (/^(Traceback|PythonError|at |File |WebAssembly)/.test(message)) message='The program could not finish. Open the error details for more information.';
+    if (/^(Traceback|PythonError|at |File |WebAssembly)/.test(message)) message='The program could not finish. Read the error details below for more information.';
     if(message.length>320) message=message.slice(0,317)+'...';
     const line=Number.isInteger(error?.line) && error.line>0 ? error.line : null;
     const file=typeof error?.file==='string' && error.file!=='hero.py' ? error.file+' · ' : '';
@@ -119,6 +125,9 @@ function showError(error, title='Check your code.') {
     $('resultText').textContent=hints[type] || 'Read the message below, fix your code, and try again.';
     $('resultError').textContent=(line ? `${file}Line ${line}: ` : '')+message;
     $('resultError').hidden=false;
+    $('gameErrorTitle').textContent=title;
+    $('gameErrorText').textContent=$('resultError').textContent;
+    $('gameError').hidden=$('graphics').hidden;
     $('nextLevel').hidden=true;
     if(typeof course!=='undefined' && course.mode==='free') {
         $('consoleOutput').textContent+= $('resultError').textContent+'\n';
@@ -126,10 +135,13 @@ function showError(error, title='Check your code.') {
 }
 function clearConsole() {
     $('consoleOutput').textContent='';$('runOutput').textContent='';
+    $('gameError').hidden=true;$('gameErrorText').textContent='';
+    $('gamePrint').hidden=true;$('gamePrintOutput').textContent='';
     $('resultError').textContent='';$('resultError').hidden=true;
-    $('runDetails').hidden=true;$('runDetails').open=false;
+    $('runDetails').hidden=false;$('runDetails').open=true;
 }
 $('clearConsole').onclick=clearConsole;
+$('dismissGameError').onclick=()=>{$('gameError').hidden=true;};
 render();
 
 $('loginForm').onsubmit = async event => {

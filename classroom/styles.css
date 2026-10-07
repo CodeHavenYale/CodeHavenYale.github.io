@@ -31,7 +31,7 @@
 .win-star{font-size:64px;color:#facc15}.win-screen h2{font-size:30px;margin:0}#graphics .win-screen p{display:block;color:#d1fae5;font-size:15px;margin:0 0 8px}.win-screen button{font-size:15px;padding:12px 20px}
 @media(max-width:760px){}
 
-/* The game and feedback are separate rows in normal page flow. Nothing docks over the map. */
+/* Full feedback stays below the game; concise errors and printed values also appear inside it. */
 body{height:auto;min-height:100dvh;overflow-y:auto}
 #ideWorkspace{min-height:100dvh}
 main{min-height:820px;align-items:stretch}
@@ -47,3 +47,13 @@ main{min-height:820px;align-items:stretch}
 @media(max-width:760px){main{min-height:0}.output-panel{flex:none;width:100%;min-width:0;height:auto;min-height:0}#graphics{padding:10px}#levelResult{min-height:150px}}
 
 #lessonGoals{padding-left:20px;margin:10px 0;font-size:13px;line-height:1.7}#weekTabs button:disabled{opacity:.6}#weekTabs button:disabled:not(.active){background:var(--bg);cursor:not-allowed}
+
+.game-error,.game-print{position:absolute;border:1px solid;border-radius:8px;padding:10px 12px;text-align:left;box-shadow:0 4px 16px #0005}
+.game-error{z-index:4;top:12px;left:12px;right:12px;max-height:42%;overflow:auto;background:#451a1af5;border-color:#f87171;color:#fee2e2}
+.game-feedback-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px}
+#dismissGameError{padding:0 6px;background:transparent;border:0;color:#fee2e2;font-size:22px;line-height:1;flex:none}
+#gameErrorText{margin:6px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.5 ui-monospace,monospace}
+.game-print{z-index:3;right:10px;bottom:10px;width:46%;max-height:28%;display:flex;flex-direction:column;min-height:0;background:#0f172af5;border-color:#67e8f9;color:#e0f2fe}
+.game-print>strong{font-size:11px;color:#67e8f9}
+#gamePrintOutput{margin:5px 0 0;min-height:0;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.5 ui-monospace,monospace}
+@media(max-width:420px){.game-error,.game-print{padding:7px 8px}#gamePrintOutput,#gameErrorText{font-size:11px}}

@@ -72,7 +72,7 @@ function reportLevel(result,status,error=null) {
     const labels=['Keep your hero alive.','Collect every coin.','Defeat the enemies.','Reach the green exit.','Open every locked door.','Turn on every switch.'];
     $('resultText').textContent=passed?'All done. Try the next challenge when you are ready.':status==='error'?'Fix the error below, then try again.':status==='stopped'?'Change your plan or run it again.':(result.remaining || labels.filter((_,i)=>result.checks[i]===false)).join(' ');
     if(!passed) $('resultText').textContent+=' Your hero is back at the start.';
-    if(status==='error') showError(error || {message:'The program stopped. Open the error details below.'});
+    if(status==='error') showError(error || {message:'The program stopped. Read the error details below.'});
     if(passed && !course.completed.includes(course.id)) {course.completed.push(course.id);saveCourse();}
     $('courseProgress').textContent=progressText();
     $('nextLevel').hidden=!passed || !nextAvailableLevel();
