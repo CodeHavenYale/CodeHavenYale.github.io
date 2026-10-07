@@ -1351,7 +1351,7 @@ const LEVELS = [
     "teach": "A variable remembers a value. Write code = hero.read() while on sign A. After walking away, code still holds that reading. Pass it to hero.enter_code to open door I. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
     "example": "code = hero.read()\n# Walk beside the matching door.\nhero.enter_code(\"right\", code)",
     "objective": "Remember the sign codes and open every door. I uses A.",
-    "hint": "Read A before continuing to the door. The variable keeps its number even after you leave the sign. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "hint": "Read A before continuing to the door. The variable keeps its number even after you leave the sign. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route. You can use hero.move(\"right\", 2) to walk two tiles; stop on signs and coins when you need to read or collect.",
     "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 11,
@@ -1486,7 +1486,7 @@ const LEVELS = [
     "teach": "Reading a sign once is enough. Save A in one variable, then use that same variable for two doors. Opening a door does not use up or change the variable. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
     "example": "code = hero.read()\n# Walk beside the matching door.\nhero.enter_code(\"right\", code)",
     "objective": "Remember the sign codes and open every door. I uses A; II uses A.",
-    "hint": "Keep A after opening I: you will need it again at II. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "hint": "Keep A after opening I: you will need it again at II. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route. You can use hero.move(\"right\", 2) to walk two tiles; stop on signs and coins when you need to read or collect.",
     "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 11,
@@ -1633,7 +1633,7 @@ const LEVELS = [
     "teach": "Different variables can remember different values at the same time. Save sign A as a and sign B as b. Reading B into b leaves a unchanged. The first door wants B; the next wants A. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
     "example": "a = hero.read()\n# At a different sign:\nb = hero.read()\n# Keep both a and b for their matching doors.",
     "objective": "Remember the sign codes and open every door. I uses B; II uses A.",
-    "hint": "Use two different names. If you put both readings into code, the second assignment replaces the first. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "hint": "Use two different names. If you put both readings into code, the second assignment replaces the first. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route. You can use hero.move(\"right\", 2) to walk two tiles; stop on signs and coins when you need to read or collect.",
     "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 11,
@@ -1789,7 +1789,7 @@ const LEVELS = [
     "teach": "The signs are in side rooms. Bring both readings back to the main corridor in separate variables. Door I wants A, II wants B, and III wants A again. A variable is useful because you can carry information far from where you found it. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
     "example": "a = hero.read()\n# At sign B:\nb = hero.read()\n# At a door that wants A:\nhero.enter_code(\"left\", a)",
     "objective": "Remember the sign codes and open every door. I uses A; II uses B; III uses A.",
-    "hint": "Visit both side rooms before leaving the top corridor. Do not overwrite a after opening the first door. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "hint": "Visit both side rooms before leaving the top corridor. Do not overwrite a after opening the first door. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route. You can use hero.move(\"right\", 2) to walk two tiles; stop on signs and coins when you need to read or collect.",
     "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 13,
@@ -1997,7 +1997,7 @@ const LEVELS = [
     "teach": "Keep three readings at once using a, b, and c. Doors do not have to use codes in the order you read them. Plan which variable each door needs, and keep all three until you reach the exit. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
     "example": "c = hero.read()\n# a and b still hold the earlier readings.\nhero.enter_code(\"down\", c)",
     "objective": "Remember the sign codes and open every door. I uses C; II uses A; III uses B; IV uses C.",
-    "hint": "Read A, B, and C in their side rooms first. The doors ask for C, A, B, then C again. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "hint": "Read A, B, and C in their side rooms first. The doors ask for C, A, B, then C again. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route. You can use hero.move(\"right\", 2) to walk two tiles; stop on signs and coins when you need to read or collect.",
     "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 15,
@@ -2302,7 +2302,7 @@ const LEVELS = [
     "teach": "Use three stored readings to open five doors. Some codes are reused after several other doors. Keep the original variables instead of replacing a with b or c. Saving a value once lets you use it whenever the route needs it. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
     "example": "hero.enter_code(\"left\", a)\n# Much later, a can open another matching door.\nhero.enter_code(\"down\", a)",
     "objective": "Remember the sign codes and open every door. I uses C; II uses A; III uses B; IV uses A; V uses C.",
-    "hint": "Keep all three original readings. Follow the door mapping: C, A, B, A, C. Opening a door leaves its variable available. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "hint": "Keep all three original readings. Follow the door mapping: C, A, B, A, C. Opening a door leaves its variable available. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route. You can use hero.move(\"right\", 2) to walk two tiles; stop on signs and coins when you need to read or collect.",
     "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 15,
@@ -2619,7 +2619,7 @@ const LEVELS = [
     "teach": "Remember four separate codes through six doors and a long winding route. A, B, and C are in the top side rooms. D is in the middle side room. Keep the earlier readings when you add d: the final doors still need codes you found near the start. Plan your side-room visits before writing the full route. Each sign has a different code, generated anew for each run. Move onto a sign to read it; stand beside a door to enter its code.",
     "example": "d = hero.read()\n# Keep a, b, and c unchanged.\n# Use each saved variable at its matching door.",
     "objective": "Remember the sign codes and open every door. I uses B; II uses A; III uses C; IV uses D; V uses B; VI uses A.",
-    "hint": "Use a, b, c, and d as four independent memories. Do not miss D before leaving the middle corridor. The six doors ask for B, A, C, D, B, A: the first two readings must survive to the very end. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route.",
+    "hint": "Use a, b, c, and d as four independent memories. Do not miss D before leaving the middle corridor. The six doors ask for B, A, C, D, B, A: the first two readings must survive to the very end. Use code = hero.read() on a sign and hero.enter_code(\"right\", code) beside a matching door. Change the direction and variable name to fit your route. You can use hero.move(\"right\", 2) to walk two tiles; stop on signs and coins when you need to read or collect.",
     "starter": "from hero_game import hero\n\n# Walk onto a sign, then save its reading in a variable.\n# Use the saved variable when standing beside its matching door.\n",
     "world": {
       "width": 15,

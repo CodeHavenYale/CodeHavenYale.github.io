@@ -128,21 +128,24 @@ class Hero:
         if self.health <= 0:
             raise RuntimeError('Your hero is out of health. Run again to try a new plan.')
 
-    def move(self, direction):
-        self.alive()
-        target = self.target(direction)
-        if target not in self.path:
-            raise ValueError('There is a wall that way. Look at the path and try another direction.')
-        if target in self.gates:
-            raise ValueError('The ' + self.gates[target] + ' gate is closed. Stand on its matching switch and use hero.activate().')
-        if target in self.doors:
-            raise ValueError('The ' + self.door_colors.get(target, 'gold') + ' door is locked. Collect its matching key and use hero.unlock(direction).')
-        if target in self.code_doors:
-            raise ValueError('Code door ' + self.code_doors[target]['label'] + ' is locked. Stand beside it and use hero.enter_code(direction, code).')
-        if self.enemies.get(target, 0) > 0:
-            raise ValueError('An enemy is blocking that tile. Attack before moving there.')
-        self.x, self.y = target
-        self.record('Moved ' + direction + '.')
+    def move(self, direction, count=1):
+        if type(count) is not int or count < 1:
+            raise ValueError("Use a positive whole number for the count, like 2 or 3.")
+        for _ in range(count):
+            self.alive()
+            target = self.target(direction)
+            if target not in self.path:
+                raise ValueError('There is a wall that way. Look at the path and try another direction.')
+            if target in self.gates:
+                raise ValueError('The ' + self.gates[target] + ' gate is closed. Stand on its matching switch and use hero.activate().')
+            if target in self.doors:
+                raise ValueError('The ' + self.door_colors.get(target, 'gold') + ' door is locked. Collect its matching key and use hero.unlock(direction).')
+            if target in self.code_doors:
+                raise ValueError('Code door ' + self.code_doors[target]['label'] + ' is locked. Stand beside it and use hero.enter_code(direction, code).')
+            if self.enemies.get(target, 0) > 0:
+                raise ValueError('An enemy is blocking that tile. Attack before moving there.')
+            self.x, self.y = target
+            self.record('Moved ' + direction + '.')
 
     def enemy_at(self, direction):
         return self.enemies.get(self.target(direction), 0) > 0
@@ -244,15 +247,18 @@ class Hero:
         self.health = min(10, self.health + 5)
         self.record('Used a potion. Health: ' + str(self.health) + '.')
 
-    def attack(self, direction):
-        self.alive()
-        target = self.target(direction)
-        if not self.enemy_at(direction):
-            raise ValueError('There is no enemy next to you in that direction.')
-        self.enemies[target] = max(0, self.enemies[target] - 3)
-        if self.enemies[target]:
-            self.health -= 1
-        self.record('Hit for 3.' if self.enemies[target] else 'Enemy defeated.')
+    def attack(self, direction, count=1):
+        if type(count) is not int or count < 1:
+            raise ValueError("Use a positive whole number for the count, like 2 or 3.")
+        for _ in range(count):
+            self.alive()
+            target = self.target(direction)
+            if not self.enemy_at(direction):
+                raise ValueError('There is no enemy next to you in that direction.')
+            self.enemies[target] = max(0, self.enemies[target] - 3)
+            if self.enemies[target]:
+                self.health -= 1
+            self.record('Hit for 3.' if self.enemies[target] else 'Enemy defeated.')
 
     def result(self):
         checks = [self.health > 0, not self.coins_left, not any(self.enemies.values()), (self.x, self.y) == self.exit, not self.doors and not self.code_doors, len(self.activated) == len(self.switches) and not self.gates]
