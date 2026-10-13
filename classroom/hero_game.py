@@ -55,7 +55,9 @@ class Hero:
         self.x, self.y = config['start']
         self.exit = tuple(config['exit'])
         self.coins_left = {tuple(p) for p in config['coins']}
-        self.enemies = {(e['x'], e['y']): e['health'] for e in config['enemies']}
+        health_choices = config.get('enemy_health_choices')
+        self.enemies = {(e['x'], e['y']): random.choice(health_choices) if health_choices else e['health']
+                        for e in config['enemies']}
         self.keys_left = {tuple(p) for p in config.get('keys', [])}
         self.doors = {tuple(p) for p in config.get('doors', [])}
         self.potions_left = {tuple(p) for p in config.get('potions', [])}
