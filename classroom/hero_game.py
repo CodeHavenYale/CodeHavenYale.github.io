@@ -51,6 +51,10 @@ def save_appearance(hero):
 class Hero:
     def setup(self, config):
         self.config = copy.deepcopy(config)
+        variants = self.config.pop('variants', None)
+        if variants:
+            self.config.update(random.choice(variants))
+        config = self.config
         self.path = {tuple(p) for p in config['path']}
         self.x, self.y = config['start']
         self.exit = tuple(config['exit'])
@@ -285,6 +289,11 @@ _stopped = False
 
 def setup(config):
     hero.setup(json.loads(config) if isinstance(config, str) else config)
+
+
+def world_config():
+    """Expose the chosen layout for the browser's accessible map description."""
+    return json.dumps(hero.config)
 
 
 def draw(frame):

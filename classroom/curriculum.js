@@ -17,7 +17,7 @@ const WEEKS = [
   {
     "number": 4,
     "topic": "Loops",
-    "title": "Save your typing"
+    "title": "Repeat a sequence"
   },
   {
     "number": 5,
@@ -3056,7 +3056,10 @@ const LEVELS = [
     "hint": "Guard health can change on every run. After the first hit, check hero.enemy_at again: 3-health guards are gone, but 6-health guards still block the path. Check side rooms for keys and coins before leaving each hall.",
     "starter": "from hero_game import hero\n\n# A guard may need one hit or two. Check before attacking again.\n",
     "world": {
-      "enemy_health_choices": [3, 6],
+      "enemy_health_choices": [
+        3,
+        6
+      ],
       "width": 11,
       "height": 6,
       "path": [
@@ -3223,7 +3226,10 @@ const LEVELS = [
     "hint": "Guard health can change on every run. After the first hit, check hero.enemy_at again: 3-health guards are gone, but 6-health guards still block the path. Check side rooms for keys and coins before leaving each hall.",
     "starter": "from hero_game import hero\n\n# A guard may need one hit or two. Check before attacking again.\n",
     "world": {
-      "enemy_health_choices": [3, 6],
+      "enemy_health_choices": [
+        3,
+        6
+      ],
       "width": 12,
       "height": 8,
       "path": [
@@ -3471,7 +3477,10 @@ const LEVELS = [
     "hint": "Guard health can change on every run. After the first hit, check hero.enemy_at again: 3-health guards are gone, but 6-health guards still block the path. Check side rooms for keys and coins before leaving each hall.",
     "starter": "from hero_game import hero\n\n# A guard may need one hit or two. Check before attacking again.\n",
     "world": {
-      "enemy_health_choices": [3, 6],
+      "enemy_health_choices": [
+        3,
+        6
+      ],
       "width": 13,
       "height": 8,
       "path": [
@@ -3739,7 +3748,10 @@ const LEVELS = [
     "hint": "Guard health can change on every run. After the first hit, check hero.enemy_at again: 3-health guards are gone, but 6-health guards still block the path. Check side rooms for keys and coins before leaving each hall.",
     "starter": "from hero_game import hero\n\n# A guard may need one hit or two. Check before attacking again.\n",
     "world": {
-      "enemy_health_choices": [3, 6],
+      "enemy_health_choices": [
+        3,
+        6
+      ],
       "width": 12,
       "height": 8,
       "path": [
@@ -3987,7 +3999,10 @@ const LEVELS = [
     "hint": "Guard health can change on every run. After the first hit, check hero.enemy_at again: 3-health guards are gone, but 6-health guards still block the path. Check side rooms for keys and coins before leaving each hall.",
     "starter": "from hero_game import hero\n\n# A guard may need one hit or two. Check before attacking again.\n",
     "world": {
-      "enemy_health_choices": [3, 6],
+      "enemy_health_choices": [
+        3,
+        6
+      ],
       "width": 13,
       "height": 8,
       "path": [
@@ -4255,7 +4270,10 @@ const LEVELS = [
     "hint": "Guard health can change on every run. After the first hit, check hero.enemy_at again: 3-health guards are gone, but 6-health guards still block the path. Check side rooms for keys and coins before leaving each hall.",
     "starter": "from hero_game import hero\n\n# A guard may need one hit or two. Check before attacking again.\n",
     "world": {
-      "enemy_health_choices": [3, 6],
+      "enemy_health_choices": [
+        3,
+        6
+      ],
       "width": 14,
       "height": 10,
       "path": [
@@ -4597,19 +4615,95 @@ const LEVELS = [
     "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
   },
   {
-    "id": "5-1",
+    "id": "4-loops-1",
     "week": 4,
     "stage": 1,
-    "title": "Patrol the halls",
+    "title": "Four coins, one sequence",
     "topic": "Loops",
-    "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
-    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
-    "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
+    "teach": "A sequence is a group of actions in order. Here, one sequence is move right, then collect. A for loop repeats every indented line, in order. range(4) repeats the whole sequence four times. Keep both commands inside the loop so you collect after every move.",
+    "example": "for repeat in range(2):\n    hero.move(\"right\")\n    hero.collect()\n# This example repeats the pair twice. How many pairs does this map need?",
+    "objective": "Collect the four coins and reach the exit by repeating the same two actions.",
+    "hint": "One repeat collects one coin. Use range(4), with move and collect indented by the same amount. Moving four times and then collecting only picks up the last coin.",
+    "starter": "from hero_game import hero\n\n# Repeat this sequence four times: move right, collect.\n# Put both actions inside one for loop.\n",
+    "goals": [
+      "Collect the four coins and reach the exit by repeating the same two actions."
+    ],
+    "mapNote": "This route always has four coins. Count sequences, not just lines of code.",
     "world": {
-      "width": 11,
-      "height": 8,
+      "width": 7,
+      "height": 3,
+      "path": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "exit": [
+        5,
+        1
+      ],
+      "coins": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "keys": [],
+      "doors": [],
+      "potions": [],
+      "enemies": []
+    }
+  },
+  {
+    "id": "4-loops-2",
+    "week": 4,
+    "stage": 2,
+    "title": "A trail that changes",
+    "topic": "Loops",
+    "teach": "The same move-and-collect sequence works on a short or long trail. This time its length is chosen again on every Run. A while loop checks its condition before each repeat. hero.can_move(\"right\") is True while a clear tile is ahead. Move and collect inside the loop; at the end of the trail the condition becomes False.",
+    "example": "while hero.can_move(\"right\"):\n    hero.move(\"right\")\n    # Collect the coin after each move.",
+    "objective": "Write one move-and-collect loop that works for every trail length.",
+    "hint": "Keep both move and collect inside the while loop. Each move gets you closer to the wall, so the loop eventually stops. Run your unchanged code several times to try different widths.",
+    "starter": "from hero_game import hero\n\n# Repeat move right, collect while the path continues.\n# The number of coins can change on every Run.\n",
+    "goals": [
+      "Write one move-and-collect loop that works for every trail length."
+    ],
+    "mapNote": "Run chooses a trail with 3 to 7 coins. The exit is on the last coin.",
+    "world": {
+      "width": 8,
+      "height": 3,
       "path": [
         [
           1,
@@ -4634,126 +4728,536 @@ const LEVELS = [
         [
           6,
           1
-        ],
+        ]
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "exit": [
+        6,
+        1
+      ],
+      "coins": [
         [
-          6,
-          0
-        ],
-        [
-          7,
+          2,
           1
         ],
         [
-          8,
+          3,
           1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          4
         ],
         [
           4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          4,
-          5
+          1
         ],
         [
           5,
-          5
+          1
         ],
         [
           6,
-          5
+          1
+        ]
+      ],
+      "keys": [],
+      "doors": [],
+      "potions": [],
+      "enemies": [],
+      "variants": [
+        {
+          "width": 6,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            4,
+            1
+          ],
+          "coins": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
+        },
+        {
+          "width": 7,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            5,
+            1
+          ],
+          "coins": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
+        },
+        {
+          "width": 8,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            6,
+            1
+          ],
+          "coins": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
+        },
+        {
+          "width": 9,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            7,
+            1
+          ],
+          "coins": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
+        },
+        {
+          "width": 10,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            8,
+            1
+          ],
+          "coins": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "4-loops-3",
+    "week": 4,
+    "stage": 3,
+    "title": "Three staircase steps",
+    "topic": "Loops",
+    "teach": "A loop can repeat a longer sequence too. One stair is: move right twice, collect, move down once, collect. Repeat that whole sequence three times with for repeat in range(3). All five command lines belong inside the loop. Lines after the loop run only once.",
+    "example": "for repeat in range(3):\n    hero.move(\"right\")\n    hero.move(\"right\")\n    # Collect, move down, and collect to finish one stair.",
+    "objective": "Collect both coins on each of the three stairs and finish at the bottom.",
+    "hint": "Plan one complete stair before repeating it. Each stair ends just below its corner coin, ready to move right onto the next stair. Two moves right and one move down make one repeat.",
+    "starter": "from hero_game import hero\n\n# One stair: right, right, collect, down, collect.\n# Repeat the complete sequence three times with a for loop.\n",
+    "goals": [
+      "Collect both coins on each of the three stairs and finish at the bottom."
+    ],
+    "mapNote": "There are always three identical stairs, with two coins on each stair.",
+    "world": {
+      "width": 9,
+      "height": 6,
+      "path": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
         ],
         [
           6,
-          4
+          3
         ],
         [
           7,
-          5
+          3
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "start": [
+        1,
+        1
+      ],
+      "exit": [
+        7,
+        4
+      ],
+      "coins": [
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "keys": [],
+      "doors": [],
+      "potions": [],
+      "enemies": []
+    }
+  },
+  {
+    "id": "4-loops-4",
+    "week": 4,
+    "stage": 4,
+    "title": "A staircase that grows",
+    "topic": "Loops",
+    "teach": "Reuse the complete staircase sequence from the last challenge, but let a condition decide when to stop. The staircase can have a different number of stairs on every Run. At the start of each stair, a clear tile lies to the right. After the final move down, there is a wall to the right. while hero.can_move(\"right\") checks again only after the whole indented sequence finishes.",
+    "example": "while hero.can_move(\"right\"):\n    hero.move(\"right\")\n    hero.move(\"right\")\n    # Finish the whole stair before checking again.",
+    "objective": "Use one repeated staircase sequence to collect every coin on any size staircase.",
+    "hint": "Keep the same five actions from the three-stair challenge. Replace its fixed repetition count with a while condition. Do not stop at the corner: collect, move down, and collect before the next condition check.",
+    "starter": "from hero_game import hero\n\n# Repeat one complete stair while a clear tile is to the right.\n# The number of stairs changes; the actions in each stair stay the same.\n",
+    "goals": [
+      "Use one repeated staircase sequence to collect every coin on any size staircase."
+    ],
+    "mapNote": "Run chooses 2 to 5 stairs, changing the width and height. Each stair still has the same shape.",
+    "world": {
+      "width": 11,
+      "height": 7,
+      "path": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
         ],
         [
           8,
-          5
+          4
+        ],
+        [
+          9,
+          4
         ],
         [
           9,
           5
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          7,
-          4
         ]
       ],
       "start": [
@@ -4766,1767 +5270,1005 @@ const LEVELS = [
       ],
       "coins": [
         [
-          6,
-          0
+          3,
+          1
         ],
         [
-          6,
-          1
+          3,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          7,
+          4
         ],
         [
           9,
-          1
-        ],
-        [
-          5,
           4
         ],
         [
-          5,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
+          9,
           5
         ]
       ],
-      "keys": [
-        [
-          6,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          9,
-          2
-        ]
-      ],
-      "potions": [
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ]
-      ],
-      "enemies": [
+      "keys": [],
+      "doors": [],
+      "potions": [],
+      "enemies": [],
+      "variants": [
         {
-          "x": 8,
-          "y": 1,
-          "health": 6
+          "width": 7,
+          "height": 5,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            5,
+            3
+          ],
+          "coins": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
         },
         {
-          "x": 2,
-          "y": 3,
-          "health": 9
+          "width": 9,
+          "height": 6,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            7,
+            4
+          ],
+          "coins": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
         },
         {
-          "x": 8,
-          "y": 5,
-          "health": 6
+          "width": 11,
+          "height": 7,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            9,
+            5
+          ],
+          "coins": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
+        },
+        {
+          "width": 13,
+          "height": 8,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              11,
+              6
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            11,
+            6
+          ],
+          "coins": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              11,
+              6
+            ]
+          ],
+          "keys": [],
+          "doors": [],
+          "potions": [],
+          "enemies": []
         }
       ]
-    },
-    "mapNote": "11 \u00d7 8 map \u00b7 34 steps on the full supply route"
+    }
   },
   {
-    "id": "5-2",
-    "week": 4,
-    "stage": 2,
-    "title": "The supply run",
-    "topic": "Loops",
-    "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
-    "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
-    "world": {
-      "width": 12,
-      "height": 8,
-      "path": [
-        [
-          1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          5,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          8,
-          4
-        ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        10,
-        5
-      ],
-      "coins": [
-        [
-          5,
-          0
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          5,
-          5
-        ]
-      ],
-      "keys": [
-        [
-          5,
-          0
-        ],
-        [
-          5,
-          4
-        ]
-      ],
-      "doors": [
-        [
-          10,
-          2
-        ],
-        [
-          1,
-          4
-        ]
-      ],
-      "potions": [
-        [
-          5,
-          0
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          5,
-          4
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 9,
-          "y": 1,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 3,
-          "health": 9
-        },
-        {
-          "x": 9,
-          "y": 5,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
-  },
-  {
-    "id": "5-3",
-    "week": 4,
-    "stage": 3,
-    "title": "Clear the barracks",
-    "topic": "Loops",
-    "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
-    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
-    "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
-    "world": {
-      "width": 13,
-      "height": 8,
-      "path": [
-        [
-          1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          0
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          9,
-          4
-        ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        11,
-        5
-      ],
-      "coins": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          5
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          0
-        ],
-        [
-          6,
-          4
-        ]
-      ],
-      "doors": [
-        [
-          11,
-          2
-        ],
-        [
-          1,
-          4
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          0
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          4
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 10,
-          "y": 1,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 3,
-          "health": 9
-        },
-        {
-          "x": 10,
-          "y": 5,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "13 \u00d7 8 map \u00b7 40 steps on the full supply route"
-  },
-  {
-    "id": "5-4",
-    "week": 4,
-    "stage": 4,
-    "title": "The west wing",
-    "topic": "Loops",
-    "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
-    "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
-    "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
-    "world": {
-      "width": 12,
-      "height": 10,
-      "path": [
-        [
-          10,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          7
-        ],
-        [
-          2,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          4,
-          7
-        ],
-        [
-          5,
-          7
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          9,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          3,
-          6
-        ]
-      ],
-      "start": [
-        10,
-        1
-      ],
-      "exit": [
-        10,
-        7
-      ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          6,
-          7
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          4
-        ]
-      ],
-      "doors": [
-        [
-          1,
-          2
-        ],
-        [
-          10,
-          4
-        ]
-      ],
-      "potions": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          8
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 2,
-          "y": 1,
-          "health": 6
-        },
-        {
-          "x": 9,
-          "y": 3,
-          "health": 9
-        },
-        {
-          "x": 2,
-          "y": 5,
-          "health": 6
-        },
-        {
-          "x": 9,
-          "y": 7,
-          "health": 9
-        }
-      ]
-    },
-    "mapNote": "12 \u00d7 10 map \u00b7 50 steps on the full supply route"
-  },
-  {
-    "id": "5-5",
+    "id": "4-loops-5",
     "week": 4,
     "stage": 5,
-    "title": "The return route",
+    "title": "Three matching doorways",
     "topic": "Loops",
-    "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
-    "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
-    "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
+    "teach": "Look for the repeated sequence in a bigger task. Each section has a key, a locked door, a coin, then a clear tile. One sequence is: move right and collect the key; unlock right and move through the door; move right and collect the coin; move right to the next section. A for loop repeats this whole sequence three times. Collect each key before unlocking its door.",
+    "example": "for repeat in range(3):\n    hero.move(\"right\")\n    hero.collect()\n    hero.unlock(\"right\")\n    # Walk through, collect the coin, and reach the next section.",
+    "objective": "Repeat one key-door-coin sequence to open all three doors and reach the exit.",
+    "hint": "There are four right moves in one section. Collect after the first move for the key and after the third move for the coin. Unlock before the second move. The fourth move finishes a section, ready for the next repeat.",
+    "starter": "from hero_game import hero\n\n# One section: key, door, coin, clear tile.\n# Write its complete action sequence inside a for loop with range(3).\n",
+    "goals": [
+      "Repeat one key-door-coin sequence to open all three doors and reach the exit."
+    ],
+    "mapNote": "There are always three identical sections. The exit is on the clear tile after the final coin.",
     "world": {
-      "width": 13,
-      "height": 10,
+      "width": 15,
+      "height": 3,
       "path": [
         [
           1,
-          8
+          1
         ],
         [
           2,
-          8
+          1
         ],
         [
           3,
-          8
+          1
         ],
         [
           4,
-          8
+          1
         ],
         [
           5,
-          8
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          7,
-          9
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          9,
-          8
-        ],
-        [
-          10,
-          8
-        ],
-        [
-          11,
-          8
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          6,
-          2
+          1
         ],
         [
           6,
           1
         ],
         [
-          5,
-          2
+          7,
+          1
         ],
         [
-          4,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          3,
-          7
+          8,
+          1
         ],
         [
           9,
-          7
+          1
         ],
         [
-          3,
-          5
+          10,
+          1
         ],
         [
-          9,
-          5
+          11,
+          1
         ],
         [
-          3,
-          3
+          12,
+          1
         ],
         [
-          9,
-          3
+          13,
+          1
         ]
       ],
       "start": [
         1,
-        8
+        1
       ],
       "exit": [
-        1,
-        2
+        13,
+        1
       ],
       "coins": [
         [
-          7,
-          9
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          11,
-          8
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          6,
+          4,
           1
         ],
         [
-          6,
-          2
+          8,
+          1
+        ],
+        [
+          12,
+          1
         ]
       ],
       "keys": [
         [
-          7,
-          9
-        ],
-        [
-          6,
-          5
-        ]
-      ],
-      "doors": [
-        [
-          11,
-          7
-        ],
-        [
-          1,
-          5
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          9
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          7,
-          5
+          2,
+          1
         ],
         [
           6,
           1
+        ],
+        [
+          10,
+          1
         ]
       ],
-      "enemies": [
-        {
-          "x": 10,
-          "y": 8,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 6,
-          "health": 9
-        },
-        {
-          "x": 10,
-          "y": 4,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 2,
-          "health": 9
-        }
-      ]
-    },
-    "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
+      "doors": [
+        [
+          3,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "potions": [],
+      "enemies": []
+    }
   },
   {
-    "id": "5-6",
+    "id": "4-loops-6",
     "week": 4,
     "stage": 6,
-    "title": "Put it to the test",
+    "title": "Doorways of any length",
     "topic": "Loops",
-    "teach": "Use a for loop to repeat a known number of moves. Use a while loop when you need to keep going until something changes. Collect a potion in a side room, then call hero.heal() when you need health.",
-    "example": "while hero.enemy_at(\"right\"):\n    hero.attack(\"right\")\nhero.move(\"right\")",
-    "objective": "Collect all 12 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 5 guards. Keep an eye on your health.",
-    "hint": "Break each hall into short stretches. Stop the movement loop at a side room or a guard. Check your health before starting the next fight.",
-    "starter": "from hero_game import hero\n\n# Use for loops in the halls.\n# Use while loops when a guard needs more than one hit.\n",
+    "teach": "A useful loop keeps working when the map changes. Repeat the same key-door-coin sequence from the last challenge with while hero.can_move(\"right\"). Check at the start of a section, where the next tile holds its key. Unlock the door inside the sequence before walking through it. After the final section, the wall to the right ends the loop.",
+    "example": "while hero.can_move(\"right\"):\n    hero.move(\"right\")\n    hero.collect()\n    hero.unlock(\"right\")\n    # Finish this section before the next condition check.",
+    "objective": "Open every door, collect every coin, and reach the exit with code that handles any number of sections.",
+    "hint": "Reuse all the actions from one section of the previous challenge. A locked door blocks can_move, so check the condition between complete sections, not between individual moves. Run the same code several times to try different widths.",
+    "starter": "from hero_game import hero\n\n# Repeat the full key-door-coin sequence while another section is ahead.\n# Use the same code for every width.\n",
+    "goals": [
+      "Open every door, collect every coin, and reach the exit with code that handles any number of sections."
+    ],
+    "mapNote": "Run chooses 2 to 4 sections. Each section is four tiles long; only the number of sections changes.",
     "world": {
-      "width": 14,
-      "height": 12,
+      "width": 15,
+      "height": 3,
       "path": [
         [
-          12,
-          10
-        ],
-        [
-          11,
-          10
-        ],
-        [
-          10,
-          10
-        ],
-        [
-          9,
-          10
-        ],
-        [
-          8,
-          10
-        ],
-        [
-          7,
-          10
-        ],
-        [
-          7,
-          11
-        ],
-        [
-          6,
-          10
-        ],
-        [
-          5,
-          10
-        ],
-        [
-          4,
-          10
-        ],
-        [
-          3,
-          10
+          1,
+          1
         ],
         [
           2,
-          10
-        ],
-        [
-          1,
-          10
-        ],
-        [
-          1,
-          9
-        ],
-        [
-          1,
-          8
-        ],
-        [
-          2,
-          8
+          1
         ],
         [
           3,
-          8
+          1
         ],
         [
           4,
-          8
+          1
         ],
         [
           5,
-          8
+          1
         ],
         [
           6,
-          8
+          1
         ],
         [
           7,
-          8
-        ],
-        [
-          7,
-          7
+          1
         ],
         [
           8,
-          8
+          1
         ],
         [
           9,
-          8
+          1
         ],
         [
           10,
-          8
+          1
         ],
         [
           11,
-          8
+          1
         ],
         [
           12,
-          8
+          1
         ],
         [
-          12,
-          7
-        ],
-        [
-          12,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          12,
-          3
-        ],
-        [
-          12,
-          2
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          10,
-          9
-        ],
-        [
-          3,
-          9
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          3,
-          3
+          13,
+          1
         ]
       ],
       "start": [
-        12,
-        10
+        1,
+        1
       ],
       "exit": [
-        1,
-        2
+        13,
+        1
       ],
       "coins": [
         [
-          7,
-          11
+          4,
+          1
         ],
         [
-          7,
-          10
-        ],
-        [
-          1,
-          10
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          8
+          8,
+          1
         ],
         [
           12,
-          8
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          7,
-          2
+          1
         ]
       ],
       "keys": [
         [
-          7,
-          11
+          2,
+          1
         ],
         [
-          7,
-          7
+          6,
+          1
+        ],
+        [
+          10,
+          1
         ]
       ],
       "doors": [
         [
-          1,
-          9
+          3,
+          1
         ],
         [
-          12,
-          7
+          7,
+          1
+        ],
+        [
+          11,
+          1
         ]
       ],
-      "potions": [
-        [
-          7,
-          11
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          3
-        ]
-      ],
-      "enemies": [
+      "potions": [],
+      "enemies": [],
+      "variants": [
         {
-          "x": 2,
-          "y": 10,
-          "health": 6
+          "width": 11,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            9,
+            1
+          ],
+          "coins": [
+            [
+              4,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "keys": [
+            [
+              2,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "doors": [
+            [
+              3,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "potions": [],
+          "enemies": []
         },
         {
-          "x": 11,
-          "y": 8,
-          "health": 9
+          "width": 15,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              11,
+              1
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              13,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            13,
+            1
+          ],
+          "coins": [
+            [
+              4,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              12,
+              1
+            ]
+          ],
+          "keys": [
+            [
+              2,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              10,
+              1
+            ]
+          ],
+          "doors": [
+            [
+              3,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              11,
+              1
+            ]
+          ],
+          "potions": [],
+          "enemies": []
         },
         {
-          "x": 2,
-          "y": 6,
-          "health": 6
-        },
-        {
-          "x": 11,
-          "y": 4,
-          "health": 9
-        },
-        {
-          "x": 2,
-          "y": 2,
-          "health": 12
+          "width": 19,
+          "height": 3,
+          "path": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              11,
+              1
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              13,
+              1
+            ],
+            [
+              14,
+              1
+            ],
+            [
+              15,
+              1
+            ],
+            [
+              16,
+              1
+            ],
+            [
+              17,
+              1
+            ]
+          ],
+          "start": [
+            1,
+            1
+          ],
+          "exit": [
+            17,
+            1
+          ],
+          "coins": [
+            [
+              4,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              16,
+              1
+            ]
+          ],
+          "keys": [
+            [
+              2,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              14,
+              1
+            ]
+          ],
+          "doors": [
+            [
+              3,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              11,
+              1
+            ],
+            [
+              15,
+              1
+            ]
+          ],
+          "potions": [],
+          "enemies": []
         }
       ]
-    },
-    "mapNote": "14 \u00d7 12 map \u00b7 73 steps on the full supply route"
+    }
   },
   {
     "id": "6-1",

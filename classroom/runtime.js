@@ -1,4 +1,4 @@
-const RUNTIME_REVISION = '20261013-conditionals-1';
+const RUNTIME_REVISION = '20261027-loop-sequences-1';
 let heroApi = null, stopRequested = false;
 let executionPromise = null, runTransition = false, lastRunSource = null;
 let pyodide = null, runtimeApi = null, runtimeReady = false, runtimeLoading = false, isRunning = false;
@@ -94,7 +94,7 @@ os.mkdir('/project')
 os.chdir('/project')
 importlib.invalidate_caches()`);
         for (const f of files) pyodide.FS.writeFile('/project/'+f.name,f.binary ? Uint8Array.from(atob(f.content),c=>c.charCodeAt(0)) : f.content);
-        if(lessonRun) heroApi.preview(JSON.stringify(level.world));
+        if(lessonRun) previewHeroWorld(level);
         if(stopRequested) {if(lessonRun) {const outcome=JSON.parse(heroApi.outcome());resetHeroAfterRun(level);reportLevel(outcome,'stopped');} return;}
         const result=await runtimeApi.start(selected.content,'/project/'+selected.name);
         const error=result==='error' ? JSON.parse(runtimeApi.error_details()) : null;
@@ -124,7 +124,7 @@ function resetHeroAfterRun(level) {
         // Older cached game modules already expose preview. Keep failed-run feedback
         // usable even when a deployment briefly serves files from different versions.
         if (typeof heroApi?.reset_after_run === 'function') heroApi.reset_after_run();
-        else if (typeof heroApi?.preview === 'function') heroApi.preview(JSON.stringify(level.world));
+        else if (typeof heroApi?.preview === 'function') previewHeroWorld(level);
         else throw new Error('The game is not ready. Press Retry Python.');
         return true;
     } catch(error) {
@@ -135,6 +135,12 @@ function resetHeroAfterRun(level) {
 
 function previewLevel() {
     if(!runtimeReady || isRunning || course.mode!=='levels') return;
-    try { heroApi.preview(JSON.stringify(currentLevel().world)); showOutput(true); }
+    try { previewHeroWorld(currentLevel()); showOutput(true); }
     catch(error) {log(error.stack || String(error),'error');showError(error,'Could not draw the map.');}
+}
+
+function previewHeroWorld(level) {
+    heroApi.preview(JSON.stringify(level.world));
+    const world=typeof heroApi.world_config==='function' ? JSON.parse(heroApi.world_config()) : level.world;
+    updateMapDescription(world);
 }
