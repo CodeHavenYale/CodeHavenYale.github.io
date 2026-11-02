@@ -21,13 +21,13 @@ const WEEKS = [
   },
   {
     "number": 5,
-    "topic": "Functions",
-    "title": "Make your own move"
+    "topic": "Lists",
+    "title": "Plan a route"
   },
   {
     "number": 6,
-    "topic": "Lists",
-    "title": "Plan a route"
+    "topic": "Functions",
+    "title": "Make your own move"
   },
   {
     "number": 7,
@@ -6271,16 +6271,16 @@ const LEVELS = [
     }
   },
   {
-    "id": "6-1",
+    "id": "7-1",
     "week": 5,
     "stage": 1,
-    "title": "Build a travel kit",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
+    "title": "Write the route",
+    "topic": "Lists",
+    "teach": "A list stores several values in order. Put one direction string in route for each tile you want to walk, including repeated directions and the return trip from side rooms. A for loop reads every item from first to last. Inside it, reuse your Week 4 while loop to fight until the path is clear, then move and collect.",
+    "example": "route = [\"right\", \"right\", \"up\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
     "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
+    "hint": "Write one item for each move; five tiles right needs five \"right\" items. The example shows list order, not the whole route. The starter already checks doors, fights with a while loop, and collects after each move.",
+    "starter": "from hero_game import hero\n\nroute = []\n# Add the full route, including side rooms and the return from each room.\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 12,
       "height": 8,
@@ -6523,19 +6523,19 @@ const LEVELS = [
     "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
   },
   {
-    "id": "6-2",
+    "id": "7-2",
     "week": 5,
     "stage": 2,
-    "title": "Search each room",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
+    "title": "Change one list item",
+    "topic": "Lists",
+    "teach": "List positions start at 0: route[0] is the first direction and route[1] is the second. Change one item with route[index] = \"direction\" before the for loop starts. The same loop then follows your edited plan. Keep the while loop for guards inside the route loop.",
+    "example": "route = [\"up\", \"right\"]\nroute[0] = \"right\"\nfor direction in route:\n    hero.move(direction)",
+    "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
+    "hint": "The first move must be right. Fix route[0], then add the rest of your route. Editing an item replaces it; it does not insert a new move or shift the other items. Finish editing before following the list.",
+    "starter": "from hero_game import hero\n\nroute = [\"up\"]\n# Fix route[0] and add the remaining directions before the loop.\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 13,
-      "height": 8,
+      "height": 10,
       "path": [
         [
           1,
@@ -6690,6 +6690,58 @@ const LEVELS = [
           5
         ],
         [
+          11,
+          6
+        ],
+        [
+          11,
+          7
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
           3,
           2
         ],
@@ -6704,6 +6756,14 @@ const LEVELS = [
         [
           9,
           4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          9,
+          6
         ]
       ],
       "start": [
@@ -6711,8 +6771,8 @@ const LEVELS = [
         1
       ],
       "exit": [
-        11,
-        5
+        1,
+        7
       ],
       "coins": [
         [
@@ -6746,6 +6806,18 @@ const LEVELS = [
         [
           6,
           5
+        ],
+        [
+          11,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          7
         ]
       ],
       "keys": [
@@ -6780,6 +6852,10 @@ const LEVELS = [
         [
           6,
           4
+        ],
+        [
+          5,
+          8
         ]
       ],
       "enemies": [
@@ -6797,25 +6873,30 @@ const LEVELS = [
           "x": 10,
           "y": 5,
           "health": 6
+        },
+        {
+          "x": 2,
+          "y": 7,
+          "health": 9
         }
       ]
     },
-    "mapNote": "13 \u00d7 8 map \u00b7 40 steps on the full supply route"
+    "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
   },
   {
-    "id": "6-3",
+    "id": "7-3",
     "week": 5,
     "stage": 3,
-    "title": "The watchtower",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
+    "title": "Build a route with loops",
+    "topic": "Lists",
+    "teach": "Start with an empty list. append adds one direction to the end; extend adds the items from another list. Use a for loop with range to append a long hallway, then append the directions into and out of a side room. A second for loop follows the completed route; its while loop handles guards.",
+    "example": "route = []\nfor step in range(6):\n    route.append(\"right\")\nroute.append(\"up\")\nroute.append(\"down\")\n# Later: route.extend([\"right\", \"right\"])",
+    "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
+    "hint": "The first side room is six tiles right of the start. Build those moves with range(6), append the up-and-down detour, and extend the list with your remaining plan. Build the whole list before you loop through it to move.",
+    "starter": "from hero_game import hero\n\nroute = []\n# Build the first hall with range and append.\n# Append its side-room detour, then extend with the rest of your plan.\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 14,
-      "height": 8,
+      "height": 10,
       "path": [
         [
           1,
@@ -6978,6 +7059,62 @@ const LEVELS = [
           5
         ],
         [
+          12,
+          6
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          11,
+          7
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
           3,
           2
         ],
@@ -6992,6 +7129,14 @@ const LEVELS = [
         [
           10,
           4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          10,
+          6
         ]
       ],
       "start": [
@@ -6999,8 +7144,8 @@ const LEVELS = [
         1
       ],
       "exit": [
-        12,
-        5
+        1,
+        7
       ],
       "coins": [
         [
@@ -7030,6 +7175,18 @@ const LEVELS = [
         [
           7,
           5
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          7
         ]
       ],
       "keys": [
@@ -7064,6 +7221,10 @@ const LEVELS = [
         [
           7,
           4
+        ],
+        [
+          7,
+          8
         ]
       ],
       "enemies": [
@@ -7081,22 +7242,27 @@ const LEVELS = [
           "x": 11,
           "y": 5,
           "health": 6
+        },
+        {
+          "x": 2,
+          "y": 7,
+          "health": 9
         }
       ]
     },
-    "mapNote": "14 \u00d7 8 map \u00b7 43 steps on the full supply route"
+    "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
   },
   {
-    "id": "6-4",
+    "id": "7-4",
     "week": 5,
     "stage": 4,
-    "title": "The west wing",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
+    "title": "Count each route section",
+    "topic": "Lists",
+    "teach": "Use two lists: directions stores each straight section and steps stores how many tiles it takes. Entries at the same index belong together. The outer for loop visits the list indices with range(len(directions)); the inner for loop repeats one move steps[index] times. Keep a while loop inside for combat.",
+    "example": "directions = [\"left\", \"up\", \"down\"]\nsteps = [5, 1, 1]\nfor index in range(len(directions)):\n    direction = directions[index]\n    for step in range(steps[index]):\n        hero.move(direction)",
     "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
+    "hint": "Start by going left five tiles, up one, and down one. Add the remaining sections, including the return from every room. Both lists must have the same length, and every count must be positive. Put all movement checks inside the inner loop.",
+    "starter": "from hero_game import hero\n\ndirections = []\nsteps = []\n# Add one direction and a matching step count for every straight section.\n\nfor index in range(len(directions)):\n    direction = directions[index]\n    for step in range(steps[index]):\n        if hero.door_at(direction):\n            hero.unlock(direction)\n        while hero.enemy_at(direction):\n            if hero.health <= 6 and hero.potions > 0:\n                hero.heal()\n            hero.attack(direction)\n        hero.move(direction)\n        if hero.on_coin or hero.on_key or hero.on_potion:\n            hero.collect()\n",
     "world": {
       "width": 13,
       "height": 10,
@@ -7448,16 +7614,16 @@ const LEVELS = [
     "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
   },
   {
-    "id": "6-5",
+    "id": "7-5",
     "week": 5,
     "stage": 5,
-    "title": "The return route",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
+    "title": "Reuse a route list",
+    "topic": "Lists",
+    "teach": "Look for a whole route section that repeats. Store it once in section. Use a for loop to extend route with that section twice, adding the connector only between repeats. A second for loop follows route. Reading or extending from section does not remove its items; you can reuse the list. Keep while for guards.",
+    "example": "section = [\"right\", \"down\", \"up\", \"right\"]\nroute = []\nfor repeat in range(2):\n    route.extend(section)\n    if repeat == 0:\n        route.extend([\"up\", \"up\"])\nfor direction in route:\n    hero.move(direction)",
     "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
+    "hint": "The same two-hall movement pattern appears twice. Plan the right hall and room, the upward connector, then the left hall and its room. End section at the far left of that second hall. Add [\"up\", \"up\"] between the two copies, not after the last copy, which ends at the exit.",
+    "starter": "from hero_game import hero\n\nsection = []\n# Plan the repeating two-hall section, including both rooms.\nroute = []\nfor repeat in range(2):\n    route.extend(section)\n    if repeat == 0:\n        route.extend([\"up\", \"up\"])\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 14,
       "height": 10,
@@ -7817,16 +7983,16 @@ const LEVELS = [
     "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
   },
   {
-    "id": "6-6",
+    "id": "7-6",
     "week": 5,
     "stage": 6,
-    "title": "Put it to the test",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
+    "title": "Follow a list of sections",
+    "topic": "Lists",
+    "teach": "A list can contain other lists. Split the full route into smaller direction lists, one per hall with its side-room detour and connector. The outer for loop picks a section; the inner for loop follows every direction in it. A while loop fights each guard before moving. Combine list planning, nested loops, and conditions to finish the map.",
+    "example": "sections = [[\"left\", \"left\"], [\"down\", \"up\"], [\"left\"]]\nfor section in sections:\n    for direction in section:\n        hero.move(direction)",
     "objective": "Collect all 14 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 5 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
+    "hint": "There are five halls. Put each hall, its side-room return, and its connector in a separate list. The last section ends at the exit. Trace the end of one section before planning the next. The starter handles guards and supplies without any custom commands.",
+    "starter": "from hero_game import hero\n\nsections = [\n    [],  # First hall, side room, and connector.\n    # Add the remaining sections.\n]\n\nfor section in sections:\n    for direction in section:\n        if hero.door_at(direction):\n            hero.unlock(direction)\n        while hero.enemy_at(direction):\n            if hero.health <= 6 and hero.potions > 0:\n                hero.heal()\n            hero.attack(direction)\n        hero.move(direction)\n        if hero.on_coin or hero.on_key or hero.on_potion:\n            hero.collect()\n",
     "world": {
       "width": 15,
       "height": 12,
@@ -8299,16 +8465,16 @@ const LEVELS = [
     "mapNote": "15 \u00d7 12 map \u00b7 78 steps on the full supply route"
   },
   {
-    "id": "7-1",
+    "id": "6-1",
     "week": 6,
     "stage": 1,
-    "title": "Write the route",
-    "topic": "Lists",
-    "teach": "Store your route in a list so you can change the plan without rewriting how the hero moves. Use a function to handle one step. Then loop through the directions in your list.",
-    "example": "route = [\"right\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
+    "title": "Build a travel kit",
+    "topic": "Functions",
+    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
+    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
     "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Add each direction to your list.\n# Loop through the list to follow your plan.\n",
+    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
+    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
     "world": {
       "width": 12,
       "height": 8,
@@ -8551,19 +8717,19 @@ const LEVELS = [
     "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
   },
   {
-    "id": "7-2",
+    "id": "6-2",
     "week": 6,
     "stage": 2,
-    "title": "Change the plan",
-    "topic": "Lists",
-    "teach": "Store your route in a list so you can change the plan without rewriting how the hero moves. Use a function to handle one step. Then loop through the directions in your list.",
-    "example": "route = [\"right\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
-    "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Add each direction to your list.\n# Loop through the list to follow your plan.\n",
+    "title": "Search each room",
+    "topic": "Functions",
+    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
+    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
+    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
+    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
+    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
     "world": {
       "width": 13,
-      "height": 10,
+      "height": 8,
       "path": [
         [
           1,
@@ -8718,58 +8884,6 @@ const LEVELS = [
           5
         ],
         [
-          11,
-          6
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          9,
-          7
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          5,
-          7
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          4,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          2,
-          7
-        ],
-        [
-          1,
-          7
-        ],
-        [
           3,
           2
         ],
@@ -8784,14 +8898,6 @@ const LEVELS = [
         [
           9,
           4
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          9,
-          6
         ]
       ],
       "start": [
@@ -8799,8 +8905,8 @@ const LEVELS = [
         1
       ],
       "exit": [
-        1,
-        7
+        11,
+        5
       ],
       "coins": [
         [
@@ -8834,18 +8940,6 @@ const LEVELS = [
         [
           6,
           5
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          5,
-          7
         ]
       ],
       "keys": [
@@ -8880,10 +8974,6 @@ const LEVELS = [
         [
           6,
           4
-        ],
-        [
-          5,
-          8
         ]
       ],
       "enemies": [
@@ -8901,30 +8991,25 @@ const LEVELS = [
           "x": 10,
           "y": 5,
           "health": 6
-        },
-        {
-          "x": 2,
-          "y": 7,
-          "health": 9
         }
       ]
     },
-    "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
+    "mapNote": "13 \u00d7 8 map \u00b7 40 steps on the full supply route"
   },
   {
-    "id": "7-3",
+    "id": "6-3",
     "week": 6,
     "stage": 3,
-    "title": "The winding tunnels",
-    "topic": "Lists",
-    "teach": "Store your route in a list so you can change the plan without rewriting how the hero moves. Use a function to handle one step. Then loop through the directions in your list.",
-    "example": "route = [\"right\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
-    "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Add each direction to your list.\n# Loop through the list to follow your plan.\n",
+    "title": "The watchtower",
+    "topic": "Functions",
+    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
+    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
+    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
+    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
+    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
     "world": {
       "width": 14,
-      "height": 10,
+      "height": 8,
       "path": [
         [
           1,
@@ -9087,62 +9172,6 @@ const LEVELS = [
           5
         ],
         [
-          12,
-          6
-        ],
-        [
-          12,
-          7
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          9,
-          7
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          5,
-          7
-        ],
-        [
-          4,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          2,
-          7
-        ],
-        [
-          1,
-          7
-        ],
-        [
           3,
           2
         ],
@@ -9157,14 +9186,6 @@ const LEVELS = [
         [
           10,
           4
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          10,
-          6
         ]
       ],
       "start": [
@@ -9172,8 +9193,8 @@ const LEVELS = [
         1
       ],
       "exit": [
-        1,
-        7
+        12,
+        5
       ],
       "coins": [
         [
@@ -9203,18 +9224,6 @@ const LEVELS = [
         [
           7,
           5
-        ],
-        [
-          12,
-          5
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          7,
-          7
         ]
       ],
       "keys": [
@@ -9249,10 +9258,6 @@ const LEVELS = [
         [
           7,
           4
-        ],
-        [
-          7,
-          8
         ]
       ],
       "enemies": [
@@ -9270,27 +9275,22 @@ const LEVELS = [
           "x": 11,
           "y": 5,
           "health": 6
-        },
-        {
-          "x": 2,
-          "y": 7,
-          "health": 9
         }
       ]
     },
-    "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
+    "mapNote": "14 \u00d7 8 map \u00b7 43 steps on the full supply route"
   },
   {
-    "id": "7-4",
+    "id": "6-4",
     "week": 6,
     "stage": 4,
     "title": "The west wing",
-    "topic": "Lists",
-    "teach": "Store your route in a list so you can change the plan without rewriting how the hero moves. Use a function to handle one step. Then loop through the directions in your list.",
-    "example": "route = [\"right\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
+    "topic": "Functions",
+    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
+    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
     "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Add each direction to your list.\n# Loop through the list to follow your plan.\n",
+    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
+    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
     "world": {
       "width": 13,
       "height": 10,
@@ -9642,16 +9642,16 @@ const LEVELS = [
     "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
   },
   {
-    "id": "7-5",
+    "id": "6-5",
     "week": 6,
     "stage": 5,
     "title": "The return route",
-    "topic": "Lists",
-    "teach": "Store your route in a list so you can change the plan without rewriting how the hero moves. Use a function to handle one step. Then loop through the directions in your list.",
-    "example": "route = [\"right\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
+    "topic": "Functions",
+    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
+    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
     "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Add each direction to your list.\n# Loop through the list to follow your plan.\n",
+    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
+    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
     "world": {
       "width": 14,
       "height": 10,
@@ -10011,16 +10011,16 @@ const LEVELS = [
     "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
   },
   {
-    "id": "7-6",
+    "id": "6-6",
     "week": 6,
     "stage": 6,
     "title": "Put it to the test",
-    "topic": "Lists",
-    "teach": "Store your route in a list so you can change the plan without rewriting how the hero moves. Use a function to handle one step. Then loop through the directions in your list.",
-    "example": "route = [\"right\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
+    "topic": "Functions",
+    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
+    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
     "objective": "Collect all 14 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 5 guards. Keep an eye on your health.",
-    "hint": "Check the side rooms before leaving each hall. You will need to walk back to the main path.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Add each direction to your list.\n# Loop through the list to follow your plan.\n",
+    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
+    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
     "world": {
       "width": 15,
       "height": 12,

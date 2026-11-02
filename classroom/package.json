@@ -1,0 +1,9 @@
+{
+  "name": "codehaven-ide",
+  "private": true,
+  "version": "3.0.0",
+  "scripts": {
+    "test": "node --check course-settings.js && node --check app.js && node --check runtime.js && node --check lessons.js && node --check curriculum.js && node --test tests/interface.test.cjs && python3 -m unittest discover -s tests -p \"test_*.py\"",
+    "serve": "python3 -m http.server 8000"
+  }
+}

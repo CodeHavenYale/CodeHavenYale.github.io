@@ -4,3 +4,5 @@ _site
 TODO
 .jekyll-cache/
 vendor/
+__pycache__/
+*.py[cod]
