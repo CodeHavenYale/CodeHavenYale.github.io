@@ -67,6 +67,7 @@ function updateMapDescription(world) {
     $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+coloredItems+'.');
     const numberItems=[...(world.number_clues || []).map(c=>`Number sign ${c.label} at ${c.x},${c.y}; stand here and save hero.read()`),...(world.code_doors || []).map(d=>`Code door ${d.label} at ${d.x},${d.y}; code is ${d.formula}`)].join('; ');
     if(numberItems) $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+numberItems+'.');
+    if(world.requires_hotbar) $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' Hotbar slots are indexed 0 to 4. Load a list with hero.set_hotbar(hotbar), then hold an item with hero.equip(index). Hold a sword to attack, a key to unlock, and a potion to heal. Keys and potions must be collected.');
     $('mapDescription').textContent = $('canvas').getAttribute('aria-label') + ' Walkable tiles: ' + world.path.map(p=>p.join(',')).join('; ') + '.';
 }
 function reportLevel(result,status,error=null) {

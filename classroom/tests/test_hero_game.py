@@ -144,6 +144,92 @@ class HeroTests(unittest.TestCase):
             for _ in range(230):
                 game.hero.move('down');game.hero.move('up')
 
+    def test_hotbar_requires_switching_items_without_consuming_on_wrong_hand(self):
+        game.setup({**FIXTURE, 'requires_hotbar': True})
+        game.hero.set_hotbar(['sword', 'key', 'potion'])
+        with self.assertRaisesRegex(ValueError, 'Hold the sword'):
+            game.hero.attack('right')
+        self.assertEqual(game.hero.enemies[(2,1)], 6)
+        game.hero.equip(0)
+        game.hero.attack('right')
+        self.assertEqual(game.hero.health, 9)
+        game.hero.move('down'); game.hero.collect()
+        with self.assertRaisesRegex(ValueError, 'Hold the potion'):
+            game.hero.heal()
+        self.assertEqual((game.hero.health, game.hero.potions), (9,1))
+        game.hero.equip(2); game.hero.heal()
+        self.assertEqual((game.hero.health, game.hero.potions), (10,0))
+        with self.assertRaisesRegex(ValueError, 'Hold the sword'):
+            game.hero.attack('up')
+        game.hero.move('right'); game.hero.collect()
+        with self.assertRaisesRegex(ValueError, 'Hold the key'):
+            game.hero.unlock('right')
+        self.assertEqual(game.hero.keys, 1)
+        self.assertTrue(game.hero.door_at('right'))
+        game.hero.equip(1); game.hero.unlock('right')
+        self.assertEqual(game.hero.keys, 0)
+        self.assertFalse(game.hero.door_at('right'))
+
+    def test_hotbar_slots_do_not_grant_free_keys_or_potions(self):
+        game.setup({**FIXTURE, 'requires_hotbar': True})
+        game.hero.set_hotbar(['sword', 'key', 'potion'])
+        game.hero.equip(2)
+        with self.assertRaisesRegex(ValueError, 'need a potion'):
+            game.hero.heal()
+        game.hero.move('down'); game.hero.move('right')
+        game.hero.equip(1)
+        with self.assertRaisesRegex(ValueError, 'need a gold key'):
+            game.hero.unlock('right')
+
+    def test_hotbar_loads_a_copy_and_playback_preserves_each_held_item(self):
+        items = ['sword','key']
+        game.hero.set_hotbar(items)
+        game.hero.equip(0)
+        sword_frame = copy.deepcopy(game.hero.frames[-1])
+        items[0] = 'potion'
+        items.append('sword')
+        self.assertEqual(game.hero.held, 'sword')
+        game.hero.equip(1)
+        self.assertEqual(game.hero.frames[-1]['held'], 'key')
+        self.assertEqual(game.hero.frames[-1]['selected_slot'], 1)
+        game.hero.set_hotbar(items)
+        self.assertIsNone(game.hero.held)
+        self.assertIsNone(game.hero.selected_slot)
+        game.hero.equip(0)
+        self.assertEqual(game.hero.frames[-1]['held'], 'potion')
+        self.assertEqual(game.hero.frames[2], sword_frame)
+        self.assertEqual(sword_frame['hotbar'], ['sword','key'])
+
+    def test_hotbar_rejects_bad_lists_and_indexes_without_changing_the_selection(self):
+        game.hero.set_hotbar(['sword','key','potion'])
+        game.hero.equip(1)
+        for items in [None, [], 'sword', ('key',), ['sword'] * 6, ['axe'], [None], [[]]]:
+            with self.assertRaises(ValueError): game.hero.set_hotbar(items)
+            self.assertEqual(game.hero.held, 'key')
+        for index in [-1, 3, 5, True, 1.0, '1', None]:
+            with self.assertRaisesRegex(ValueError, 'index'): game.hero.equip(index)
+            self.assertEqual(game.hero.held, 'key')
+
+    def test_hotbar_resets_between_runs_and_preserves_appearance(self):
+        game.setup({**FIXTURE, 'requires_hotbar': True})
+        game.hero.set_hotbar(['sword','key','potion'])
+        game.hero.equip(0)
+        game.hero.set_hat('crown')
+        game.hero.attack('right')
+        with patch.object(game, 'draw'): game.reset_after_run()
+        self.assertEqual(game.hero.hotbar, [])
+        self.assertIsNone(game.hero.held)
+        self.assertEqual(game.hero.frames[0]['hotbar'], [])
+        self.assertEqual(game.hero.hat, 'crown')
+        self.assertEqual(game.hero.health, 10)
+        self.assertTrue(game.hero.config['requires_hotbar'])
+
+    def test_hotbar_is_required_only_for_lists_and_all_starters_compile(self):
+        for level in levels:
+            compile(level['starter'], level['id'], 'exec')
+            self.assertEqual(bool(level['world'].get('requires_hotbar')), level['week'] == 5)
+        game.hero.attack('right')  # Earlier weeks still work without equipping.
+
     def test_move_and_attack_default_to_single_actions(self):
         game.hero.move('down')
         self.assertEqual((game.hero.x,game.hero.y),(1,2))

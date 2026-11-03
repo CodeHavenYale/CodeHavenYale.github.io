@@ -324,13 +324,13 @@ test('Week 5 releases every Lists challenge after Loops and keeps Functions lock
     assert.equal(get('weekTabs').children[5].children[0].textContent,'Functions');
     for(const button of get('weekTabs').children.slice(5)) assert.equal(button.disabled,true);
     w.run('chooseLevel("4-loops-6")');get('nextLevel').onclick();
-    assert.equal(w.run('course.id'),'7-1');
-    assert.equal(get('weekTitle').textContent,'Plan a route');
+    assert.equal(w.run('course.id'),'5-hotbar-1');
+    assert.equal(get('weekTitle').textContent,'Pack your hotbar');
     assert.equal(get('courseProgress').textContent,'0 / 31 complete');
     get('teacherPassword').value='T3acher123';
     await get('teacherForm').onsubmit({preventDefault(){}});
     for(let stage=1;stage<=6;stage++) {
-        assert.equal(w.run('course.id'),`7-${stage}`);
+        assert.equal(w.run('course.id'),`5-hotbar-${stage}`);
         assert.equal(get('lessonKicker').textContent,`WEEK 5 / CHALLENGE ${stage}`);
         assert.equal(get('teacherLevel').textContent,`Week 5: Lists, challenge ${stage}`);
         assert.ok(get('teacherCode').textContent.length>0);
@@ -340,17 +340,17 @@ test('Week 5 releases every Lists challenge after Loops and keeps Functions lock
         assert.equal(get('winNext').hidden,stage===6);
         get('nextLevel').onclick();
     }
-    assert.equal(w.run('course.id'),'7-6');
+    assert.equal(w.run('course.id'),'5-hotbar-6');
     assert.equal(get('courseProgress').textContent,'6 / 31 complete');
     w.run('chooseLevel("6-1")');
-    assert.equal(w.run('course.id'),'7-6');
+    assert.equal(w.run('course.id'),'5-hotbar-6');
 });
 
-test('swapping Lists and Functions preserves saved code and completion by challenge ID',()=>{
-    const savedCourse={mode:'levels',id:'7-2',drafts:{'7-2':{name:'hero.py',content:'route = ["right"]'},'6-2':{name:'hero.py',content:'def travel(): pass'}},completed:['7-2','6-2'],weekOneRevision:2};
+test('current Lists drafts and locked Functions drafts keep their saved code and completion',()=>{
+    const savedCourse={mode:'levels',id:'5-hotbar-2',drafts:{'5-hotbar-2':{name:'hero.py',content:'hotbar = ["sword"]'},'6-2':{name:'hero.py',content:'def travel(): pass'}},completed:['5-hotbar-2','6-2'],weekOneRevision:2};
     const w=workspace({savedCourse});
-    assert.equal(w.run('course.id'),'7-2');
-    assert.equal(w.elements.get('codeInput').value,'route = ["right"]');
+    assert.equal(w.run('course.id'),'5-hotbar-2');
+    assert.equal(w.elements.get('codeInput').value,'hotbar = ["sword"]');
     assert.equal(w.elements.get('lessonKicker').textContent,'WEEK 5 / CHALLENGE 2');
     assert.equal(w.elements.get('courseProgress').textContent,'1 / 31 complete');
     const locked=workspace({savedCourse:{...savedCourse,id:'6-2'}});
@@ -361,8 +361,28 @@ test('swapping Lists and Functions preserves saved code and completion by challe
     assert.equal(released.run('course.id'),'6-2');
     assert.equal(released.elements.get('codeInput').value,'def travel(): pass');
     assert.equal(released.elements.get('lessonKicker').textContent,'WEEK 6 / CHALLENGE 2');
-    released.run('chooseLevel("7-6")');released.elements.get('nextLevel').onclick();
+    released.run('chooseLevel("5-hotbar-6")');released.elements.get('nextLevel').onclick();
     assert.equal(released.run('course.id'),'6-1');
+});
+
+test('hotbar lessons preserve retired route drafts and start with fresh completion',()=>{
+    const retired=Array.from({length:6},(_,i)=>`7-${i+1}`);
+    const drafts=Object.fromEntries(retired.map(id=>[id,{name:'hero.py',content:'route = ["right"]'}]));
+    const w=workspace({savedCourse:{mode:'levels',id:'7-2',drafts,completed:[...retired,'4-loops-6'],weekOneRevision:2}});
+    assert.equal(w.run('courseStorageBlocked'),false);
+    assert.equal(w.run('course.id'),'1-1');
+    w.elements.get('weekTabs').children[4].onclick();
+    assert.equal(w.run('course.id'),'5-hotbar-1');
+    assert.match(w.elements.get('codeInput').value,/hotbar = \[\]/);
+    assert.equal(w.elements.get('courseProgress').textContent,'1 / 31 complete');
+    assert.match(w.elements.get('mapDescription').textContent,/Hold a sword to attack, a key to unlock, and a potion to heal/);
+    typeCode(w,'hotbar = ["sword", "key", "potion"]');
+    const saved=JSON.parse(w.storage.get('codehaven.course.v2'));
+    assert.equal(saved.drafts['5-hotbar-1'].content,'hotbar = ["sword", "key", "potion"]');
+    for(const id of retired) {
+        assert.equal(saved.drafts[id].content,'route = ["right"]');
+        assert.equal(saved.completed.includes(id),false);
+    }
 });
 
 test('renumbered week tabs keep saved work and teacher solutions',async()=>{
@@ -376,7 +396,7 @@ test('renumbered week tabs keep saved work and teacher solutions',async()=>{
     assert.match(w.elements.get('teacherCode').textContent,/hero.enter_code/);
     for(let number=3;number<=8;number++) {
         w.elements.get('weekTabs').children[number-1].onclick();
-        assert.equal(w.run('course.id'),({3:'4-1',4:'4-loops-1',5:'7-1',6:'6-1',7:'8-1',8:'9-1'})[number]);
+        assert.equal(w.run('course.id'),({3:'4-1',4:'4-loops-1',5:'5-hotbar-1',6:'6-1',7:'8-1',8:'9-1'})[number]);
         assert.equal(w.elements.get('lessonKicker').textContent,`WEEK ${number} / CHALLENGE 1`);
         assert.equal(w.elements.get('teacherLevel').textContent,`Week ${number}: ${w.run('currentLevel().topic')}, challenge 1`);
         assert.ok(w.elements.get('teacherCode').textContent.length>0);

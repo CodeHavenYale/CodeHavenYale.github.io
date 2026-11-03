@@ -1,4 +1,4 @@
-const RUNTIME_REVISION = '20261027-loop-sequences-1';
+const RUNTIME_REVISION = '20261102-hotbar-1';
 let heroApi = null, stopRequested = false;
 let executionPromise = null, runTransition = false, lastRunSource = null;
 let pyodide = null, runtimeApi = null, runtimeReady = false, runtimeLoading = false, isRunning = false;

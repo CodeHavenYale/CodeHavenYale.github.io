@@ -30,6 +30,16 @@ async def check():
         assert status == 'finished', (level['id'], status)
         assert hero_game.hero.result()['passed'], level['id']
         assert hero_game.hero.health > 0
+        if level['week'] == 5:
+            frames = hero_game.hero.frames
+            assert {'sword', 'key', 'potion'} <= {f['held'] for f in frames}, level['id']
+            for previous, frame in zip(frames, frames[1:]):
+                if frame['enemies'] != previous['enemies']:
+                    assert frame['held'] == 'sword', level['id']
+                if frame['doors'] != previous['doors']:
+                    assert frame['held'] == 'key', level['id']
+                if frame['health'] > previous['health']:
+                    assert frame['held'] == 'potion', level['id']
         for variant in level['world'].get('variants', []):
             with patch.object(hero_game.random, 'choice', return_value=variant):
                 hero_game.setup(level['world'])

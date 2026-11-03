@@ -8,6 +8,8 @@ import re
 import sys
 
 DIRECTIONS = {'right': (1, 0), 'left': (-1, 0), 'up': (0, -1), 'down': (0, 1)}
+HOTBAR_ITEMS = ('sword', 'key', 'potion')
+HOTBAR_SIZE = 5
 
 
 APPEARANCE_KEY = 'codehaven.hero.appearance.v1'
@@ -79,6 +81,8 @@ class Hero:
         self.potions = 0
         self.health = 10
         self.coins = 0
+        self.hotbar = []
+        self.selected_slot = None
         self.name = _appearance['name']
         self.color = _appearance['color']
         self.hat = _appearance['hat']
@@ -100,8 +104,35 @@ class Hero:
                             'doors': list(self.doors), 'potions_left': list(self.potions_left),
                             'keys': self.keys, 'potions': self.potions, 'message': message,
                             'name': self.name, 'color': self.color, 'hat': self.hat,
+                            'hotbar': list(self.hotbar), 'selected_slot': self.selected_slot,
+                            'held': self.held,
                             'keyring': dict(self.keyring), 'gates': dict(self.gates), 'activated': set(self.activated),
                             'readings': dict(self.readings), 'code_doors': list(self.code_doors)})
+
+    @property
+    def held(self):
+        return self.hotbar[self.selected_slot] if self.selected_slot is not None else None
+
+    def set_hotbar(self, items):
+        self.alive()
+        if not isinstance(items, list) or not 1 <= len(items) <= HOTBAR_SIZE:
+            raise ValueError('Use a list with 1 to 5 items, like ["sword", "key", "potion"].')
+        if any(not isinstance(item, str) or item not in HOTBAR_ITEMS for item in items):
+            raise ValueError('Hotbar items are "sword", "key", and "potion". Put each name in quotes.')
+        self.hotbar = list(items)
+        self.selected_slot = None
+        self.record('Hotbar loaded. Use hero.equip(index) to hold an item.')
+
+    def equip(self, index):
+        self.alive()
+        if type(index) is not int or not 0 <= index < len(self.hotbar):
+            raise ValueError('Choose a filled hotbar index, starting at 0. Load your list with hero.set_hotbar(hotbar) first.')
+        self.selected_slot = index
+        self.record('Holding ' + self.held + ' from hotbar[' + str(index) + '].')
+
+    def require_item(self, item):
+        if self.config.get('requires_hotbar') and self.held != item:
+            raise ValueError('Hold the ' + item + ' first. Use hero.equip(index) with its hotbar slot (indexes start at 0).')
 
     def set_name(self, name):
         if not isinstance(name, str) or not 1 <= len(name.strip()) <= 16 or not name.isprintable():
@@ -220,6 +251,7 @@ class Hero:
 
     def unlock(self, direction):
         self.alive()
+        self.require_item('key')
         target = self.target(direction)
         if target not in self.doors:
             raise ValueError('There is no locked door in that direction.')
@@ -245,6 +277,7 @@ class Hero:
 
     def heal(self):
         self.alive()
+        self.require_item('potion')
         if self.potions < 1:
             raise ValueError('You need a potion. Pick one up in a side room.')
         if self.health == 10:
@@ -259,6 +292,7 @@ class Hero:
         for _ in range(count):
             self.alive()
             target = self.target(direction)
+            self.require_item('sword')
             if not self.enemy_at(direction):
                 raise ValueError('There is no enemy next to you in that direction.')
             self.enemies[target] = max(0, self.enemies[target] - 3)
@@ -296,6 +330,29 @@ def world_config():
     return json.dumps(hero.config)
 
 
+def draw_item(pygame, surface, item, x, y, scale=1):
+    """Use the same recognizable item in the hotbar and the hero's hand."""
+    def point(dx, dy):
+        return round(x + dx * scale), round(y + dy * scale)
+    stroke = max(2, round(3 * scale))
+    if item == 'sword':
+        pygame.draw.polygon(surface, '#dbeafe', [point(-3,-9), point(0,-16), point(3,-9), point(3,5), point(-3,5)])
+        pygame.draw.line(surface, '#67e8f9', point(0,-10), point(0,4), max(1, round(scale)))
+        pygame.draw.line(surface, '#fbbf24', point(-7,5), point(7,5), stroke)
+        pygame.draw.line(surface, '#b45309', point(0,6), point(0,13), stroke)
+    elif item == 'key':
+        pygame.draw.circle(surface, '#fde68a', point(0,-7), max(3, round(6*scale)), max(1, round(2*scale)))
+        pygame.draw.line(surface, '#fde68a', point(0,-1), point(0,13), stroke)
+        pygame.draw.line(surface, '#fde68a', point(0,8), point(6,8), stroke)
+        pygame.draw.line(surface, '#fde68a', point(0,12), point(5,12), stroke)
+    elif item == 'potion':
+        left, top = point(-7,-3)
+        pygame.draw.rect(surface, '#c084fc', (left,top,max(5,round(14*scale)),max(7,round(17*scale))), border_radius=3)
+        pygame.draw.line(surface, '#e9d5ff', point(0,-8), point(0,-2), max(3,round(7*scale)))
+        pygame.draw.line(surface, '#fbbf24', point(-3,-9), point(3,-9), stroke)
+        pygame.draw.line(surface, '#f5d0fe', point(-3,2), point(-3,7), max(1,round(2*scale)))
+
+
 def draw(frame):
     # Scope SDL keyboard events to the canvas before creating any SDL window.
     os.environ['SDL_EMSCRIPTEN_KEYBOARD_ELEMENT'] = '#canvas'
@@ -310,7 +367,8 @@ def draw(frame):
     _screen.fill('#15252f')
     cols = hero.config.get('width', 8)
     rows = hero.config.get('height', 6)
-    tile = min(56, 560 // cols, 432 // rows)
+    show_hotbar = hero.config.get('requires_hotbar') or bool(frame['hotbar'])
+    tile = min(56, 560 // cols, (350 if show_hotbar else 432) // rows)
     ox, oy = (640 - cols * tile) // 2, 28
     font = pygame.font.Font(None, 22)
     small = pygame.font.Font(None, 17)
@@ -385,12 +443,40 @@ def draw(frame):
         pygame.draw.circle(_screen,'#cbd5e1',(x,y-10),10,3)
         pygame.draw.rect(_screen,'#cbd5e1',(x-10,y-15,20,5),border_radius=2)
     pygame.draw.circle(_screen,'#15252f',(x+3,y-9),2)
+    if frame['held']:
+        pygame.draw.line(_screen,frame['color'],(x+6,y+2),(x+14,y+7),4)
+        draw_item(pygame, _screen, frame['held'], x+17, y+2, .7)
+        pygame.draw.circle(_screen,'#fed7aa',(x+16,y+7),3)
     stats = f"HP {frame['health']}/10    Coins {frame['coins']}/{len(hero.config['coins'])}    Keys {frame['keys']}    Potions {frame['potions']}"
-    _screen.blit(font.render(frame['name'], True, frame['color']),(24,463))
+    _screen.blit(font.render(frame['name'], True, frame['color']),(24,385 if show_hotbar else 463))
     key_text = 'Keys: ' + ', '.join(c[0].upper()+':'+str(n) for c,n in sorted(frame['keyring'].items()) if n)
-    _screen.blit(small.render(key_text if frame['keys'] else 'Keys: none', True, '#cbd5e1'),(225,466))
+    if show_hotbar:
+        holding = f"Holding: {frame['held']} [{frame['selected_slot']}]" if frame['held'] else 'Empty hand · use hero.equip(index)'
+        _screen.blit(small.render(holding, True, '#67e8f9'),(225,389))
+        for index in range(HOTBAR_SIZE):
+            left = 139 + index * 74
+            selected = frame['selected_slot'] == index
+            rect = pygame.Rect(left, 410, 66, 65)
+            pygame.draw.rect(_screen, '#294b59' if selected else '#1c313b', rect, border_radius=6)
+            pygame.draw.rect(_screen, '#67e8f9' if selected else '#48616d', rect, 3 if selected else 1, border_radius=6)
+            _screen.blit(small.render(str(index), True, '#67e8f9' if selected else '#8ba5b3'),(left+6,414))
+            if index < len(frame['hotbar']):
+                item = frame['hotbar'][index]
+                draw_item(pygame, _screen, item, left+33, 438, .8)
+                label = small.render(item, True, '#f8fafc')
+                _screen.blit(label,(left+(66-label.get_width())//2,457))
+                if item in ('key','potion'):
+                    count = frame['keys' if item == 'key' else 'potions']
+                    amount = small.render('x'+str(count),True,'#cbd5e1')
+                    _screen.blit(amount,(left+61-amount.get_width(),414))
+            else:
+                _screen.blit(small.render('empty',True,'#8ba5b3'),(left+17,457))
+    else:
+        _screen.blit(small.render(key_text if frame['keys'] else 'Keys: none', True, '#cbd5e1'),(225,466))
     _screen.blit(font.render(stats, True, '#cbd5e1'),(24,486))
     legend = 'Letters: code signs   Roman numerals: doors   E: exit' if hero.number_clues else 'Keys match door colors. S: switch   Bars: gate   E: exit'
+    if show_hotbar:
+        legend = 'Hotbar indexes start at 0. Sword: attack · Key: unlock · Potion: heal'
     _screen.blit(small.render(legend,True,'#8ba5b3'),(24,511))
     _screen.blit(small.render(frame['message'],True,'#93c5fd'),(24,534))
     pygame.event.pump()

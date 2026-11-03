@@ -22,7 +22,7 @@ const WEEKS = [
   {
     "number": 5,
     "topic": "Lists",
-    "title": "Plan a route"
+    "title": "Pack your hotbar"
   },
   {
     "number": 6,
@@ -6271,16 +6271,16 @@ const LEVELS = [
     }
   },
   {
-    "id": "7-1",
+    "id": "5-hotbar-1",
     "week": 5,
     "stage": 1,
-    "title": "Write the route",
+    "title": "Pack your first hotbar",
     "topic": "Lists",
-    "teach": "A list stores several values in order. Put one direction string in route for each tile you want to walk, including repeated directions and the return trip from side rooms. A for loop reads every item from first to last. Inside it, reuse your Week 4 while loop to fight until the path is clear, then move and collect.",
-    "example": "route = [\"right\", \"right\", \"up\", \"down\"]\nfor direction in route:\n    hero.move(direction)",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Write one item for each move; five tiles right needs five \"right\" items. The example shows list order, not the whole route. The starter already checks doors, fights with a while loop, and collects after each move.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Add the full route, including side rooms and the return from each room.\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "teach": "A Python list holds items in order. Your hotbar shows that order on screen. Load it with hero.set_hotbar(hotbar), then use hero.equip(index) to put an item in your hand. Indexes start at 0: the first slot is 0, the second is 1, and the third is 2. Hold a sword to attack, a key to unlock, and a potion to heal. Keys and potions still have to be collected on the map.",
+    "example": "hotbar = [\"sword\", \"key\", \"potion\"]\nhero.set_hotbar(hotbar)\nhero.equip(0)  # Hold the sword in the first slot.",
+    "objective": "Create a three-item hotbar in this order: sword, key, potion. Watch the supplied plan switch items as your hero travels.",
+    "hint": "Fill hotbar with the three quoted item names. The supplied movement uses slot 0 for attacks, slot 1 for doors, and slot 2 for healing.",
+    "starter": "from hero_game import hero\n\nhotbar = []\n# Pack sword, key, and potion in that order.\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\",\n    \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\",\n    \"left\", \"left\", \"left\", \"left\", \"down\", \"down\", \"right\", \"right\", \"right\", \"right\",\n    \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 12,
       "height": 8,
@@ -6518,21 +6518,26 @@ const LEVELS = [
           "y": 5,
           "health": 6
         }
-      ]
+      ],
+      "requires_hotbar": true
     },
-    "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
+    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
+    "goals": [
+      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
+      "Collect every coin, defeat every guard, open every door, and reach the exit."
+    ]
   },
   {
-    "id": "7-2",
+    "id": "5-hotbar-2",
     "week": 5,
     "stage": 2,
-    "title": "Change one list item",
+    "title": "Choose the right slot",
     "topic": "Lists",
-    "teach": "List positions start at 0: route[0] is the first direction and route[1] is the second. Change one item with route[index] = \"direction\" before the for loop starts. The same loop then follows your edited plan. Keep the while loop for guards inside the route loop.",
-    "example": "route = [\"up\", \"right\"]\nroute[0] = \"right\"\nfor direction in route:\n    hero.move(direction)",
-    "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "The first move must be right. Fix route[0], then add the rest of your route. Editing an item replaces it; it does not insert a new move or shift the other items. Finish editing before following the list.",
-    "starter": "from hero_game import hero\n\nroute = [\"up\"]\n# Fix route[0] and add the remaining directions before the loop.\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "teach": "A list index tells you where an item is stored. hotbar[0] reads the first item, while hero.equip(0) holds it. Moving an item to another position changes its index. Read this hotbar and set the three slot variables so each action uses the right item.",
+    "example": "hotbar = [\"key\", \"potion\", \"sword\"]\nprint(hotbar[2])  # sword\nhero.set_hotbar(hotbar)\nhero.equip(2)",
+    "objective": "The hotbar has been rearranged. Set sword_slot, key_slot, and potion_slot to their correct zero-based indexes.",
+    "hint": "In [\"potion\", \"sword\", \"key\"], potion is first. Count from 0, not 1. Replace each None with a number.",
+    "starter": "from hero_game import hero\n\nhotbar = [\"potion\", \"sword\", \"key\"]\nsword_slot = None\nkey_slot = None\npotion_slot = None\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\",\n    \"right\", \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"down\", \"down\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\",\n    \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\",\n    \"left\", \"left\", \"left\", \"left\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(key_slot)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(potion_slot)\n            hero.heal()\n        hero.equip(sword_slot)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 13,
       "height": 10,
@@ -6879,21 +6884,26 @@ const LEVELS = [
           "y": 7,
           "health": 9
         }
-      ]
+      ],
+      "requires_hotbar": true
     },
-    "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
+    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
+    "goals": [
+      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
+      "Collect every coin, defeat every guard, open every door, and reach the exit."
+    ]
   },
   {
-    "id": "7-3",
+    "id": "5-hotbar-3",
     "week": 5,
     "stage": 3,
-    "title": "Build a route with loops",
+    "title": "Replace an item",
     "topic": "Lists",
-    "teach": "Start with an empty list. append adds one direction to the end; extend adds the items from another list. Use a for loop with range to append a long hallway, then append the directions into and out of a side room. A second for loop follows the completed route; its while loop handles guards.",
-    "example": "route = []\nfor step in range(6):\n    route.append(\"right\")\nroute.append(\"up\")\nroute.append(\"down\")\n# Later: route.extend([\"right\", \"right\"])",
-    "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "The first side room is six tiles right of the start. Build those moves with range(6), append the up-and-down detour, and extend the list with your remaining plan. Build the whole list before you loop through it to move.",
-    "starter": "from hero_game import hero\n\nroute = []\n# Build the first hall with range and append.\n# Append its side-room detour, then extend with the rest of your plan.\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "teach": "Assigning to a list index replaces just that item. hotbar[1] = \"key\" puts a key in the second slot. This hotbar has two swords and no key. Repair the list before loading it. hero.set_hotbar copies the current list, so load it again after any later edits.",
+    "example": "hotbar = [\"key\", \"key\", \"potion\"]\nhotbar[0] = \"sword\"\nhero.set_hotbar(hotbar)",
+    "objective": "Replace the extra sword with a key. Keep the sword in slot 0 and the potion in slot 2.",
+    "hint": "The extra sword is in the second slot. Use hotbar[index] = \"key\" before hero.set_hotbar(hotbar).",
+    "starter": "from hero_game import hero\n\nhotbar = [\"sword\", \"sword\", \"potion\"]\n# Replace the extra sword here, using its index.\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"down\",\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 14,
       "height": 10,
@@ -7248,21 +7258,26 @@ const LEVELS = [
           "y": 7,
           "health": 9
         }
-      ]
+      ],
+      "requires_hotbar": true
     },
-    "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
+    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
+    "goals": [
+      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
+      "Collect every coin, defeat every guard, open every door, and reach the exit."
+    ]
   },
   {
-    "id": "7-4",
+    "id": "5-hotbar-4",
     "week": 5,
     "stage": 4,
-    "title": "Count each route section",
+    "title": "Add a potion slot",
     "topic": "Lists",
-    "teach": "Use two lists: directions stores each straight section and steps stores how many tiles it takes. Entries at the same index belong together. The outer for loop visits the list indices with range(len(directions)); the inner for loop repeats one move steps[index] times. Keep a while loop inside for combat.",
-    "example": "directions = [\"left\", \"up\", \"down\"]\nsteps = [5, 1, 1]\nfor index in range(len(directions)):\n    direction = directions[index]\n    for step in range(steps[index]):\n        hero.move(direction)",
-    "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Start by going left five tiles, up one, and down one. Add the remaining sections, including the return from every room. Both lists must have the same length, and every count must be positive. Put all movement checks inside the inner loop.",
-    "starter": "from hero_game import hero\n\ndirections = []\nsteps = []\n# Add one direction and a matching step count for every straight section.\n\nfor index in range(len(directions)):\n    direction = directions[index]\n    for step in range(steps[index]):\n        if hero.door_at(direction):\n            hero.unlock(direction)\n        while hero.enemy_at(direction):\n            if hero.health <= 6 and hero.potions > 0:\n                hero.heal()\n            hero.attack(direction)\n        hero.move(direction)\n        if hero.on_coin or hero.on_key or hero.on_potion:\n            hero.collect()\n",
+    "teach": "append adds one item to the end of a list. A two-item list uses indexes 0 and 1; appending creates slot 2. Add the missing potion before loading your hotbar. The potion slot chooses what to hold; its x count shows how many collected potions you can use.",
+    "example": "hotbar = [\"sword\"]\nhotbar.append(\"key\")\nprint(len(hotbar))  # 2 slots",
+    "objective": "Use append to add a potion after the sword and key, so the supplied healing code can equip slot 2.",
+    "hint": "Use hotbar.append(\"potion\") before loading the list. Adding a potion slot does not give you a free potion; collect supplies on the route.",
+    "starter": "from hero_game import hero\n\nhotbar = [\"sword\", \"key\"]\n# Append the missing potion here.\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"down\", \"left\", \"left\", \"left\",\n    \"left\", \"left\", \"down\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\",\n    \"down\", \"up\", \"right\", \"right\", \"right\", \"right\", \"down\", \"down\", \"left\", \"left\",\n    \"left\", \"left\", \"left\", \"up\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"down\", \"up\",\n    \"right\", \"right\", \"right\", \"right\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 13,
       "height": 10,
@@ -7609,21 +7624,26 @@ const LEVELS = [
           "y": 7,
           "health": 9
         }
-      ]
+      ],
+      "requires_hotbar": true
     },
-    "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
+    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
+    "goals": [
+      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
+      "Collect every coin, defeat every guard, open every door, and reach the exit."
+    ]
   },
   {
-    "id": "7-5",
+    "id": "5-hotbar-5",
     "week": 5,
     "stage": 5,
-    "title": "Reuse a route list",
+    "title": "Fill and inspect the hotbar",
     "topic": "Lists",
-    "teach": "Look for a whole route section that repeats. Store it once in section. Use a for loop to extend route with that section twice, adding the connector only between repeats. A second for loop follows route. Reading or extending from section does not remove its items; you can reuse the list. Keep while for guards.",
-    "example": "section = [\"right\", \"down\", \"up\", \"right\"]\nroute = []\nfor repeat in range(2):\n    route.extend(section)\n    if repeat == 0:\n        route.extend([\"up\", \"up\"])\nfor direction in route:\n    hero.move(direction)",
-    "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "The same two-hall movement pattern appears twice. Plan the right hall and room, the upward connector, then the left hall and its room. End section at the far left of that second hall. Add [\"up\", \"up\"] between the two copies, not after the last copy, which ends at the exit.",
-    "starter": "from hero_game import hero\n\nsection = []\n# Plan the repeating two-hall section, including both rooms.\nroute = []\nfor repeat in range(2):\n    route.extend(section)\n    if repeat == 0:\n        route.extend([\"up\", \"up\"])\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.heal()\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "teach": "extend adds every item from another list. len(hotbar) counts the filled slots. for slot in range(len(hotbar)) visits each valid index, so you can equip and inspect every item before setting off. A hotbar has room for at most five slots.",
+    "example": "hotbar = [\"sword\"]\nsupplies = [\"key\", \"potion\"]\nhotbar.extend(supplies)\nhero.set_hotbar(hotbar)\nfor slot in range(len(hotbar)):\n    hero.equip(slot)",
+    "objective": "Extend the sword-only hotbar with the supplies list. Watch the for loop equip each slot, then finish the route.",
+    "hint": "Pass supplies to hotbar.extend before loading the hotbar. The preview loop uses indexes 0, 1, and 2 once the list is filled.",
+    "starter": "from hero_game import hero\n\nhotbar = [\"sword\"]\nsupplies = [\"key\", \"potion\"]\n# Extend hotbar with supplies here.\n\nhero.set_hotbar(hotbar)\nfor slot in range(len(hotbar)):\n    hero.equip(slot)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"down\", \"up\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"up\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"up\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"up\",\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"down\", \"up\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"up\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"up\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
     "world": {
       "width": 14,
       "height": 10,
@@ -7978,21 +7998,26 @@ const LEVELS = [
           "y": 2,
           "health": 9
         }
-      ]
+      ],
+      "requires_hotbar": true
     },
-    "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
+    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
+    "goals": [
+      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
+      "Collect every coin, defeat every guard, open every door, and reach the exit."
+    ]
   },
   {
-    "id": "7-6",
+    "id": "5-hotbar-6",
     "week": 5,
     "stage": 6,
-    "title": "Follow a list of sections",
+    "title": "Swap your loadout",
     "topic": "Lists",
-    "teach": "A list can contain other lists. Split the full route into smaller direction lists, one per hall with its side-room detour and connector. The outer for loop picks a section; the inner for loop follows every direction in it. A while loop fights each guard before moving. Combine list planning, nested loops, and conditions to finish the map.",
-    "example": "sections = [[\"left\", \"left\"], [\"down\", \"up\"], [\"left\"]]\nfor section in sections:\n    for direction in section:\n        hero.move(direction)",
-    "objective": "Collect all 14 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 5 guards. Keep an eye on your health.",
-    "hint": "There are five halls. Put each hall, its side-room return, and its connector in a separate list. The last section ends at the exit. Trace the end of one section before planning the next. The starter handles guards and supplies without any custom commands.",
-    "starter": "from hero_game import hero\n\nsections = [\n    [],  # First hall, side room, and connector.\n    # Add the remaining sections.\n]\n\nfor section in sections:\n    for direction in section:\n        if hero.door_at(direction):\n            hero.unlock(direction)\n        while hero.enemy_at(direction):\n            if hero.health <= 6 and hero.potions > 0:\n                hero.heal()\n            hero.attack(direction)\n        hero.move(direction)\n        if hero.on_coin or hero.on_key or hero.on_potion:\n            hero.collect()\n",
+    "teach": "A list can contain other lists. loadouts[section_index] chooses a complete hotbar for one hall. Each hotbar needs a sword, key, and potion, but their order can change. hotbar.index(\"sword\") finds the sword's current slot. The outer for loop changes loadouts, the inner for loop travels, and while keeps attacking until a guard is defeated.",
+    "example": "loadouts = [\n    [\"sword\", \"key\", \"potion\"],\n    [\"potion\", \"sword\", \"key\"],\n]\nhotbar = loadouts[1]\nhero.set_hotbar(hotbar)\nhero.equip(hotbar.index(\"sword\"))",
+    "objective": "Pack five hotbar lists, one for each hall. Include all three items in each list, and try changing their order between halls.",
+    "hint": "Fill each inner [] with \"sword\", \"key\", and \"potion\". The supplied index lookups find the right slot even when you rearrange the items.",
+    "starter": "from hero_game import hero\n\nloadouts = [\n    [],  # First hall\n    [],  # Second hall\n    [],  # Third hall\n    [],  # Fourth hall\n    [],  # Fifth hall\n]\n\n# Each supplied section is one hall and its side room.\nsections = [\n    [\"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"up\"],\n    [\"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"up\"],\n    [\"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"up\"],\n    [\"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"up\"],\n    [\"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\"],\n]\n\nfor section_index in range(len(sections)):\n    hotbar = loadouts[section_index]\n    hero.set_hotbar(hotbar)\n    route = sections[section_index]\n    for direction in route:\n        if hero.door_at(direction):\n            hero.equip(hotbar.index(\"key\"))\n            hero.unlock(direction)\n        while hero.enemy_at(direction):\n            if hero.health <= 6 and hero.potions > 0:\n                hero.equip(hotbar.index(\"potion\"))\n                hero.heal()\n            hero.equip(hotbar.index(\"sword\"))\n            hero.attack(direction)\n        hero.move(direction)\n        if hero.on_coin or hero.on_key or hero.on_potion:\n            hero.collect()\n",
     "world": {
       "width": 15,
       "height": 12,
@@ -8460,9 +8485,14 @@ const LEVELS = [
           "y": 2,
           "health": 12
         }
-      ]
+      ],
+      "requires_hotbar": true
     },
-    "mapNote": "15 \u00d7 12 map \u00b7 78 steps on the full supply route"
+    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
+    "goals": [
+      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
+      "Collect every coin, defeat every guard, open every door, and reach the exit."
+    ]
   },
   {
     "id": "6-1",
