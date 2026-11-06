@@ -8,7 +8,8 @@ try {
     const value=JSON.parse(localStorage.getItem('codehaven.course.v2') || 'null');
     if (value) {
         if (!value.drafts || typeof value.drafts!=='object' || !Array.isArray(value.completed)) throw Error('Invalid course save');
-        course={mode:value.mode==='free'?'free':'levels',id:LEVELS.some(l=>l.id===value.id)?value.id:'1-1',drafts:value.drafts,completed:value.completed.filter(id=>LEVELS.some(l=>l.id===id)),weekOneRevision:value.weekOneRevision};
+        const restoredId=LEVELS.some(l=>l.id===value.id) ? value.id : /^5-hotbar-[1-6]$/.test(value.id) ? value.id.replace('5-hotbar-','5-inventory-') : '1-1';
+        course={mode:value.mode==='free'?'free':'levels',id:restoredId,drafts:value.drafts,completed:value.completed.filter(id=>LEVELS.some(l=>l.id===id)),weekOneRevision:value.weekOneRevision};
     }
 } catch {courseStorageBlocked=true;$('saveStatus').textContent='Could not load saved levels';}
 if(course.weekOneRevision!==2) {course.completed=course.completed.filter(id=>!id.startsWith('1-'));course.weekOneRevision=2;}
@@ -54,11 +55,12 @@ function renderLesson() {
     $('lessonGoals').replaceChildren();for(const goal of level.goals || []) {const item=document.createElement('li');item.textContent=goal;$('lessonGoals').append(item);}
     $('lessonTitle').textContent=level.title;$('lessonObjective').textContent=level.objective;$('mapNote').textContent=level.mapNote;$('lessonTeach').textContent=level.teach;
     $('lessonExample').textContent=level.example;$('lessonExample').hidden=!level.example;$('lessonHint').textContent=level.hint;
+    $('inventoryGuide').hidden=!level.world.inventory_mode;
     updateMapDescription(level.world);
     $('currentFile').textContent='hero.py';$('codeInput').value=courseFile().content;$('codeInput').readOnly=false;lines();
     $('courseProgress').textContent=progressText();
     $('resultTitle').textContent=course.completed.includes(level.id)?'You have finished this one.':'Give it a try.';
-    $('resultText').textContent='Write your moves, then press Run.';$('nextLevel').hidden=true;
+    $('resultText').textContent=level.week===5 ? 'Start with an empty editor. hero is ready to use. Write your plan, then press Run.' : 'Write your moves, then press Run.';$('nextLevel').hidden=true;
     updateRunButtons();updateTeacher();
 }
 function updateMapDescription(world) {
@@ -67,7 +69,12 @@ function updateMapDescription(world) {
     $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+coloredItems+'.');
     const numberItems=[...(world.number_clues || []).map(c=>`Number sign ${c.label} at ${c.x},${c.y}; stand here and save hero.read()`),...(world.code_doors || []).map(d=>`Code door ${d.label} at ${d.x},${d.y}; code is ${d.formula}`)].join('; ');
     if(numberItems) $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+numberItems+'.');
-    if(world.requires_hotbar) $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' Hotbar slots are indexed 0 to 4. Load a list with hero.set_hotbar(hotbar), then hold an item with hero.equip(index). Hold a sword to attack, a key to unlock, and a potion to heal. Keys and potions must be collected.');
+    if(world.inventory_mode) {
+        const items=(world.items || []).map(i=>`${i.item} at ${i.x},${i.y}`).join('; ');
+        const pads=(world.deliveries || []).map(i=>`${i.item} pad at ${i.x},${i.y}`).join('; ');
+        const order=world.inventory_goal ? ' Finish carrying items in this order: '+world.inventory_goal.join(', ')+'.' : '';
+        $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' Inventory starts empty and holds 5 collected items. Indexes start at 0. Select with hero.equip(hero.inventory[index]); hero.drop() places the held item on your tile. Used or dropped items leave the list and later indexes shift left. Keys must match door colors. '+items+'. '+pads+'.'+order);
+    } else if(world.requires_hotbar) $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' Hotbar slots are indexed 0 to 4. Hold a sword to attack, a key to unlock, and a potion to heal.');
     $('mapDescription').textContent = $('canvas').getAttribute('aria-label') + ' Walkable tiles: ' + world.path.map(p=>p.join(',')).join('; ') + '.';
 }
 function reportLevel(result,status,error=null) {

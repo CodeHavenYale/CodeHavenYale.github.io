@@ -53,7 +53,7 @@ Use different names, such as `a`, `b`, `c`, and `d`, for different signs. Assign
 
 ## Checks
 
-Run `npm test` for syntax checks, interface state tests, Python runner/game tests, and all 49 decrypted teacher solutions through the real Python runner. Week 5 solutions are also checked for both loop types, all three held items, and the correct held item at each attack, unlock, and heal. Interface tests use a small DOM stand-in; they do not verify browser rendering.
+Run `npm test` for syntax checks, interface state tests, Python runner/game tests, and all 49 decrypted teacher solutions through the real Python runner. Week 5 solutions are also checked for actual list indexing, blank starters, inventory capacity, and the correct held item before each attack, unlock, and heal. Interface tests use a small DOM stand-in; they do not verify browser rendering.
 
 ## Loops (Week 4)
 
@@ -72,26 +72,26 @@ The new Week 4 challenges have new IDs. Retired loop drafts remain saved, and ol
 
 ## Lists (Week 5)
 
-Lists is unlocked after Loops; Functions follows in Week 6 and remains locked. All six Lists challenges use an inventory hotbar. Students switch the item in their hero's hand with a zero-based list index. The selected slot has a cyan outline, and the sword, key, or potion is drawn in the hero's hand during playback. Slots show item names and collected key/potion counts. Movement plans are supplied so the list is the focus; the plans still practice `for` and combat `while` loops without introducing custom functions.
+Six new maps teach indexing through collecting, carrying, using, and dropping physical items. Every Lists editor starts completely blank, with no movement plan or starter solution. `hero` is already available in curriculum runs, so no import is required. An optional command reference sits with the lesson instructions and is available on narrow screens too.
+
+The hotbar is the current inventory, starting empty. Collecting a key, potion, sword, or gem adds that pickup to the end of the list. Each pickup occupies one of five slots. Coins are counted separately. Use Python indexing to select an actual item:
 
 ```python
-hotbar = ["sword", "key", "potion"]
-hero.set_hotbar(hotbar)
-hero.equip(0)  # Hold the sword before attacking.
-hero.equip(1)  # Hold the key before opening a door.
-hero.equip(2)  # Hold the potion before healing.
+hero.equip(hero.inventory[0])
 ```
 
-The hotbar accepts 1–5 slots containing `"sword"`, `"key"`, or `"potion"`. `hero.set_hotbar` copies the list and empties the hero's hand; call `hero.equip(index)` next. After editing the Python list, load it again to show those changes. Keys and potions still come from map pickups and are consumed by unlocking and healing; packing a slot does not grant supplies. Only Week 5 requires matching held items for those actions. Other weeks retain their existing commands.
+Walking carries all inventory items; the selected one appears in the hero's hand. `hero.drop()` leaves the held item on the current tile, clears the hand, and removes it from the inventory. Later items shift left. Collecting it again adds it at the end. Used keys and potions also leave the list. A sword is reusable. Keys must be collected, held, and match the door's color. Copying or editing a Python list does not create supplies. Reading `hero.inventory` returns a snapshot of the current item list; read it again after pickups or removals. Identical-looking pickups remain separate items and selecting an index highlights that exact slot.
 
-1. **Pack your first hotbar:** create an ordered list of sword, key, and potion.
-2. **Choose the right slot:** identify the correct indexes in a rearranged hotbar.
-3. **Replace an item:** use indexed assignment to replace a duplicate sword with a key.
-4. **Add a potion slot:** use `append` to add the missing item.
-5. **Fill and inspect the hotbar:** use `extend`, `len`, and `range` to fill the list and equip every slot.
-6. **Swap your loadout:** pack a list of hotbar lists, switch loadouts between halls, and use `index` to find items whose positions change.
+1. **Your first index:** pick up a key and select the first item at index 0.
+2. **Choose it, carry it, drop it:** select between two gems and deliver them to matching pads.
+3. **Watch the indexes shift:** use the first key, then select the remaining key at its new index.
+4. **Drop it. Pick it up again.:** change list order by dropping and recollecting a gem.
+5. **Make room for the key:** move five gems through a door while respecting the five-item capacity.
+6. **The inventory expedition:** manage keys, a sword, a potion, and gem deliveries as indexes change.
 
-These challenges retain the six previous Lists maps but use new IDs, `5-hotbar-1` through `5-hotbar-6`. Old route drafts remain in browser storage, and old route completions do not mark the hotbar lessons finished. Functions and later weeks keep their existing maps, IDs, and drafts. Teacher solutions remain encrypted and include the matching equip calls. Failed runs reset the hotbar and empty the hand along with the map; appearance and student code are preserved.
+Delivery goals require the correct gem to remain on its matching pad; merely carrying it across the pad does not count. The reorder challenge checks the final inventory order. Failed runs restore pickups, empty the inventory, and preserve student code and appearance.
+
+IDs are `5-inventory-1` through `5-inventory-6`. Retired hotbar and route drafts remain saved, while their completions do not count for these redesigned lessons. Returning to a retired hotbar lesson selects its blank replacement. Other weeks keep their existing maps, drafts, and IDs. Teacher solutions remain encrypted. Functions stays locked in Week 6.
 
 ## GitHub Pages
 

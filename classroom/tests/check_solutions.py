@@ -23,23 +23,28 @@ async def check():
             tree = ast.parse(code)
             assert not any(isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.Lambda))
                            for node in ast.walk(tree)), (level['id'], 'Functions are taught in Week 6')
-            assert any(isinstance(node, ast.For) for node in ast.walk(tree)), level['id']
-            assert any(isinstance(node, ast.While) for node in ast.walk(tree)), level['id']
+            assert any(isinstance(node, ast.Subscript) and isinstance(node.value, ast.Attribute)
+                       and node.value.attr == 'inventory' for node in ast.walk(tree)), level['id']
+            assert level['starter'] == '' and level['example'] == '', level['id']
         hero_game.setup(level['world'])
-        status = await runner.start(code, '/project/hero.py')
+        status = await runner.start(code, '/project/hero.py', True)
         assert status == 'finished', (level['id'], status)
         assert hero_game.hero.result()['passed'], level['id']
         assert hero_game.hero.health > 0
         if level['week'] == 5:
             frames = hero_game.hero.frames
-            assert {'sword', 'key', 'potion'} <= {f['held'] for f in frames}, level['id']
+            assert frames[0]['hotbar'] == [], level['id']
+            assert all(len(f['hotbar']) <= 5 for f in frames), level['id']
             for previous, frame in zip(frames, frames[1:]):
                 if frame['enemies'] != previous['enemies']:
                     assert frame['held'] == 'sword', level['id']
                 if frame['doors'] != previous['doors']:
-                    assert frame['held'] == 'key', level['id']
+                    assert previous['held'].endswith(' key'), level['id']
+                    assert frame['held'] is None, level['id']
+                    assert len(frame['hotbar']) == len(previous['hotbar']) - 1, level['id']
                 if frame['health'] > previous['health']:
-                    assert frame['held'] == 'potion', level['id']
+                    assert previous['held'] == 'potion', level['id']
+                    assert frame['held'] is None, level['id']
         for variant in level['world'].get('variants', []):
             with patch.object(hero_game.random, 'choice', return_value=variant):
                 hero_game.setup(level['world'])

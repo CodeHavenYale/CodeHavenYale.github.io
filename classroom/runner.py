@@ -78,7 +78,7 @@ def _trace(frame, event, arg):
     return _trace
 
 
-async def run(source, filename):
+async def run(source, filename, lesson=False):
     global _deadline, _last_error, _error_info
     _last_error = None
     _error_info = None
@@ -93,6 +93,9 @@ async def run(source, filename):
     builtins.input = classroom_input
     namespace = {'__name__':'__main__', '__file__':filename,
                  '_codehaven_yield':_yield, '_codehaven_guard':_guard}
+    if lesson:
+        from hero_game import hero
+        namespace['hero'] = hero
     linecache.cache[filename] = (len(source), None, source.splitlines(True), filename)
     loop = asyncio.get_running_loop()
     heartbeat_handle = None
@@ -149,9 +152,9 @@ async def run(source, filename):
 _active_task = None
 
 
-async def start(source, filename):
+async def start(source, filename, lesson=False):
     global _active_task
-    _active_task = asyncio.create_task(run(source, filename))
+    _active_task = asyncio.create_task(run(source, filename, lesson))
     try:
         return await _active_task
     finally:

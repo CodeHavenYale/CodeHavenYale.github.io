@@ -1,4 +1,4 @@
-const RUNTIME_REVISION = '20261102-hotbar-1';
+const RUNTIME_REVISION = '20261105-inventory-1';
 let heroApi = null, stopRequested = false;
 let executionPromise = null, runTransition = false, lastRunSource = null;
 let pyodide = null, runtimeApi = null, runtimeReady = false, runtimeLoading = false, isRunning = false;
@@ -96,7 +96,7 @@ importlib.invalidate_caches()`);
         for (const f of files) pyodide.FS.writeFile('/project/'+f.name,f.binary ? Uint8Array.from(atob(f.content),c=>c.charCodeAt(0)) : f.content);
         if(lessonRun) previewHeroWorld(level);
         if(stopRequested) {if(lessonRun) {const outcome=JSON.parse(heroApi.outcome());resetHeroAfterRun(level);reportLevel(outcome,'stopped');} return;}
-        const result=await runtimeApi.start(selected.content,'/project/'+selected.name);
+        const result=await runtimeApi.start(selected.content,'/project/'+selected.name,lessonRun);
         const error=result==='error' ? JSON.parse(runtimeApi.error_details()) : null;
         if(result==='error') showError(error);
         if(lessonRun) {

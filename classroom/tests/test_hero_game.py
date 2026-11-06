@@ -40,12 +40,13 @@ class HeroTests(unittest.TestCase):
                         if neighbor in cells and neighbor not in seen:
                             seen.add(neighbor);pending.append(neighbor)
                 self.assertEqual(cells,seen)
-                self.assertGreaterEqual(len(cells),4 if level['week']==4 else 16)
+                self.assertGreaterEqual(len(cells),4 if level['week'] in (4,5) else 16)
                 for x,y in cells:
                     self.assertTrue(0<=x<world['width'] and 0<=y<world['height'])
                 objects=world['coins']+world['keys']+world['doors']+world['potions']+[world['exit']]
                 objects += [[e['x'],e['y']] for e in world['enemies']]
                 objects += [[e['x'],e['y']] for e in world.get('number_clues',[])+world.get('code_doors',[])]
+                objects += [[e['x'],e['y']] for e in world.get('items',[])+world.get('deliveries',[])]
                 self.assertTrue(all(tuple(p) in cells for p in objects))
                 self.assertEqual(len(world['keys']),len(world['doors']))
 

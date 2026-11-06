@@ -22,7 +22,7 @@ const WEEKS = [
   {
     "number": 5,
     "topic": "Lists",
-    "title": "Pack your hotbar"
+    "title": "Pick up. Index. Carry. Drop."
   },
   {
     "number": 6,
@@ -6271,102 +6271,114 @@ const LEVELS = [
     }
   },
   {
-    "id": "5-hotbar-1",
+    "title": "Your first index",
+    "teach": "Your inventory is a Python list. It starts empty. Collecting an item adds it to the end, and the hotbar shows its position. The first item has index 0. Use square brackets to choose an item, then equip it to put it in your hand. A key disappears from the list when you use it.",
+    "objective": "Pick up the red key, select it from your list, and carry it to the red door.",
+    "goals": [
+      "Collect the red key.",
+      "Use the first item in your inventory to open the red door.",
+      "Finish on the green exit marked E."
+    ],
+    "hint": "The small number above a hotbar slot is its index. The first index is 0, not 1. Your editor starts empty; hero is already available. Open the command reference if you need the syntax.",
+    "world": {
+      "width": 9,
+      "height": 7,
+      "path": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "start": [
+        1,
+        3
+      ],
+      "exit": [
+        7,
+        3
+      ],
+      "coins": [],
+      "enemies": [],
+      "potions": [],
+      "keys": [
+        [
+          2,
+          3
+        ]
+      ],
+      "doors": [
+        [
+          5,
+          3
+        ]
+      ],
+      "key_colors": [
+        {
+          "x": 2,
+          "y": 3,
+          "color": "red"
+        }
+      ],
+      "door_colors": [
+        {
+          "x": 5,
+          "y": 3,
+          "color": "red"
+        }
+      ],
+      "items": [],
+      "deliveries": [],
+      "requires_hotbar": true,
+      "inventory_mode": true
+    },
+    "id": "5-inventory-1",
     "week": 5,
     "stage": 1,
-    "title": "Pack your first hotbar",
     "topic": "Lists",
-    "teach": "A Python list holds items in order. Your hotbar shows that order on screen. Load it with hero.set_hotbar(hotbar), then use hero.equip(index) to put an item in your hand. Indexes start at 0: the first slot is 0, the second is 1, and the third is 2. Hold a sword to attack, a key to unlock, and a potion to heal. Keys and potions still have to be collected on the map.",
-    "example": "hotbar = [\"sword\", \"key\", \"potion\"]\nhero.set_hotbar(hotbar)\nhero.equip(0)  # Hold the sword in the first slot.",
-    "objective": "Create a three-item hotbar in this order: sword, key, potion. Watch the supplied plan switch items as your hero travels.",
-    "hint": "Fill hotbar with the three quoted item names. The supplied movement uses slot 0 for attacks, slot 1 for doors, and slot 2 for healing.",
-    "starter": "from hero_game import hero\n\nhotbar = []\n# Pack sword, key, and potion in that order.\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\",\n    \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\",\n    \"left\", \"left\", \"left\", \"left\", \"down\", \"down\", \"right\", \"right\", \"right\", \"right\",\n    \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "starter": "",
+    "example": "",
+    "mapNote": "Your editor and inventory start empty. Collect \u2192 select by index \u2192 carry \u2192 use or drop. Outlined colored squares are delivery pads; E is the exit."
+  },
+  {
+    "title": "Choose it, carry it, drop it",
+    "teach": "Items stay in pickup order. With two items, index 0 is the first and index 1 is the second. Equipping selects an item without removing it. Walking carries everything in your inventory. Dropping places the held item on your current tile and removes it from the list.",
+    "objective": "Collect both gems and carry each one to its matching outlined pad.",
+    "goals": [
+      "Drop the blue gem on the blue pad.",
+      "Drop the red gem on the red pad.",
+      "Finish on the green exit marked E."
+    ],
+    "hint": "Check the hotbar before choosing an index. Stand on a pad and drop the gem you are holding. A delivered gem must stay on its pad.",
     "world": {
-      "width": 12,
-      "height": 8,
+      "width": 10,
+      "height": 7,
       "path": [
         [
           1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
           3
         ],
         [
@@ -6374,264 +6386,104 @@ const LEVELS = [
           3
         ],
         [
-          1,
+          3,
           3
         ],
         [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
           4,
-          5
+          3
         ],
         [
           5,
-          5
+          3
         ],
         [
           6,
-          5
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
         ],
         [
           7,
-          5
+          3
         ],
         [
           8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          8,
-          4
+          3
         ]
       ],
       "start": [
         1,
-        1
+        3
       ],
       "exit": [
-        10,
-        5
+        8,
+        3
       ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          6,
-          5
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          0
-        ]
-      ],
-      "doors": [
-        [
-          10,
-          2
-        ]
-      ],
-      "potions": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          4
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 9,
-          "y": 1,
-          "health": 6
-        },
+      "coins": [],
+      "enemies": [],
+      "potions": [],
+      "keys": [],
+      "doors": [],
+      "key_colors": [],
+      "door_colors": [],
+      "items": [
         {
           "x": 2,
           "y": 3,
-          "health": 9
+          "item": "red gem"
         },
         {
-          "x": 9,
-          "y": 5,
-          "health": 6
+          "x": 4,
+          "y": 3,
+          "item": "blue gem"
         }
       ],
-      "requires_hotbar": true
+      "deliveries": [
+        {
+          "x": 6,
+          "y": 2,
+          "item": "blue gem"
+        },
+        {
+          "x": 6,
+          "y": 4,
+          "item": "red gem"
+        }
+      ],
+      "requires_hotbar": true,
+      "inventory_mode": true
     },
-    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
-    "goals": [
-      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
-      "Collect every coin, defeat every guard, open every door, and reach the exit."
-    ]
-  },
-  {
-    "id": "5-hotbar-2",
+    "id": "5-inventory-2",
     "week": 5,
     "stage": 2,
-    "title": "Choose the right slot",
     "topic": "Lists",
-    "teach": "A list index tells you where an item is stored. hotbar[0] reads the first item, while hero.equip(0) holds it. Moving an item to another position changes its index. Read this hotbar and set the three slot variables so each action uses the right item.",
-    "example": "hotbar = [\"key\", \"potion\", \"sword\"]\nprint(hotbar[2])  # sword\nhero.set_hotbar(hotbar)\nhero.equip(2)",
-    "objective": "The hotbar has been rearranged. Set sword_slot, key_slot, and potion_slot to their correct zero-based indexes.",
-    "hint": "In [\"potion\", \"sword\", \"key\"], potion is first. Count from 0, not 1. Replace each None with a number.",
-    "starter": "from hero_game import hero\n\nhotbar = [\"potion\", \"sword\", \"key\"]\nsword_slot = None\nkey_slot = None\npotion_slot = None\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\",\n    \"right\", \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"down\", \"down\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\",\n    \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\",\n    \"left\", \"left\", \"left\", \"left\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(key_slot)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(potion_slot)\n            hero.heal()\n        hero.equip(sword_slot)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "starter": "",
+    "example": "",
+    "mapNote": "Your editor and inventory start empty. Collect \u2192 select by index \u2192 carry \u2192 use or drop. Outlined colored squares are delivery pads; E is the exit."
+  },
+  {
+    "title": "Watch the indexes shift",
+    "teach": "A list closes the gap when an item is removed. If you use the item at index 0, the next item becomes index 0. Keys are real inventory items: choose the matching color, use it once, then check the list again before selecting the next key.",
+    "objective": "Two keys, two doors. Choose the key for each door using its current list index.",
+    "goals": [
+      "Collect both keys.",
+      "Open the blue door and the red door with matching held keys.",
+      "Finish on the green exit marked E."
+    ],
+    "hint": "After you use the first key, the second key moves into its place. Check the hotbar again; a slot number is a position, not a permanent item label.",
     "world": {
-      "width": 13,
-      "height": 10,
+      "width": 10,
+      "height": 7,
       "path": [
         [
           1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
           3
         ],
         [
@@ -6639,373 +6491,113 @@ const LEVELS = [
           3
         ],
         [
-          1,
+          3,
           3
         ],
         [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
           4,
-          5
+          3
         ],
         [
           5,
-          5
+          3
         ],
         [
           6,
-          5
-        ],
-        [
-          6,
-          4
+          3
         ],
         [
           7,
-          5
+          3
         ],
         [
           8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          9,
-          7
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          5,
-          7
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          4,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          2,
-          7
-        ],
-        [
-          1,
-          7
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          9,
-          6
+          3
         ]
       ],
       "start": [
         1,
-        1
+        3
       ],
       "exit": [
-        1,
-        7
+        8,
+        3
       ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          5,
-          7
-        ]
-      ],
+      "coins": [],
+      "enemies": [],
+      "potions": [],
       "keys": [
         [
-          6,
-          0
+          2,
+          3
         ],
         [
-          5,
-          4
+          3,
+          3
         ]
       ],
       "doors": [
         [
-          11,
-          2
+          5,
+          3
         ],
         [
-          1,
-          4
+          7,
+          3
         ]
       ],
-      "potions": [
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          8
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 10,
-          "y": 1,
-          "health": 6
-        },
+      "key_colors": [
         {
           "x": 2,
           "y": 3,
-          "health": 9
+          "color": "red"
         },
         {
-          "x": 10,
-          "y": 5,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 7,
-          "health": 9
+          "x": 3,
+          "y": 3,
+          "color": "blue"
         }
       ],
-      "requires_hotbar": true
+      "door_colors": [
+        {
+          "x": 5,
+          "y": 3,
+          "color": "red"
+        },
+        {
+          "x": 7,
+          "y": 3,
+          "color": "blue"
+        }
+      ],
+      "items": [],
+      "deliveries": [],
+      "requires_hotbar": true,
+      "inventory_mode": true
     },
-    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
-    "goals": [
-      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
-      "Collect every coin, defeat every guard, open every door, and reach the exit."
-    ]
-  },
-  {
-    "id": "5-hotbar-3",
+    "id": "5-inventory-3",
     "week": 5,
     "stage": 3,
-    "title": "Replace an item",
     "topic": "Lists",
-    "teach": "Assigning to a list index replaces just that item. hotbar[1] = \"key\" puts a key in the second slot. This hotbar has two swords and no key. Repair the list before loading it. hero.set_hotbar copies the current list, so load it again after any later edits.",
-    "example": "hotbar = [\"key\", \"key\", \"potion\"]\nhotbar[0] = \"sword\"\nhero.set_hotbar(hotbar)",
-    "objective": "Replace the extra sword with a key. Keep the sword in slot 0 and the potion in slot 2.",
-    "hint": "The extra sword is in the second slot. Use hotbar[index] = \"key\" before hero.set_hotbar(hotbar).",
-    "starter": "from hero_game import hero\n\nhotbar = [\"sword\", \"sword\", \"potion\"]\n# Replace the extra sword here, using its index.\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"down\",\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"down\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "starter": "",
+    "example": "",
+    "mapNote": "Your editor and inventory start empty. Collect \u2192 select by index \u2192 carry \u2192 use or drop. Outlined colored squares are delivery pads; E is the exit."
+  },
+  {
+    "title": "Drop it. Pick it up again.",
+    "teach": "Dropping removes an item from your list, but it stays on the map. Collecting it again adds it to the end. You can change the order of your inventory by putting an item down and picking it back up. Read the current list after each change.",
+    "objective": "Finish with two gems in this order: blue first, red second.",
+    "goals": [
+      "Carry the blue gem at index 0 and the red gem at index 1.",
+      "Finish on the green exit marked E with both gems in your inventory."
+    ],
+    "hint": "If red is first, think about what happens to blue when you drop red. Where will red go when you pick it up again?",
     "world": {
-      "width": 14,
-      "height": 10,
+      "width": 10,
+      "height": 7,
       "path": [
         [
           1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          0
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          12,
-          1
-        ],
-        [
-          12,
-          2
-        ],
-        [
-          12,
-          3
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
           3
         ],
         [
@@ -7013,328 +6605,88 @@ const LEVELS = [
           3
         ],
         [
-          1,
+          3,
           3
         ],
         [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
           4,
-          5
+          3
         ],
         [
           5,
-          5
+          3
         ],
         [
           6,
-          5
+          3
         ],
         [
           7,
-          5
+          3
         ],
         [
           8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          12,
-          5
-        ],
-        [
-          12,
-          6
-        ],
-        [
-          12,
-          7
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          9,
-          7
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          5,
-          7
-        ],
-        [
-          4,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          2,
-          7
-        ],
-        [
-          1,
-          7
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          10,
-          6
+          3
         ]
       ],
       "start": [
         1,
-        1
+        3
       ],
       "exit": [
-        1,
-        7
+        8,
+        3
       ],
-      "coins": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          12,
-          1
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          12,
-          5
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          7,
-          7
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          4
-        ]
-      ],
-      "doors": [
-        [
-          12,
-          2
-        ],
-        [
-          1,
-          4
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          8
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 11,
-          "y": 1,
-          "health": 6
-        },
+      "coins": [],
+      "enemies": [],
+      "potions": [],
+      "keys": [],
+      "doors": [],
+      "key_colors": [],
+      "door_colors": [],
+      "items": [
         {
           "x": 2,
           "y": 3,
-          "health": 9
+          "item": "red gem"
         },
         {
-          "x": 11,
-          "y": 5,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 7,
-          "health": 9
+          "x": 3,
+          "y": 3,
+          "item": "blue gem"
         }
       ],
-      "requires_hotbar": true
+      "deliveries": [],
+      "requires_hotbar": true,
+      "inventory_mode": true,
+      "inventory_goal": [
+        "blue gem",
+        "red gem"
+      ]
     },
-    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
-    "goals": [
-      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
-      "Collect every coin, defeat every guard, open every door, and reach the exit."
-    ]
-  },
-  {
-    "id": "5-hotbar-4",
+    "id": "5-inventory-4",
     "week": 5,
     "stage": 4,
-    "title": "Add a potion slot",
     "topic": "Lists",
-    "teach": "append adds one item to the end of a list. A two-item list uses indexes 0 and 1; appending creates slot 2. Add the missing potion before loading your hotbar. The potion slot chooses what to hold; its x count shows how many collected potions you can use.",
-    "example": "hotbar = [\"sword\"]\nhotbar.append(\"key\")\nprint(len(hotbar))  # 2 slots",
-    "objective": "Use append to add a potion after the sword and key, so the supplied healing code can equip slot 2.",
-    "hint": "Use hotbar.append(\"potion\") before loading the list. Adding a potion slot does not give you a free potion; collect supplies on the route.",
-    "starter": "from hero_game import hero\n\nhotbar = [\"sword\", \"key\"]\n# Append the missing potion here.\n\nhero.set_hotbar(hotbar)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"down\", \"left\", \"left\", \"left\",\n    \"left\", \"left\", \"down\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\",\n    \"down\", \"up\", \"right\", \"right\", \"right\", \"right\", \"down\", \"down\", \"left\", \"left\",\n    \"left\", \"left\", \"left\", \"up\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"down\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"down\", \"up\",\n    \"right\", \"right\", \"right\", \"right\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
+    "starter": "",
+    "example": "",
+    "mapNote": "Your editor and inventory start empty. Collect \u2192 select by index \u2192 carry \u2192 use or drop. Outlined colored squares are delivery pads; E is the exit."
+  },
+  {
+    "title": "Make room for the key",
+    "teach": "The hotbar holds five items, at indexes 0 through 4. The length of a list is its item count, so a full inventory has length 5 but no index 5. A temporary drop can free a slot. Remember where you left an item and collect it again when there is room.",
+    "objective": "Get five gems through the locked door and deliver them to their matching pads.",
+    "goals": [
+      "Open the gold door with its key.",
+      "Drop all five gems on their matching colored pads.",
+      "Finish on the green exit marked E."
+    ],
+    "hint": "You cannot carry five gems and a key at the same time. Using the key frees a slot. You choose which item to leave behind and when to return for it.",
     "world": {
       "width": 13,
-      "height": 10,
+      "height": 7,
       "path": [
         [
-          11,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          1,
-          2
-        ],
-        [
           1,
           3
         ],
@@ -7364,875 +6716,209 @@ const LEVELS = [
         ],
         [
           7,
-          4
+          5
         ],
         [
           8,
           3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          9,
-          5
         ],
         [
           8,
           5
         ],
         [
-          7,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          7
-        ],
-        [
-          2,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          4,
-          7
-        ],
-        [
-          5,
-          7
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          8,
-          7
+          9,
+          3
         ],
         [
           9,
-          7
+          4
+        ],
+        [
+          9,
+          5
         ],
         [
           10,
-          7
+          3
+        ],
+        [
+          10,
+          5
         ],
         [
           11,
-          7
+          3
         ],
         [
-          9,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          9,
+          11,
           4
         ],
         [
-          3,
-          4
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          3,
-          6
+          11,
+          5
         ]
       ],
       "start": [
-        11,
-        1
+        1,
+        3
       ],
       "exit": [
         11,
-        7
+        3
       ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          7,
-          7
-        ]
-      ],
+      "coins": [],
+      "enemies": [],
+      "potions": [],
       "keys": [
         [
-          6,
-          0
-        ],
-        [
           7,
-          4
+          3
         ]
       ],
       "doors": [
         [
-          1,
-          2
-        ],
-        [
-          11,
-          4
+          8,
+          3
         ]
       ],
-      "potions": [
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          8
-        ]
-      ],
-      "enemies": [
+      "key_colors": [
         {
-          "x": 2,
-          "y": 1,
-          "health": 6
-        },
-        {
-          "x": 10,
+          "x": 7,
           "y": 3,
-          "health": 9
-        },
-        {
-          "x": 2,
-          "y": 5,
-          "health": 6
-        },
-        {
-          "x": 10,
-          "y": 7,
-          "health": 9
+          "color": "gold"
         }
       ],
-      "requires_hotbar": true
+      "door_colors": [
+        {
+          "x": 8,
+          "y": 3,
+          "color": "gold"
+        }
+      ],
+      "items": [
+        {
+          "x": 2,
+          "y": 3,
+          "item": "red gem"
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "item": "blue gem"
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "item": "green gem"
+        },
+        {
+          "x": 5,
+          "y": 3,
+          "item": "purple gem"
+        },
+        {
+          "x": 6,
+          "y": 3,
+          "item": "gold gem"
+        }
+      ],
+      "deliveries": [
+        {
+          "x": 7,
+          "y": 5,
+          "item": "red gem"
+        },
+        {
+          "x": 8,
+          "y": 5,
+          "item": "blue gem"
+        },
+        {
+          "x": 9,
+          "y": 5,
+          "item": "green gem"
+        },
+        {
+          "x": 10,
+          "y": 5,
+          "item": "purple gem"
+        },
+        {
+          "x": 11,
+          "y": 5,
+          "item": "gold gem"
+        }
+      ],
+      "requires_hotbar": true,
+      "inventory_mode": true
     },
-    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
-    "goals": [
-      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
-      "Collect every coin, defeat every guard, open every door, and reach the exit."
-    ]
-  },
-  {
-    "id": "5-hotbar-5",
+    "id": "5-inventory-5",
     "week": 5,
     "stage": 5,
-    "title": "Fill and inspect the hotbar",
     "topic": "Lists",
-    "teach": "extend adds every item from another list. len(hotbar) counts the filled slots. for slot in range(len(hotbar)) visits each valid index, so you can equip and inspect every item before setting off. A hotbar has room for at most five slots.",
-    "example": "hotbar = [\"sword\"]\nsupplies = [\"key\", \"potion\"]\nhotbar.extend(supplies)\nhero.set_hotbar(hotbar)\nfor slot in range(len(hotbar)):\n    hero.equip(slot)",
-    "objective": "Extend the sword-only hotbar with the supplies list. Watch the for loop equip each slot, then finish the route.",
-    "hint": "Pass supplies to hotbar.extend before loading the hotbar. The preview loop uses indexes 0, 1, and 2 once the list is filled.",
-    "starter": "from hero_game import hero\n\nhotbar = [\"sword\"]\nsupplies = [\"key\", \"potion\"]\n# Extend hotbar with supplies here.\n\nhero.set_hotbar(hotbar)\nfor slot in range(len(hotbar)):\n    hero.equip(slot)\n\n# Movement is supplied. Focus on packing and choosing your items.\nroute = [\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"down\", \"up\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"up\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"up\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"up\",\n    \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"down\", \"up\", \"right\", \"right\",\n    \"right\", \"right\", \"right\", \"up\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\",\n    \"up\", \"down\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\",\n]\n\nfor direction in route:\n    if hero.door_at(direction):\n        hero.equip(1)\n        hero.unlock(direction)\n    while hero.enemy_at(direction):\n        if hero.health <= 6 and hero.potions > 0:\n            hero.equip(2)\n            hero.heal()\n        hero.equip(0)\n        hero.attack(direction)\n    hero.move(direction)\n    if hero.on_coin or hero.on_key or hero.on_potion:\n        hero.collect()\n",
-    "world": {
-      "width": 14,
-      "height": 10,
-      "path": [
-        [
-          1,
-          8
-        ],
-        [
-          2,
-          8
-        ],
-        [
-          3,
-          8
-        ],
-        [
-          4,
-          8
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          7,
-          9
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          9,
-          8
-        ],
-        [
-          10,
-          8
-        ],
-        [
-          11,
-          8
-        ],
-        [
-          12,
-          8
-        ],
-        [
-          12,
-          7
-        ],
-        [
-          12,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          12,
-          3
-        ],
-        [
-          12,
-          2
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          10,
-          3
-        ]
-      ],
-      "start": [
-        1,
-        8
-      ],
-      "exit": [
-        1,
-        2
-      ],
-      "coins": [
-        [
-          7,
-          9
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          12,
-          8
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          2
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          9
-        ],
-        [
-          7,
-          5
-        ]
-      ],
-      "doors": [
-        [
-          12,
-          7
-        ],
-        [
-          1,
-          5
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          9
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          1
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 11,
-          "y": 8,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 6,
-          "health": 9
-        },
-        {
-          "x": 11,
-          "y": 4,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 2,
-          "health": 9
-        }
-      ],
-      "requires_hotbar": true
-    },
-    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
-    "goals": [
-      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
-      "Collect every coin, defeat every guard, open every door, and reach the exit."
-    ]
+    "starter": "",
+    "example": "",
+    "mapNote": "Your editor and inventory start empty. Collect \u2192 select by index \u2192 carry \u2192 use or drop. Outlined colored squares are delivery pads; E is the exit."
   },
   {
-    "id": "5-hotbar-6",
-    "week": 5,
-    "stage": 6,
-    "title": "Swap your loadout",
-    "topic": "Lists",
-    "teach": "A list can contain other lists. loadouts[section_index] chooses a complete hotbar for one hall. Each hotbar needs a sword, key, and potion, but their order can change. hotbar.index(\"sword\") finds the sword's current slot. The outer for loop changes loadouts, the inner for loop travels, and while keeps attacking until a guard is defeated.",
-    "example": "loadouts = [\n    [\"sword\", \"key\", \"potion\"],\n    [\"potion\", \"sword\", \"key\"],\n]\nhotbar = loadouts[1]\nhero.set_hotbar(hotbar)\nhero.equip(hotbar.index(\"sword\"))",
-    "objective": "Pack five hotbar lists, one for each hall. Include all three items in each list, and try changing their order between halls.",
-    "hint": "Fill each inner [] with \"sword\", \"key\", and \"potion\". The supplied index lookups find the right slot even when you rearrange the items.",
-    "starter": "from hero_game import hero\n\nloadouts = [\n    [],  # First hall\n    [],  # Second hall\n    [],  # Third hall\n    [],  # Fourth hall\n    [],  # Fifth hall\n]\n\n# Each supplied section is one hall and its side room.\nsections = [\n    [\"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"up\"],\n    [\"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"up\"],\n    [\"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"up\", \"up\"],\n    [\"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"down\", \"right\", \"right\", \"right\", \"right\", \"right\", \"up\", \"up\"],\n    [\"left\", \"left\", \"left\", \"left\", \"left\", \"left\", \"down\", \"up\", \"left\", \"left\", \"left\", \"left\", \"left\", \"left\"],\n]\n\nfor section_index in range(len(sections)):\n    hotbar = loadouts[section_index]\n    hero.set_hotbar(hotbar)\n    route = sections[section_index]\n    for direction in route:\n        if hero.door_at(direction):\n            hero.equip(hotbar.index(\"key\"))\n            hero.unlock(direction)\n        while hero.enemy_at(direction):\n            if hero.health <= 6 and hero.potions > 0:\n                hero.equip(hotbar.index(\"potion\"))\n                hero.heal()\n            hero.equip(hotbar.index(\"sword\"))\n            hero.attack(direction)\n        hero.move(direction)\n        if hero.on_coin or hero.on_key or hero.on_potion:\n            hero.collect()\n",
+    "title": "The inventory expedition",
+    "teach": "Put it together: collect tools, select items by index, carry gems, and drop them on their pads. A sword stays in the list after an attack. A matching key or a potion is used up, so later indexes shift. Check your current inventory before every selection.",
+    "objective": "Bring both gems through the guarded rooms and deliver them. Manage the changing list yourself.",
+    "goals": [
+      "Open both colored doors with matching held keys.",
+      "Defeat the guard using the collected sword.",
+      "Drop the blue and red gems on their matching pads.",
+      "Finish alive on the green exit marked E."
+    ],
+    "hint": "You can inspect the list or its length in the output. Select a new item after using or dropping the held one. The sword is reusable; a potion restores health only after you have taken damage.",
     "world": {
-      "width": 15,
-      "height": 12,
+      "width": 13,
+      "height": 7,
       "path": [
         [
-          13,
-          10
-        ],
-        [
-          12,
-          10
-        ],
-        [
-          11,
-          10
-        ],
-        [
-          10,
-          10
-        ],
-        [
-          9,
-          10
-        ],
-        [
-          8,
-          10
-        ],
-        [
-          7,
-          10
-        ],
-        [
-          7,
-          11
-        ],
-        [
-          6,
-          10
-        ],
-        [
-          5,
-          10
-        ],
-        [
-          4,
-          10
-        ],
-        [
-          3,
-          10
+          1,
+          3
         ],
         [
           2,
-          10
-        ],
-        [
-          1,
-          10
-        ],
-        [
-          1,
-          9
-        ],
-        [
-          1,
-          8
-        ],
-        [
-          2,
-          8
+          3
         ],
         [
           3,
-          8
+          3
         ],
         [
           4,
-          8
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          9,
-          8
-        ],
-        [
-          10,
-          8
-        ],
-        [
-          11,
-          8
-        ],
-        [
-          12,
-          8
-        ],
-        [
-          13,
-          8
-        ],
-        [
-          13,
-          7
-        ],
-        [
-          13,
-          6
-        ],
-        [
-          12,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          5,
-          6
+          1
         ],
         [
           4,
-          6
+          2
         ],
         [
-          3,
-          6
+          4,
+          3
         ],
         [
-          2,
-          6
+          5,
+          3
         ],
         [
-          1,
-          6
+          6,
+          3
         ],
         [
-          1,
+          6,
+          4
+        ],
+        [
+          6,
           5
         ],
         [
-          1,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
           7,
-          4
-        ],
-        [
-          8,
-          4
+          3
         ],
         [
           8,
@@ -8240,7 +6926,15 @@ const LEVELS = [
         ],
         [
           9,
-          4
+          3
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          10,
+          3
         ],
         [
           10,
@@ -8248,251 +6942,114 @@ const LEVELS = [
         ],
         [
           11,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          13,
-          4
-        ],
-        [
-          13,
-          3
-        ],
-        [
-          13,
-          2
-        ],
-        [
-          12,
-          2
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          11,
-          9
-        ],
-        [
-          3,
-          9
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          3,
           3
         ]
       ],
       "start": [
-        13,
-        10
+        1,
+        3
       ],
       "exit": [
-        1,
-        2
+        11,
+        3
       ],
-      "coins": [
+      "coins": [],
+      "enemies": [
+        {
+          "x": 7,
+          "y": 3,
+          "health": 9
+        }
+      ],
+      "potions": [
         [
-          7,
-          11
-        ],
-        [
-          7,
-          10
-        ],
-        [
-          1,
-          10
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          13,
-          8
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          8,
+          3,
           3
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          13,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          2
         ]
       ],
       "keys": [
         [
-          7,
-          11
+          4,
+          3
         ],
         [
-          8,
-          7
+          6,
+          5
         ]
       ],
       "doors": [
         [
-          1,
-          9
-        ],
-        [
-          13,
-          7
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          11
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          8,
+          5,
           3
         ],
         [
-          7,
+          9,
           3
         ]
       ],
-      "enemies": [
+      "key_colors": [
         {
-          "x": 2,
-          "y": 10,
-          "health": 6
+          "x": 4,
+          "y": 3,
+          "color": "red"
         },
         {
-          "x": 12,
-          "y": 8,
-          "health": 9
-        },
-        {
-          "x": 2,
-          "y": 6,
-          "health": 6
-        },
-        {
-          "x": 12,
-          "y": 4,
-          "health": 9
-        },
-        {
-          "x": 2,
-          "y": 2,
-          "health": 12
+          "x": 6,
+          "y": 5,
+          "color": "blue"
         }
       ],
-      "requires_hotbar": true
+      "door_colors": [
+        {
+          "x": 5,
+          "y": 3,
+          "color": "red"
+        },
+        {
+          "x": 9,
+          "y": 3,
+          "color": "blue"
+        }
+      ],
+      "items": [
+        {
+          "x": 2,
+          "y": 3,
+          "item": "sword"
+        },
+        {
+          "x": 4,
+          "y": 1,
+          "item": "blue gem"
+        },
+        {
+          "x": 8,
+          "y": 3,
+          "item": "red gem"
+        }
+      ],
+      "deliveries": [
+        {
+          "x": 10,
+          "y": 2,
+          "item": "blue gem"
+        },
+        {
+          "x": 10,
+          "y": 4,
+          "item": "red gem"
+        }
+      ],
+      "requires_hotbar": true,
+      "inventory_mode": true
     },
-    "mapNote": "The movement plan is supplied. Hotbar slots are numbered 0\u20134; the cyan outline shows your selected slot. Watch the item in your hero's hand. Keys and potions use the supplies collected on the map.",
-    "goals": [
-      "Hold the sword before attacking, the key before unlocking, and the potion before healing.",
-      "Collect every coin, defeat every guard, open every door, and reach the exit."
-    ]
+    "id": "5-inventory-6",
+    "week": 5,
+    "stage": 6,
+    "topic": "Lists",
+    "starter": "",
+    "example": "",
+    "mapNote": "Your editor and inventory start empty. Collect \u2192 select by index \u2192 carry \u2192 use or drop. Outlined colored squares are delivery pads; E is the exit."
   },
   {
     "id": "6-1",
