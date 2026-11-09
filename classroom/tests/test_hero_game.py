@@ -23,10 +23,10 @@ class HeroTests(unittest.TestCase):
         game.setup(copy.deepcopy(FIXTURE))
 
     def test_all_maps_are_connected_and_in_bounds(self):
-        self.assertEqual(len(levels),49)
+        self.assertEqual(len(levels),44)
         self.assertEqual({l['week'] for l in levels},set(range(1,9)))
         for week in range(1,9):
-            self.assertEqual({l['stage'] for l in levels if l['week']==week},set(range(1,8 if week==2 else 7)))
+            self.assertEqual({l['stage'] for l in levels if l['week']==week},set(range(1,2 if week==6 else 8 if week==2 else 7)))
         layouts = [(level, world) for level in levels
                    for world in [level['world']] + level['world'].get('variants', [])]
         for level, world in layouts:
@@ -225,10 +225,10 @@ class HeroTests(unittest.TestCase):
         self.assertEqual(game.hero.health, 10)
         self.assertTrue(game.hero.config['requires_hotbar'])
 
-    def test_hotbar_is_required_only_for_lists_and_all_starters_compile(self):
+    def test_hotbar_is_required_for_lists_and_review_and_all_starters_compile(self):
         for level in levels:
             compile(level['starter'], level['id'], 'exec')
-            self.assertEqual(bool(level['world'].get('requires_hotbar')), level['week'] == 5)
+            self.assertEqual(bool(level['world'].get('requires_hotbar')), level['week'] in (5,6))
         game.hero.attack('right')  # Earlier weeks still work without equipping.
 
     def test_move_and_attack_default_to_single_actions(self):

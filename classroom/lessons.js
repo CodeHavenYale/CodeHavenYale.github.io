@@ -8,12 +8,14 @@ try {
     const value=JSON.parse(localStorage.getItem('codehaven.course.v2') || 'null');
     if (value) {
         if (!value.drafts || typeof value.drafts!=='object' || !Array.isArray(value.completed)) throw Error('Invalid course save');
-        const restoredId=LEVELS.some(l=>l.id===value.id) ? value.id : /^5-hotbar-[1-6]$/.test(value.id) ? value.id.replace('5-hotbar-','5-inventory-') : '1-1';
+        const restoredId=LEVELS.some(l=>l.id===value.id) ? value.id : /^6-[1-6]$/.test(value.id) ? '6-review-1' : /^5-hotbar-[1-6]$/.test(value.id) ? value.id.replace('5-hotbar-','5-inventory-') : '1-1';
         course={mode:value.mode==='free'?'free':'levels',id:restoredId,drafts:value.drafts,completed:value.completed.filter(id=>LEVELS.some(l=>l.id===id)),weekOneRevision:value.weekOneRevision};
     }
 } catch {courseStorageBlocked=true;$('saveStatus').textContent='Could not load saved levels';}
 if(course.weekOneRevision!==2) {course.completed=course.completed.filter(id=>!id.startsWith('1-'));course.weekOneRevision=2;}
 if(!isWeekUnlocked(LEVELS.find(l=>l.id===course.id)?.week)) course.id='1-1';
+const linkedWeek=Number(globalThis.location?.hash.match(/^#week-(\d+)$/)?.[1]);
+if(isWeekUnlocked(linkedWeek)) course.id=LEVELS.find(l=>l.week===linkedWeek).id;
 function currentLevel() {return LEVELS.find(l=>l.id===course.id);}
 function courseFile() {
     const level=currentLevel();
@@ -56,19 +58,24 @@ function renderLesson() {
     $('lessonTitle').textContent=level.title;$('lessonObjective').textContent=level.objective;$('mapNote').textContent=level.mapNote;$('lessonTeach').textContent=level.teach;
     $('lessonExample').textContent=level.example;$('lessonExample').hidden=!level.example;$('lessonHint').textContent=level.hint;
     $('inventoryGuide').hidden=!level.world.inventory_mode;
+    $('mapControls').hidden=!level.world.large_map;
     updateMapDescription(level.world);
     $('currentFile').textContent='hero.py';$('codeInput').value=courseFile().content;$('codeInput').readOnly=false;lines();
     $('courseProgress').textContent=progressText();
     $('resultTitle').textContent=course.completed.includes(level.id)?'You have finished this one.':'Give it a try.';
-    $('resultText').textContent=level.week===5 ? 'Start with an empty editor. hero is ready to use. Write your plan, then press Run.' : 'Write your moves, then press Run.';$('nextLevel').hidden=true;
+    $('resultText').textContent=level.world.inventory_mode ? 'Start with an empty editor. hero is ready to use. Write your plan, then press Run.' : 'Write your moves, then press Run.';$('nextLevel').hidden=true;
     updateRunButtons();updateTeacher();
 }
 function updateMapDescription(world) {
-    $('canvas').setAttribute('aria-label', `Hero map. Coordinates are column, row. Start: ${world.start.join(',')}. Exit: ${world.exit.join(',')}. Coins: ${world.coins.map(p=>p.join(',')).join('; ')}. Keys: ${world.keys.map(p=>p.join(',')).join('; ') || 'none'}. Doors: ${world.doors.map(p=>p.join(',')).join('; ') || 'none'}. Potions: ${world.potions.map(p=>p.join(',')).join('; ') || 'none'}. Enemies: ${world.enemies.map(e=>`${e.x},${e.y}, health ${e.health}`).join('; ') || 'none'}.`);
+    $('canvas').setAttribute('aria-label', `Hero map. Coordinates are column, row. Start: ${world.start.join(',')}. Exit: ${world.exit.join(',')}. Coins: ${world.coins.map(p=>p.join(',')).join('; ')}. Keys: ${world.keys.map(p=>p.join(',')).join('; ') || 'none'}. Doors: ${world.doors.map(p=>p.join(',')).join('; ') || 'none'}. Potions: ${world.potions.map(p=>p.join(',')).join('; ') || 'none'}. Enemies: ${world.enemies.map(e=>`${e.x},${e.y}, health ${world.enemy_health_choices ? world.enemy_health_choices.join(' or ') : e.health}`).join('; ') || 'none'}.`);
     const coloredItems=[...(world.key_colors || []).map(k=>`${k.color} key at ${k.x},${k.y}`),...(world.door_colors || []).map(d=>`${d.color} door at ${d.x},${d.y}`),...(world.switches || []).map(s=>`${s.color} switch at ${s.x},${s.y}`),...(world.gates || []).map(g=>`${g.color} gate at ${g.x},${g.y}`)].join('; ');
     $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+coloredItems+'.');
     const numberItems=[...(world.number_clues || []).map(c=>`Number sign ${c.label} at ${c.x},${c.y}; stand here and save hero.read()`),...(world.code_doors || []).map(d=>`Code door ${d.label} at ${d.x},${d.y}; code is ${d.formula}`)].join('; ');
     if(numberItems) $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+' '+numberItems+'.');
+    if(world.large_map) {
+        const regions=world.regions.map(r=>`${r.name}: columns ${r.x}–${r.x+r.width-1}, rows ${r.y}–${r.y+r.height-1}`).join('; ');
+        $('canvas').setAttribute('aria-label',$('canvas').getAttribute('aria-label')+` One continuous ${world.width} by ${world.height} map. ${regions}. Guard health changes each run: ${world.enemy_health_choices.join(', ')}. Use Whole map to plan, arrow buttons to inspect, and Follow hero to return.`);
+    }
     if(world.inventory_mode) {
         const items=(world.items || []).map(i=>`${i.item} at ${i.x},${i.y}`).join('; ');
         const pads=(world.deliveries || []).map(i=>`${i.item} pad at ${i.x},${i.y}`).join('; ');

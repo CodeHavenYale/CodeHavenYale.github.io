@@ -38,6 +38,8 @@ main{min-height:820px;align-items:stretch}
 .output-panel{flex:0 0 48%;width:48%;min-width:290px;display:flex;flex-direction:column;background:var(--panel);border-left:1px solid var(--border);overflow:visible}
 #graphics{display:flex;flex:0 0 auto;flex-direction:column;align-items:center;gap:8px;padding:12px;overflow:visible;text-align:center}
 #canvasStage{position:relative;flex:none;width:100%;max-width:640px;aspect-ratio:8 / 7;background:#15252f}
+.map-controls{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;width:100%;max-width:640px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px}
+.map-controls>div{display:flex;gap:4px}.map-controls button{min-height:36px;font-size:12px;padding:7px 10px}.map-controls button[aria-pressed=true]{background:var(--selected);color:var(--blue);border-color:var(--blue)}.map-controls span{flex-basis:100%;font-size:11px;color:var(--muted)}
 #canvasStage canvas{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;transform:none;object-fit:contain}
 #levelResult{position:static;flex:none;height:auto;min-height:150px;max-height:none;margin:0;padding:16px;border-top:2px solid var(--border);background:var(--selected);overflow:visible}
 #levelResult strong{position:static;display:block;font-size:14px;margin:0 0 8px}

@@ -1,15 +1,15 @@
-# Week 5 Lists — indexing a real inventory
+# Week 6 Review — The grand expedition
 
-Six new challenges teach collecting, indexing, carrying, using, and dropping actual items. Editors start blank. The curriculum runner provides `hero` without prepending code, so students can write their own plan without an import or supplied movement sequence. An optional command reference is available in the lesson panel, including on narrow screens.
+Week 6 replaces the six Functions challenges with one continuous 49 × 33 map. Nine connected districts contain 303 walkable tiles, 35 coins, six code doors, six colored key doors, three switches and gates, six guards, and three gem deliveries.
 
-The hotbar starts empty. Pickups append to the inventory, and `hero.equip(hero.inventory[index])` selects that exact item and shows it in the hero's hand. Dropping leaves the held item on the current tile and removes it from the list; collecting it again appends it. Used keys and potions also disappear and later indexes shift left. A sword is reusable. Keys must match the door color. The hotbar holds five physical pickups; filling a Python list cannot grant supplies.
+The expedition combines all five earlier weeks: ordered actions and switches, saved sign variables reused at later doors, conditional checks for guards and healing, loops over repeated routes, and physical inventory indexing. Sign codes and guard health change each run. Students start with a blank editor and do not need functions or new Python topics. An encrypted teacher solution is included.
 
-The lessons progress through selecting index 0, choosing between two items, shifting indexes, reordering through drops and pickups, making room for a key, and managing a mixed inventory during an expedition. Delivery goals require gems to remain on matching pads. The reorder challenge checks the final inventory order.
+Follow hero shows a readable 16 × 9 window. Whole map shows the complete expedition with district labels. Arrow buttons pan; clicking the overview opens detail. The map retains the fixed 640 × 560 canvas and separate inventory and feedback areas. Review allows 1,800 turns; other lessons retain their limit.
 
-New IDs `5-inventory-1` through `5-inventory-6` preserve retired route and hotbar drafts without carrying completion forward. Returning hotbar students open the blank replacement at the same stage. Other weeks retain their maps and IDs; Functions remains Week 6 and locked. Teacher solutions stay encrypted, and updated assets use a new cache revision.
+Weeks 1–6 are available, with 32 open challenges and 44 across the full course. Retired Functions drafts are preserved, while the new `6-review-1` ID starts with fresh completion. Weeks 7–8 remain locked.
 
-Run `npm test` in `classroom/`. The 25 interface tests, 52 Python tests, and all 49 teacher solutions pass. Coverage includes matching keys, consumed items, exact selection of duplicate pickups, capacity, atomic rejection of invalid actions, drop and recollection, index shifts, snapshots, resets, blank editors, save migration, and correct items during combat and unlocking.
+Run `npm test` from `classroom/`. Validation covers 26 interface tests, 57 Python tests, and all 44 decrypted teacher solutions through the real runner. Review succeeds with each guard strength, mixed strengths, and several sign assignments. Camera bounds, overview clicks, inventory tools, capacity, and draft migration are covered.
 
-The real pygame renderer draws all 145 playback frames for the six new solutions. `classroom/previews/inventory-indexing.png` combines inspected game states, with individual previews alongside it. Live browser interaction, Pyodide integration, and responsive rendering could not be checked because no browser automation connection was available.
+All 44 initial maps and all 522 frames of the hardest review run render with actual pygame. Inspected previews are in `classroom/previews/review-*.png`. Live browser interaction, Pyodide integration, and responsive page rendering could not be automated because no browser connection was available.
 
-Preview with `npm run serve` from `classroom/`, then visit http://localhost:8000. The current working preview uses http://localhost:8001 because another app occupies port 8000.
+The local preview is http://localhost:8001/#week-6. The deployed classroom path is `/classroom/#week-6`.

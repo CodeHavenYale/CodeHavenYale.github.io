@@ -26,8 +26,8 @@ const WEEKS = [
   },
   {
     "number": 6,
-    "topic": "Functions",
-    "title": "Make your own move"
+    "topic": "Review",
+    "title": "The grand expedition"
   },
   {
     "number": 7,
@@ -7052,2032 +7052,1791 @@ const LEVELS = [
     "mapNote": "Your editor and inventory start empty. Collect \u2192 select by index \u2192 carry \u2192 use or drop. Outlined colored squares are delivery pads; E is the exit."
   },
   {
-    "id": "6-1",
+    "id": "6-review-1",
     "week": 6,
     "stage": 1,
-    "title": "Build a travel kit",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 1 locked door. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
+    "topic": "Review",
+    "title": "The grand expedition",
+    "teach": "Bring together Weeks 1\u20135: plan sequences before opening gates; save A, B and C in separate variables and reuse them; check guards and health with conditionals; repeat alcoves, battles and staircases with for and while loops; select, carry and deliver real items using list indexes. Guard health and sign codes change each run. No new Python topics are needed.",
+    "example": "",
+    "starter": "",
+    "objective": "One enormous 49 \u00d7 33 map. Nine connected districts. One program that finishes the entire expedition.",
+    "hint": "Read the whole map before coding. Follow the districts across the top, back across the middle, then across the bottom. Save each sign before leaving its side passage. Keep the sword; make room before picking up a key. Used and dropped items shift later indexes. Check hero.enemy_at(direction) before attacking again. The same code must work when guard health and sign values change.",
+    "mapNote": "Use Whole map to plan; Follow hero for readable detail. Arrow buttons explore without moving your hero. Signs A\u2013C supply door codes: I & IV use A, II & VI use B, III & V use C. Colored S switches open matching bars.",
+    "goals": [
+      "Collect all 35 coins, including the side treasuries.",
+      "Read three signs and open all six code doors using the saved values.",
+      "Open six colored key doors and activate all three switches.",
+      "Defeat all six guards and survive; each starts with 3, 6 or 9 health.",
+      "Deliver red, blue and green gems to their matching pads. Manage the five inventory slots.",
+      "Reach the exit in district 9. Review sequences, variables, conditionals, loops and lists."
+    ],
     "world": {
-      "width": 12,
-      "height": 8,
+      "width": 49,
+      "height": 33,
+      "start": [
+        1,
+        5
+      ],
+      "exit": [
+        47,
+        27
+      ],
       "path": [
         [
           1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
           5
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          17
+        ],
+        [
+          1,
+          18
+        ],
+        [
+          1,
+          19
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          23
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          25
+        ],
+        [
+          1,
+          26
+        ],
+        [
+          1,
+          27
         ],
         [
           2,
           5
         ],
         [
+          2,
+          16
+        ],
+        [
+          2,
+          27
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
           3,
           5
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          3,
+          25
+        ],
+        [
+          3,
+          26
+        ],
+        [
+          3,
+          27
         ],
         [
           4,
           5
         ],
         [
+          4,
+          16
+        ],
+        [
+          4,
+          27
+        ],
+        [
           5,
           5
+        ],
+        [
+          5,
+          16
+        ],
+        [
+          5,
+          27
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
         ],
         [
           6,
           5
         ],
         [
+          6,
+          12
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          6,
+          14
+        ],
+        [
+          6,
+          15
+        ],
+        [
+          6,
+          16
+        ],
+        [
+          6,
+          27
+        ],
+        [
+          6,
+          28
+        ],
+        [
+          6,
+          29
+        ],
+        [
+          6,
+          30
+        ],
+        [
+          6,
+          31
+        ],
+        [
           7,
           5
         ],
         [
+          7,
+          16
+        ],
+        [
+          7,
+          27
+        ],
+        [
           8,
           5
+        ],
+        [
+          8,
+          16
+        ],
+        [
+          8,
+          27
         ],
         [
           9,
           5
         ],
         [
+          9,
+          16
+        ],
+        [
+          9,
+          27
+        ],
+        [
           10,
           5
         ],
         [
-          3,
+          10,
+          12
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          10,
+          15
+        ],
+        [
+          10,
+          16
+        ],
+        [
+          10,
+          27
+        ],
+        [
+          11,
+          5
+        ],
+        [
+          11,
+          6
+        ],
+        [
+          11,
+          7
+        ],
+        [
+          11,
+          8
+        ],
+        [
+          11,
+          9
+        ],
+        [
+          11,
+          16
+        ],
+        [
+          11,
+          27
+        ],
+        [
+          12,
+          5
+        ],
+        [
+          12,
+          16
+        ],
+        [
+          12,
+          27
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          13,
+          23
+        ],
+        [
+          13,
+          24
+        ],
+        [
+          13,
+          25
+        ],
+        [
+          13,
+          26
+        ],
+        [
+          13,
+          27
+        ],
+        [
+          14,
+          5
+        ],
+        [
+          14,
+          12
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          14,
+          27
+        ],
+        [
+          15,
+          5
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          27
+        ],
+        [
+          16,
+          5
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          16,
+          27
+        ],
+        [
+          17,
+          5
+        ],
+        [
+          17,
+          16
+        ],
+        [
+          17,
+          27
+        ],
+        [
+          17,
+          28
+        ],
+        [
+          17,
+          29
+        ],
+        [
+          17,
+          30
+        ],
+        [
+          17,
+          31
+        ],
+        [
+          18,
+          5
+        ],
+        [
+          18,
+          16
+        ],
+        [
+          18,
+          27
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          19,
           2
         ],
         [
-          8,
+          19,
+          3
+        ],
+        [
+          19,
+          4
+        ],
+        [
+          19,
+          5
+        ],
+        [
+          19,
+          16
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          19,
+          25
+        ],
+        [
+          19,
+          26
+        ],
+        [
+          19,
+          27
+        ],
+        [
+          20,
+          5
+        ],
+        [
+          20,
+          16
+        ],
+        [
+          20,
+          17
+        ],
+        [
+          20,
+          18
+        ],
+        [
+          20,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          23
+        ],
+        [
+          21,
+          5
+        ],
+        [
+          21,
+          16
+        ],
+        [
+          21,
+          23
+        ],
+        [
+          21,
+          24
+        ],
+        [
+          21,
+          25
+        ],
+        [
+          21,
+          26
+        ],
+        [
+          21,
+          27
+        ],
+        [
+          22,
+          1
+        ],
+        [
+          22,
           2
         ],
         [
-          3,
+          22,
+          3
+        ],
+        [
+          22,
           4
         ],
         [
-          8,
+          22,
+          5
+        ],
+        [
+          22,
+          16
+        ],
+        [
+          22,
+          27
+        ],
+        [
+          23,
+          5
+        ],
+        [
+          23,
+          12
+        ],
+        [
+          23,
+          13
+        ],
+        [
+          23,
+          14
+        ],
+        [
+          23,
+          15
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          23,
+          24
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          23,
+          26
+        ],
+        [
+          23,
+          27
+        ],
+        [
+          24,
+          5
+        ],
+        [
+          24,
+          16
+        ],
+        [
+          24,
+          23
+        ],
+        [
+          25,
+          1
+        ],
+        [
+          25,
+          2
+        ],
+        [
+          25,
+          3
+        ],
+        [
+          25,
           4
+        ],
+        [
+          25,
+          5
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          23
+        ],
+        [
+          25,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          25,
+          26
+        ],
+        [
+          25,
+          27
+        ],
+        [
+          26,
+          5
+        ],
+        [
+          26,
+          16
+        ],
+        [
+          26,
+          17
+        ],
+        [
+          26,
+          18
+        ],
+        [
+          26,
+          19
+        ],
+        [
+          26,
+          20
+        ],
+        [
+          26,
+          27
+        ],
+        [
+          27,
+          5
+        ],
+        [
+          27,
+          16
+        ],
+        [
+          27,
+          23
+        ],
+        [
+          27,
+          24
+        ],
+        [
+          27,
+          25
+        ],
+        [
+          27,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          1
+        ],
+        [
+          28,
+          2
+        ],
+        [
+          28,
+          3
+        ],
+        [
+          28,
+          4
+        ],
+        [
+          28,
+          5
+        ],
+        [
+          28,
+          16
+        ],
+        [
+          28,
+          23
+        ],
+        [
+          29,
+          5
+        ],
+        [
+          29,
+          12
+        ],
+        [
+          29,
+          13
+        ],
+        [
+          29,
+          14
+        ],
+        [
+          29,
+          15
+        ],
+        [
+          29,
+          16
+        ],
+        [
+          29,
+          23
+        ],
+        [
+          29,
+          24
+        ],
+        [
+          29,
+          25
+        ],
+        [
+          29,
+          26
+        ],
+        [
+          29,
+          27
+        ],
+        [
+          29,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          29,
+          30
+        ],
+        [
+          29,
+          31
+        ],
+        [
+          30,
+          5
+        ],
+        [
+          30,
+          16
+        ],
+        [
+          30,
+          27
+        ],
+        [
+          31,
+          1
+        ],
+        [
+          31,
+          2
+        ],
+        [
+          31,
+          3
+        ],
+        [
+          31,
+          4
+        ],
+        [
+          31,
+          5
+        ],
+        [
+          31,
+          16
+        ],
+        [
+          31,
+          27
+        ],
+        [
+          32,
+          5
+        ],
+        [
+          32,
+          16
+        ],
+        [
+          32,
+          27
+        ],
+        [
+          33,
+          5
+        ],
+        [
+          33,
+          16
+        ],
+        [
+          33,
+          27
+        ],
+        [
+          34,
+          5
+        ],
+        [
+          34,
+          16
+        ],
+        [
+          34,
+          27
+        ],
+        [
+          35,
+          5
+        ],
+        [
+          35,
+          16
+        ],
+        [
+          35,
+          27
+        ],
+        [
+          36,
+          5
+        ],
+        [
+          36,
+          12
+        ],
+        [
+          36,
+          16
+        ],
+        [
+          36,
+          17
+        ],
+        [
+          36,
+          18
+        ],
+        [
+          36,
+          19
+        ],
+        [
+          36,
+          20
+        ],
+        [
+          36,
+          23
+        ],
+        [
+          36,
+          27
+        ],
+        [
+          37,
+          5
+        ],
+        [
+          37,
+          12
+        ],
+        [
+          37,
+          16
+        ],
+        [
+          37,
+          23
+        ],
+        [
+          37,
+          27
+        ],
+        [
+          38,
+          5
+        ],
+        [
+          38,
+          12
+        ],
+        [
+          38,
+          16
+        ],
+        [
+          38,
+          23
+        ],
+        [
+          38,
+          27
+        ],
+        [
+          39,
+          5
+        ],
+        [
+          39,
+          12
+        ],
+        [
+          39,
+          16
+        ],
+        [
+          39,
+          23
+        ],
+        [
+          39,
+          27
+        ],
+        [
+          40,
+          5
+        ],
+        [
+          40,
+          12
+        ],
+        [
+          40,
+          16
+        ],
+        [
+          40,
+          23
+        ],
+        [
+          40,
+          27
+        ],
+        [
+          41,
+          1
+        ],
+        [
+          41,
+          5
+        ],
+        [
+          41,
+          12
+        ],
+        [
+          41,
+          16
+        ],
+        [
+          41,
+          23
+        ],
+        [
+          41,
+          27
+        ],
+        [
+          42,
+          1
+        ],
+        [
+          42,
+          5
+        ],
+        [
+          42,
+          12
+        ],
+        [
+          42,
+          13
+        ],
+        [
+          42,
+          14
+        ],
+        [
+          42,
+          15
+        ],
+        [
+          42,
+          16
+        ],
+        [
+          42,
+          23
+        ],
+        [
+          42,
+          24
+        ],
+        [
+          42,
+          25
+        ],
+        [
+          42,
+          26
+        ],
+        [
+          42,
+          27
+        ],
+        [
+          43,
+          1
+        ],
+        [
+          43,
+          5
+        ],
+        [
+          43,
+          16
+        ],
+        [
+          43,
+          27
+        ],
+        [
+          44,
+          1
+        ],
+        [
+          44,
+          5
+        ],
+        [
+          44,
+          16
+        ],
+        [
+          44,
+          27
+        ],
+        [
+          45,
+          1
+        ],
+        [
+          45,
+          5
+        ],
+        [
+          45,
+          16
+        ],
+        [
+          45,
+          17
+        ],
+        [
+          45,
+          18
+        ],
+        [
+          45,
+          19
+        ],
+        [
+          45,
+          20
+        ],
+        [
+          45,
+          27
+        ],
+        [
+          46,
+          1
+        ],
+        [
+          46,
+          5
+        ],
+        [
+          46,
+          16
+        ],
+        [
+          46,
+          27
+        ],
+        [
+          47,
+          1
+        ],
+        [
+          47,
+          2
+        ],
+        [
+          47,
+          3
+        ],
+        [
+          47,
+          4
+        ],
+        [
+          47,
+          5
+        ],
+        [
+          47,
+          6
+        ],
+        [
+          47,
+          7
+        ],
+        [
+          47,
+          8
+        ],
+        [
+          47,
+          9
+        ],
+        [
+          47,
+          10
+        ],
+        [
+          47,
+          11
+        ],
+        [
+          47,
+          12
+        ],
+        [
+          47,
+          13
+        ],
+        [
+          47,
+          14
+        ],
+        [
+          47,
+          15
+        ],
+        [
+          47,
+          16
+        ],
+        [
+          47,
+          27
         ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        10,
-        5
       ],
       "coins": [
         [
-          6,
-          0
+          3,
+          1
         ],
         [
           6,
           1
         ],
         [
-          10,
-          1
+          11,
+          9
         ],
         [
-          6,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          6,
+          15,
           5
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          22,
+          1
+        ],
+        [
+          25,
+          1
+        ],
+        [
+          28,
+          1
+        ],
+        [
+          31,
+          1
+        ],
+        [
+          37,
+          5
+        ],
+        [
+          41,
+          5
+        ],
+        [
+          45,
+          5
+        ],
+        [
+          41,
+          1
+        ],
+        [
+          45,
+          20
+        ],
+        [
+          36,
+          12
+        ],
+        [
+          36,
+          20
+        ],
+        [
+          29,
+          12
+        ],
+        [
+          26,
+          20
+        ],
+        [
+          23,
+          12
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          11,
+          16
+        ],
+        [
+          7,
+          16
+        ],
+        [
+          3,
+          16
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          6,
+          31
+        ],
+        [
+          13,
+          23
+        ],
+        [
+          17,
+          31
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          21,
+          27
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          25,
+          27
+        ],
+        [
+          27,
+          23
+        ],
+        [
+          29,
+          27
+        ],
+        [
+          36,
+          23
+        ],
+        [
+          46,
+          27
         ]
       ],
       "keys": [
         [
+          3,
+          1
+        ],
+        [
+          45,
+          20
+        ],
+        [
+          14,
+          12
+        ],
+        [
+          10,
+          12
+        ],
+        [
           6,
-          0
+          12
+        ],
+        [
+          17,
+          31
         ]
       ],
       "doors": [
         [
-          10,
-          2
+          8,
+          5
+        ],
+        [
+          39,
+          16
+        ],
+        [
+          13,
+          16
+        ],
+        [
+          9,
+          16
+        ],
+        [
+          5,
+          16
+        ],
+        [
+          39,
+          27
         ]
       ],
       "potions": [
         [
-          6,
-          0
+          33,
+          5
         ],
         [
-          6,
-          4
+          20,
+          20
         ],
         [
-          6,
-          4
+          15,
+          27
+        ],
+        [
+          36,
+          23
         ]
       ],
       "enemies": [
+        {
+          "x": 36,
+          "y": 5,
+          "health": 9
+        },
+        {
+          "x": 40,
+          "y": 5,
+          "health": 9
+        },
+        {
+          "x": 44,
+          "y": 5,
+          "health": 9
+        },
+        {
+          "x": 11,
+          "y": 27,
+          "health": 9
+        },
+        {
+          "x": 36,
+          "y": 27,
+          "health": 9
+        },
+        {
+          "x": 45,
+          "y": 27,
+          "health": 9
+        }
+      ],
+      "key_colors": [
+        {
+          "x": 3,
+          "y": 1,
+          "color": "red"
+        },
+        {
+          "x": 45,
+          "y": 20,
+          "color": "blue"
+        },
+        {
+          "x": 14,
+          "y": 12,
+          "color": "gold"
+        },
+        {
+          "x": 10,
+          "y": 12,
+          "color": "gold"
+        },
+        {
+          "x": 6,
+          "y": 12,
+          "color": "gold"
+        },
+        {
+          "x": 17,
+          "y": 31,
+          "color": "gold"
+        }
+      ],
+      "door_colors": [
+        {
+          "x": 8,
+          "y": 5,
+          "color": "red"
+        },
+        {
+          "x": 39,
+          "y": 16,
+          "color": "blue"
+        },
+        {
+          "x": 13,
+          "y": 16,
+          "color": "gold"
+        },
         {
           "x": 9,
-          "y": 1,
-          "health": 6
+          "y": 16,
+          "color": "gold"
         },
         {
-          "x": 2,
-          "y": 3,
-          "health": 9
+          "x": 5,
+          "y": 16,
+          "color": "gold"
+        },
+        {
+          "x": 39,
+          "y": 27,
+          "color": "gold"
+        }
+      ],
+      "switches": [
+        {
+          "x": 11,
+          "y": 9,
+          "color": "red"
+        },
+        {
+          "x": 36,
+          "y": 20,
+          "color": "green"
+        },
+        {
+          "x": 13,
+          "y": 23,
+          "color": "purple"
+        }
+      ],
+      "gates": [
+        {
+          "x": 14,
+          "y": 5,
+          "color": "red"
+        },
+        {
+          "x": 1,
+          "y": 16,
+          "color": "green"
+        },
+        {
+          "x": 41,
+          "y": 27,
+          "color": "purple"
+        }
+      ],
+      "number_clues": [
+        {
+          "x": 6,
+          "y": 1,
+          "label": "A"
+        },
+        {
+          "x": 31,
+          "y": 1,
+          "label": "B"
+        },
+        {
+          "x": 36,
+          "y": 12,
+          "label": "C"
+        }
+      ],
+      "code_doors": [
+        {
+          "x": 30,
+          "y": 5,
+          "label": "I",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A"
+            }
+          ]
+        },
+        {
+          "x": 34,
+          "y": 16,
+          "label": "II",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B"
+            }
+          ]
+        },
+        {
+          "x": 18,
+          "y": 16,
+          "label": "III",
+          "formula": "C",
+          "terms": [
+            {
+              "clue": "C"
+            }
+          ]
         },
         {
           "x": 9,
-          "y": 5,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "12 \u00d7 8 map \u00b7 37 steps on the full supply route"
-  },
-  {
-    "id": "6-2",
-    "week": 6,
-    "stage": 2,
-    "title": "Search each room",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 8 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
-    "world": {
-      "width": 13,
-      "height": 8,
-      "path": [
-        [
-          1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          9,
-          4
-        ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        11,
-        5
-      ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          5
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          4
-        ]
-      ],
-      "doors": [
-        [
-          11,
-          2
-        ],
-        [
-          1,
-          4
-        ]
-      ],
-      "potions": [
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ]
-      ],
-      "enemies": [
+          "y": 27,
+          "label": "IV",
+          "formula": "A",
+          "terms": [
+            {
+              "clue": "A"
+            }
+          ]
+        },
         {
-          "x": 10,
+          "x": 30,
+          "y": 27,
+          "label": "V",
+          "formula": "C",
+          "terms": [
+            {
+              "clue": "C"
+            }
+          ]
+        },
+        {
+          "x": 43,
+          "y": 27,
+          "label": "VI",
+          "formula": "B",
+          "terms": [
+            {
+              "clue": "B"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "x": 2,
+          "y": 5,
+          "item": "sword"
+        },
+        {
+          "x": 29,
+          "y": 12,
+          "item": "red gem"
+        },
+        {
+          "x": 26,
+          "y": 20,
+          "item": "blue gem"
+        },
+        {
+          "x": 23,
+          "y": 12,
+          "item": "green gem"
+        }
+      ],
+      "deliveries": [
+        {
+          "x": 3,
+          "y": 23,
+          "item": "red gem"
+        },
+        {
+          "x": 6,
+          "y": 31,
+          "item": "blue gem"
+        },
+        {
+          "x": 29,
+          "y": 31,
+          "item": "green gem"
+        }
+      ],
+      "regions": [
+        {
+          "name": "1. Supply courtyard",
+          "x": 1,
           "y": 1,
-          "health": 6
+          "width": 15,
+          "height": 9
         },
         {
-          "x": 2,
-          "y": 3,
-          "health": 9
-        },
-        {
-          "x": 10,
-          "y": 5,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "13 \u00d7 8 map \u00b7 40 steps on the full supply route"
-  },
-  {
-    "id": "6-3",
-    "week": 6,
-    "stage": 3,
-    "title": "The watchtower",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 7 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 3 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
-    "world": {
-      "width": 14,
-      "height": 8,
-      "path": [
-        [
-          1,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          0
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          11,
-          1
-        ],
-        [
-          12,
-          1
-        ],
-        [
-          12,
-          2
-        ],
-        [
-          12,
-          3
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          12,
-          5
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          10,
-          4
-        ]
-      ],
-      "start": [
-        1,
-        1
-      ],
-      "exit": [
-        12,
-        5
-      ],
-      "coins": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          12,
-          1
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          7,
-          5
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          4
-        ]
-      ],
-      "doors": [
-        [
-          12,
-          2
-        ],
-        [
-          1,
-          4
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          0
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          4
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 11,
+          "name": "2. Coin cloister",
+          "x": 17,
           "y": 1,
-          "health": 6
+          "width": 15,
+          "height": 9
         },
         {
-          "x": 2,
-          "y": 3,
-          "health": 9
-        },
-        {
-          "x": 11,
-          "y": 5,
-          "health": 6
-        }
-      ]
-    },
-    "mapNote": "14 \u00d7 8 map \u00b7 43 steps on the full supply route"
-  },
-  {
-    "id": "6-4",
-    "week": 6,
-    "stage": 4,
-    "title": "The west wing",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 11 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
-    "world": {
-      "width": 13,
-      "height": 10,
-      "path": [
-        [
-          11,
-          1
-        ],
-        [
-          10,
-          1
-        ],
-        [
-          9,
-          1
-        ],
-        [
-          8,
-          1
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          6,
-          0
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          4,
-          1
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          2,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          2,
-          3
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          4,
-          3
-        ],
-        [
-          5,
-          3
-        ],
-        [
-          6,
-          3
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          9,
-          3
-        ],
-        [
-          10,
-          3
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          9,
-          5
-        ],
-        [
-          8,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          5,
-          5
-        ],
-        [
-          4,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          7
-        ],
-        [
-          2,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          4,
-          7
-        ],
-        [
-          5,
-          7
-        ],
-        [
-          6,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          9,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          3,
-          6
-        ]
-      ],
-      "start": [
-        11,
-        1
-      ],
-      "exit": [
-        11,
-        7
-      ],
-      "coins": [
-        [
-          6,
-          0
-        ],
-        [
-          6,
-          1
-        ],
-        [
-          1,
-          1
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          6,
-          5
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          7,
-          7
-        ]
-      ],
-      "keys": [
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          4
-        ]
-      ],
-      "doors": [
-        [
-          1,
-          2
-        ],
-        [
-          11,
-          4
-        ]
-      ],
-      "potions": [
-        [
-          6,
-          0
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          8
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 2,
+          "name": "3. Guard walk",
+          "x": 33,
           "y": 1,
-          "health": 6
+          "width": 15,
+          "height": 9
         },
         {
-          "x": 10,
-          "y": 3,
-          "health": 9
+          "name": "4. Blue archives",
+          "x": 33,
+          "y": 12,
+          "width": 15,
+          "height": 9
         },
         {
-          "x": 2,
-          "y": 5,
-          "health": 6
+          "name": "5. Gem depot",
+          "x": 17,
+          "y": 12,
+          "width": 15,
+          "height": 9
         },
         {
-          "x": 10,
-          "y": 7,
-          "health": 9
+          "name": "6. Three lock passage",
+          "x": 1,
+          "y": 12,
+          "width": 15,
+          "height": 9
+        },
+        {
+          "name": "7. Relay gardens",
+          "x": 1,
+          "y": 23,
+          "width": 15,
+          "height": 9
+        },
+        {
+          "name": "8. Vault stairs",
+          "x": 17,
+          "y": 23,
+          "width": 15,
+          "height": 9
+        },
+        {
+          "name": "9. The citadel",
+          "x": 33,
+          "y": 23,
+          "width": 15,
+          "height": 9
         }
+      ],
+      "requires_hotbar": true,
+      "inventory_mode": true,
+      "large_map": true,
+      "max_turns": 1800,
+      "enemy_health_choices": [
+        3,
+        6,
+        9
       ]
-    },
-    "mapNote": "13 \u00d7 10 map \u00b7 54 steps on the full supply route"
-  },
-  {
-    "id": "6-5",
-    "week": 6,
-    "stage": 5,
-    "title": "The return route",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 10 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 4 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
-    "world": {
-      "width": 14,
-      "height": 10,
-      "path": [
-        [
-          1,
-          8
-        ],
-        [
-          2,
-          8
-        ],
-        [
-          3,
-          8
-        ],
-        [
-          4,
-          8
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          7,
-          9
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          9,
-          8
-        ],
-        [
-          10,
-          8
-        ],
-        [
-          11,
-          8
-        ],
-        [
-          12,
-          8
-        ],
-        [
-          12,
-          7
-        ],
-        [
-          12,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          12,
-          3
-        ],
-        [
-          12,
-          2
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          10,
-          7
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          10,
-          5
-        ],
-        [
-          3,
-          3
-        ],
-        [
-          10,
-          3
-        ]
-      ],
-      "start": [
-        1,
-        8
-      ],
-      "exit": [
-        1,
-        2
-      ],
-      "coins": [
-        [
-          7,
-          9
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          12,
-          8
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          7,
-          1
-        ],
-        [
-          7,
-          2
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          9
-        ],
-        [
-          7,
-          5
-        ]
-      ],
-      "doors": [
-        [
-          12,
-          7
-        ],
-        [
-          1,
-          5
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          9
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          5
-        ],
-        [
-          7,
-          1
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 11,
-          "y": 8,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 6,
-          "health": 9
-        },
-        {
-          "x": 11,
-          "y": 4,
-          "health": 6
-        },
-        {
-          "x": 2,
-          "y": 2,
-          "health": 9
-        }
-      ]
-    },
-    "mapNote": "14 \u00d7 10 map \u00b7 58 steps on the full supply route"
-  },
-  {
-    "id": "6-6",
-    "week": 6,
-    "stage": 6,
-    "title": "Put it to the test",
-    "topic": "Functions",
-    "teach": "Make a travel function that takes a direction and a number of steps. It should deal with guards and doors as it goes. A second function can collect supplies and heal your hero. Keep a for loop inside travel for each step and a while loop for each guard. Use your Week 5 route lists to plan the calls.",
-    "example": "def walk_three():\n    for step in range(3):\n        hero.move(\"right\")\n\nwalk_three()",
-    "objective": "Collect all 14 coins and reach the exit. Find the keys in the side rooms and open 2 locked doors. Defeat all 5 guards. Keep an eye on your health.",
-    "hint": "Test your function on the first few tiles. Then reuse it for the halls and side rooms. A function can call another function.",
-    "starter": "from hero_game import hero\n\ndef travel(direction, steps):\n    # Check, fight, move, and collect inside a loop.\n    pass\n\n# Call travel for each part of your route.\n",
-    "world": {
-      "width": 15,
-      "height": 12,
-      "path": [
-        [
-          13,
-          10
-        ],
-        [
-          12,
-          10
-        ],
-        [
-          11,
-          10
-        ],
-        [
-          10,
-          10
-        ],
-        [
-          9,
-          10
-        ],
-        [
-          8,
-          10
-        ],
-        [
-          7,
-          10
-        ],
-        [
-          7,
-          11
-        ],
-        [
-          6,
-          10
-        ],
-        [
-          5,
-          10
-        ],
-        [
-          4,
-          10
-        ],
-        [
-          3,
-          10
-        ],
-        [
-          2,
-          10
-        ],
-        [
-          1,
-          10
-        ],
-        [
-          1,
-          9
-        ],
-        [
-          1,
-          8
-        ],
-        [
-          2,
-          8
-        ],
-        [
-          3,
-          8
-        ],
-        [
-          4,
-          8
-        ],
-        [
-          5,
-          8
-        ],
-        [
-          6,
-          8
-        ],
-        [
-          7,
-          8
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          9,
-          8
-        ],
-        [
-          10,
-          8
-        ],
-        [
-          11,
-          8
-        ],
-        [
-          12,
-          8
-        ],
-        [
-          13,
-          8
-        ],
-        [
-          13,
-          7
-        ],
-        [
-          13,
-          6
-        ],
-        [
-          12,
-          6
-        ],
-        [
-          11,
-          6
-        ],
-        [
-          10,
-          6
-        ],
-        [
-          9,
-          6
-        ],
-        [
-          8,
-          6
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          6,
-          6
-        ],
-        [
-          5,
-          6
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          3,
-          6
-        ],
-        [
-          2,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          1,
-          5
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          4
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          4,
-          4
-        ],
-        [
-          5,
-          4
-        ],
-        [
-          6,
-          4
-        ],
-        [
-          7,
-          4
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          9,
-          4
-        ],
-        [
-          10,
-          4
-        ],
-        [
-          11,
-          4
-        ],
-        [
-          12,
-          4
-        ],
-        [
-          13,
-          4
-        ],
-        [
-          13,
-          3
-        ],
-        [
-          13,
-          2
-        ],
-        [
-          12,
-          2
-        ],
-        [
-          11,
-          2
-        ],
-        [
-          10,
-          2
-        ],
-        [
-          9,
-          2
-        ],
-        [
-          8,
-          2
-        ],
-        [
-          7,
-          2
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          6,
-          2
-        ],
-        [
-          5,
-          2
-        ],
-        [
-          4,
-          2
-        ],
-        [
-          3,
-          2
-        ],
-        [
-          2,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          11,
-          9
-        ],
-        [
-          3,
-          9
-        ],
-        [
-          11,
-          7
-        ],
-        [
-          3,
-          7
-        ],
-        [
-          11,
-          5
-        ],
-        [
-          3,
-          5
-        ],
-        [
-          11,
-          3
-        ],
-        [
-          3,
-          3
-        ]
-      ],
-      "start": [
-        13,
-        10
-      ],
-      "exit": [
-        1,
-        2
-      ],
-      "coins": [
-        [
-          7,
-          11
-        ],
-        [
-          7,
-          10
-        ],
-        [
-          1,
-          10
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          8,
-          8
-        ],
-        [
-          13,
-          8
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          7,
-          6
-        ],
-        [
-          1,
-          6
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          8,
-          4
-        ],
-        [
-          13,
-          4
-        ],
-        [
-          7,
-          3
-        ],
-        [
-          7,
-          2
-        ]
-      ],
-      "keys": [
-        [
-          7,
-          11
-        ],
-        [
-          8,
-          7
-        ]
-      ],
-      "doors": [
-        [
-          1,
-          9
-        ],
-        [
-          13,
-          7
-        ]
-      ],
-      "potions": [
-        [
-          7,
-          11
-        ],
-        [
-          8,
-          7
-        ],
-        [
-          7,
-          7
-        ],
-        [
-          8,
-          3
-        ],
-        [
-          7,
-          3
-        ]
-      ],
-      "enemies": [
-        {
-          "x": 2,
-          "y": 10,
-          "health": 6
-        },
-        {
-          "x": 12,
-          "y": 8,
-          "health": 9
-        },
-        {
-          "x": 2,
-          "y": 6,
-          "health": 6
-        },
-        {
-          "x": 12,
-          "y": 4,
-          "health": 9
-        },
-        {
-          "x": 2,
-          "y": 2,
-          "health": 12
-        }
-      ]
-    },
-    "mapNote": "15 \u00d7 12 map \u00b7 78 steps on the full supply route"
+    }
   },
   {
     "id": "8-1",

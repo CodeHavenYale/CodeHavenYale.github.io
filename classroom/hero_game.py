@@ -110,7 +110,7 @@ class Hero:
         return self.x + dx, self.y + dy
 
     def record(self, message):
-        if len(self.frames) >= 450:
+        if len(self.frames) >= self.config.get('max_turns', 450):
             raise RuntimeError('That is a lot of turns. Try a shorter plan.')
         self.frames.append({'x': self.x, 'y': self.y, 'health': self.health,
                             'coins': self.coins, 'remaining': list(self.coins_left),
@@ -410,10 +410,57 @@ class Hero:
 hero = Hero()
 _screen = None
 _stopped = False
+_map_mode = 'follow'
+_map_focus = None
+_last_frame = None
 
 
 def setup(config):
+    global _map_mode, _map_focus, _last_frame
     hero.setup(json.loads(config) if isinstance(config, str) else config)
+    _map_mode, _map_focus, _last_frame = 'follow', None, None
+
+
+def camera_bounds(frame):
+    """A readable 16 by 9 window, clamped to the same continuous world."""
+    cols, rows = hero.config['width'], hero.config['height']
+    x, y = _map_focus or (frame['x'], frame['y'])
+    return max(0, min(cols-16, x-8)), max(0, min(rows-9, y-4))
+
+
+def set_map_view(mode, dx=0, dy=0):
+    global _map_mode, _map_focus
+    if mode not in ('follow', 'overview', 'pan'):
+        raise ValueError('Choose follow, overview, or pan.')
+    frame = _last_frame or hero.frames[0]
+    if mode == 'pan':
+        left, top = camera_bounds(frame)
+        _map_focus = (max(8, min(hero.config['width']-8, left+8+int(dx))),
+                      max(4, min(hero.config['height']-5, top+4+int(dy))))
+    else:
+        _map_focus = None
+    _map_mode = mode
+    draw(frame)
+
+
+def focus_map(x, y):
+    """Click the overview to inspect that part of the map at full detail."""
+    global _map_mode, _map_focus
+    if _map_mode != 'overview' or not hero.config.get('large_map'):
+        return False
+    tile, ox, oy = overview_layout()
+    col, row = int((x-ox)//tile), int((y-oy)//tile)
+    if 0 <= col < hero.config['width'] and 0 <= row < hero.config['height'] and x >= ox and y >= oy:
+        _map_focus, _map_mode = (col, row), 'pan'
+        draw(_last_frame or hero.frames[0])
+        return True
+    return False
+
+
+def overview_layout():
+    cols, rows = hero.config['width'], hero.config['height']
+    tile = min(576//cols, 324//rows)
+    return tile, (640-cols*tile)//2, 40+(324-rows*tile)//2
 
 
 def world_config():
@@ -449,11 +496,139 @@ def draw_item(pygame, surface, item, x, y, scale=1):
         pygame.draw.line(surface, '#f5d0fe', point(-3,2), point(-3,7), max(1,round(2*scale)))
 
 
+def draw_world(pygame, surface, frame, tile, ox, oy, cols, rows):
+    small = pygame.font.Font(None, 17)
+    for y in range(rows):
+        for x in range(cols):
+            rect = pygame.Rect(ox+x*tile, oy+y*tile, tile-3, tile-3)
+            pygame.draw.rect(surface, '#344e57' if (x, y) in hero.path else '#1c313b', rect, border_radius=4)
+    def center(pos):
+        return ox+pos[0]*tile+tile//2-1, oy+pos[1]*tile+tile//2-1
+    ex, ey = center(hero.exit)
+    pygame.draw.rect(surface, '#34d399', (ex-tile//3, ey-tile//3, tile*2//3, tile*2//3), 2, border_radius=3)
+    surface.blit(small.render('E', True, '#a7f3d0'), (ex-4, ey-6))
+    for pos in frame['remaining']:
+        x,y=center(pos)
+        pygame.draw.circle(surface, '#fbbf24', (x-5,y+5), max(4,tile//7))
+    item_colors = ITEM_COLORS
+    for target in hero.config.get('deliveries', []):
+        x,y = center((target['x'], target['y']))
+        tint = item_colors[target['item'].split(' ')[0]]
+        pygame.draw.rect(surface, tint, (x-tile//2+3,y-tile//2+3,tile-6,tile-6), 2, border_radius=4)
+        done = target['item'] in frame['ground'].get((target['x'], target['y']), [])
+        surface.blit(small.render('OK' if done else target['item'][0].upper(), True, tint), (x-tile//2+6,y-tile//2+5))
+    if hero.config.get('inventory_mode'):
+        for pos, items in frame['ground'].items():
+            x,y = center(pos)
+            # Fan out stacked pickups so dropping on an occupied tile stays visible.
+            for offset, item in enumerate(items):
+                draw_item(pygame, surface, item, x+(offset-(len(items)-1)/2)*7, y, min(.85,tile/48))
+            if len(items) > 1:
+                surface.blit(small.render(str(len(items)),True,'white'),(x+8,y+8))
+    for pos, label in hero.number_clues.items():
+        x,y=center(pos)
+        pygame.draw.rect(surface, '#67e8f9', (x-12,y-13,24,21), 2, border_radius=3)
+        value = frame['readings'].get(label, '?')
+        surface.blit(small.render(label + ':' + str(value), True, '#a5f3fc'), (x-12,y-8))
+    for pos in frame['code_doors']:
+        x,y=center(pos)
+        door = next(d for d in hero.config['code_doors'] if (d['x'],d['y']) == pos)
+        pygame.draw.rect(surface, '#a78bfa', (x-tile//3,y-tile//3,tile*2//3,tile*2//3), border_radius=3)
+        surface.blit(small.render(door['label'], True, '#15252f'), (x-7,y-7))
+    for pos in ([] if hero.config.get('inventory_mode') else frame['keys_left']):
+        x,y=center(pos)
+        color = hero.key_colors.get(pos, 'gold')
+        tint = item_colors[color]
+        pygame.draw.circle(surface, tint, (x-6,y-7), 5, 2)
+        pygame.draw.line(surface, tint, (x-2,y-7),(x+9,y-7), 3)
+        pygame.draw.line(surface, tint, (x+7,y-7),(x+7,y-2), 2)
+        surface.blit(small.render(color[0].upper(), True, tint),(x+6,y+2))
+    for pos in ([] if hero.config.get('inventory_mode') else frame['potions_left']):
+        x,y=center(pos)
+        pygame.draw.rect(surface,'#c084fc',(x+5,y+2,7,11),border_radius=2)
+        pygame.draw.rect(surface,'#e9d5ff',(x+7,y,3,3))
+    for pos in frame['doors']:
+        x,y=center(pos)
+        color=hero.door_colors.get(pos, 'gold')
+        pygame.draw.rect(surface,item_colors[color],(x-tile//3,y-tile//3,tile*2//3,tile*2//3),border_radius=3)
+        surface.blit(small.render(color[0].upper(),True,'#15252f'),(x-8,y-7))
+        pygame.draw.circle(surface,'#fde68a',(x+4,y),3)
+    for pos, color in hero.switches.items():
+        x,y=center(pos)
+        pygame.draw.rect(surface,item_colors[color],(x-11,y-11,22,22),2,border_radius=3)
+        surface.blit(small.render('ON' if pos in frame['activated'] else 'S',True,item_colors[color]),(x-8,y-6))
+    for pos, color in frame['gates'].items():
+        x,y=center(pos)
+        for shift in (-9,0,9):
+            pygame.draw.line(surface,item_colors[color],(x+shift,y-14),(x+shift,y+14),3)
+    for pos, health in frame['enemies'].items():
+        if health <= 0:
+            continue
+        x,y=center(pos)
+        pygame.draw.rect(surface,'#f87171',(x-10,y-12,20,19),border_radius=5)
+        pygame.draw.circle(surface,'#15252f',(x-4,y-5),2)
+        pygame.draw.circle(surface,'#15252f',(x+4,y-5),2)
+        surface.blit(small.render(str(health),True,'white'),(x-4,y+6))
+    x,y=center((frame['x'],frame['y']))
+    pygame.draw.rect(surface,frame['color'],(x-9,y-3,18,17),border_radius=4)
+    pygame.draw.circle(surface,'#fed7aa',(x,y-8),8)
+    if frame['hat'] == 'cap':
+        pygame.draw.rect(surface,frame['color'],(x-9,y-16,20,6),border_radius=2)
+    elif frame['hat'] == 'crown':
+        pygame.draw.polygon(surface,'#facc15',[(x-9,y-11),(x-10,y-21),(x-4,y-16),(x,y-23),(x+4,y-16),(x+10,y-21),(x+9,y-11)])
+    elif frame['hat'] == 'helmet':
+        pygame.draw.circle(surface,'#cbd5e1',(x,y-10),10,3)
+        pygame.draw.rect(surface,'#cbd5e1',(x-10,y-15,20,5),border_radius=2)
+    pygame.draw.circle(surface,'#15252f',(x+3,y-9),2)
+    if frame['held']:
+        pygame.draw.line(surface,frame['color'],(x+6,y+2),(x+14,y+7),4)
+        draw_item(pygame, surface, frame['held'], x+17, y+2, .7)
+        pygame.draw.circle(surface,'#fed7aa',(x+16,y+7),3)
+
+
+def draw_large_map(pygame, frame):
+    cols, rows = hero.config['width'], hero.config['height']
+    small = pygame.font.Font(None, 17)
+    # Draw symbols at a constant size; only the planning overview is reduced.
+    surface = pygame.Surface((cols*36, rows*36))
+    surface.fill('#15252f')
+    draw_world(pygame, surface, frame, 36, 0, 0, cols, rows)
+    if _map_mode == 'overview':
+        tile, ox, oy = overview_layout()
+        _screen.blit(pygame.transform.smoothscale(surface, (cols*tile, rows*tile)), (ox, oy))
+        for col in range(0, cols, 5):
+            _screen.blit(small.render(str(col), True, '#8ba5b3'), (ox+col*tile, oy-16))
+        for row in range(0, rows, 5):
+            _screen.blit(small.render(str(row), True, '#8ba5b3'), (ox-22, oy+row*tile))
+        for region in hero.config.get('regions', []):
+            label = small.render(region['name'], True, '#cbd5e1')
+            # The wall bands between districts are reserved for overview labels.
+            x = ox+(region['x']+region['width']/2)*tile-label.get_width()/2
+            y = oy+(region['y']+region['height'])*tile
+            _screen.blit(label, (x, y))
+        x, y = ox+frame['x']*tile+tile//2, oy+frame['y']*tile+tile//2
+        pygame.draw.circle(_screen, '#ffffff', (x, y), 6, 2)
+        title = f'Whole map · {cols} × {rows} · Click a district to inspect'
+    else:
+        left, top = camera_bounds(frame)
+        _screen.blit(surface, (40, 40), (left*36, top*36, 576, 324))
+        for col in range(left, left+16):
+            text = small.render(str(col), True, '#8ba5b3')
+            _screen.blit(text, (40+(col-left)*36+18-text.get_width()//2, 23))
+        for row in range(top, top+9):
+            _screen.blit(small.render(str(row), True, '#8ba5b3'), (17, 40+(row-top)*36+12))
+        region = next((r['name'] for r in hero.config.get('regions', [])
+                       if r['x'] <= frame['x'] < r['x']+r['width'] and r['y'] <= frame['y'] < r['y']+r['height']), 'Connecting passage')
+        title = f'{"Following" if _map_mode == "follow" else "Exploring"} · Hero ({frame["x"]}, {frame["y"]}) · {region}'
+    _screen.blit(small.render(title, True, '#cbd5e1'), (40, 5))
+
+
 def draw(frame):
     # Scope SDL keyboard events to the canvas before creating any SDL window.
     os.environ['SDL_EMSCRIPTEN_KEYBOARD_ELEMENT'] = '#canvas'
     import pygame
-    global _screen
+    global _screen, _last_frame
+    _last_frame = frame
     if not pygame.get_init():
         pygame.init()
     if not pygame.display.get_surface() or pygame.display.get_surface().get_size() != (640, 560):
@@ -468,98 +643,17 @@ def draw(frame):
     ox, oy = (640 - cols * tile) // 2, 28
     font = pygame.font.Font(None, 22)
     small = pygame.font.Font(None, 17)
-    for y in range(rows):
-        _screen.blit(small.render(str(y), True, '#8ba5b3'), (ox-16, oy+y*tile+tile//2-6))
-        for x in range(cols):
-            if y == 0:
-                _screen.blit(small.render(str(x), True, '#8ba5b3'), (ox+x*tile+tile//2-4, 9))
-            rect = pygame.Rect(ox+x*tile, oy+y*tile, tile-3, tile-3)
-            pygame.draw.rect(_screen, '#344e57' if (x, y) in hero.path else '#1c313b', rect, border_radius=4)
-    def center(pos):
-        return ox+pos[0]*tile+tile//2-1, oy+pos[1]*tile+tile//2-1
-    ex, ey = center(hero.exit)
-    pygame.draw.rect(_screen, '#34d399', (ex-tile//3, ey-tile//3, tile*2//3, tile*2//3), 2, border_radius=3)
-    _screen.blit(small.render('E', True, '#a7f3d0'), (ex-4, ey-6))
-    for pos in frame['remaining']:
-        x,y=center(pos)
-        pygame.draw.circle(_screen, '#fbbf24', (x-5,y+5), max(4,tile//7))
-    item_colors = ITEM_COLORS
-    for target in hero.config.get('deliveries', []):
-        x,y = center((target['x'], target['y']))
-        tint = item_colors[target['item'].split(' ')[0]]
-        pygame.draw.rect(_screen, tint, (x-tile//2+3,y-tile//2+3,tile-6,tile-6), 2, border_radius=4)
-        done = target['item'] in frame['ground'].get((target['x'], target['y']), [])
-        _screen.blit(small.render('OK' if done else target['item'][0].upper(), True, tint), (x-tile//2+6,y-tile//2+5))
-    if hero.config.get('inventory_mode'):
-        for pos, items in frame['ground'].items():
-            x,y = center(pos)
-            # Fan out stacked pickups so dropping on an occupied tile stays visible.
-            for offset, item in enumerate(items):
-                draw_item(pygame, _screen, item, x+(offset-(len(items)-1)/2)*7, y, min(.85,tile/48))
-            if len(items) > 1:
-                _screen.blit(small.render(str(len(items)),True,'white'),(x+8,y+8))
-    for pos, label in hero.number_clues.items():
-        x,y=center(pos)
-        pygame.draw.rect(_screen, '#67e8f9', (x-12,y-13,24,21), 2, border_radius=3)
-        value = frame['readings'].get(label, '?')
-        _screen.blit(small.render(label + ':' + str(value), True, '#a5f3fc'), (x-12,y-8))
-    for pos in frame['code_doors']:
-        x,y=center(pos)
-        door = next(d for d in hero.config['code_doors'] if (d['x'],d['y']) == pos)
-        pygame.draw.rect(_screen, '#a78bfa', (x-tile//3,y-tile//3,tile*2//3,tile*2//3), border_radius=3)
-        _screen.blit(small.render(door['label'], True, '#15252f'), (x-7,y-7))
-    for pos in ([] if hero.config.get('inventory_mode') else frame['keys_left']):
-        x,y=center(pos)
-        color = hero.key_colors.get(pos, 'gold')
-        tint = item_colors[color]
-        pygame.draw.circle(_screen, tint, (x-6,y-7), 5, 2)
-        pygame.draw.line(_screen, tint, (x-2,y-7),(x+9,y-7), 3)
-        pygame.draw.line(_screen, tint, (x+7,y-7),(x+7,y-2), 2)
-        _screen.blit(small.render(color[0].upper(), True, tint),(x+6,y+2))
-    for pos in ([] if hero.config.get('inventory_mode') else frame['potions_left']):
-        x,y=center(pos)
-        pygame.draw.rect(_screen,'#c084fc',(x+5,y+2,7,11),border_radius=2)
-        pygame.draw.rect(_screen,'#e9d5ff',(x+7,y,3,3))
-    for pos in frame['doors']:
-        x,y=center(pos)
-        color=hero.door_colors.get(pos, 'gold')
-        pygame.draw.rect(_screen,item_colors[color],(x-tile//3,y-tile//3,tile*2//3,tile*2//3),border_radius=3)
-        _screen.blit(small.render(color[0].upper(),True,'#15252f'),(x-8,y-7))
-        pygame.draw.circle(_screen,'#fde68a',(x+4,y),3)
-    for pos, color in hero.switches.items():
-        x,y=center(pos)
-        pygame.draw.rect(_screen,item_colors[color],(x-11,y-11,22,22),2,border_radius=3)
-        _screen.blit(small.render('ON' if pos in frame['activated'] else 'S',True,item_colors[color]),(x-8,y-6))
-    for pos, color in frame['gates'].items():
-        x,y=center(pos)
-        for shift in (-9,0,9):
-            pygame.draw.line(_screen,item_colors[color],(x+shift,y-14),(x+shift,y+14),3)
-    for pos, health in frame['enemies'].items():
-        if health <= 0:
-            continue
-        x,y=center(pos)
-        pygame.draw.rect(_screen,'#f87171',(x-10,y-12,20,19),border_radius=5)
-        pygame.draw.circle(_screen,'#15252f',(x-4,y-5),2)
-        pygame.draw.circle(_screen,'#15252f',(x+4,y-5),2)
-        _screen.blit(small.render(str(health),True,'white'),(x-4,y+6))
-    x,y=center((frame['x'],frame['y']))
-    pygame.draw.rect(_screen,frame['color'],(x-9,y-3,18,17),border_radius=4)
-    pygame.draw.circle(_screen,'#fed7aa',(x,y-8),8)
-    if frame['hat'] == 'cap':
-        pygame.draw.rect(_screen,frame['color'],(x-9,y-16,20,6),border_radius=2)
-    elif frame['hat'] == 'crown':
-        pygame.draw.polygon(_screen,'#facc15',[(x-9,y-11),(x-10,y-21),(x-4,y-16),(x,y-23),(x+4,y-16),(x+10,y-21),(x+9,y-11)])
-    elif frame['hat'] == 'helmet':
-        pygame.draw.circle(_screen,'#cbd5e1',(x,y-10),10,3)
-        pygame.draw.rect(_screen,'#cbd5e1',(x-10,y-15,20,5),border_radius=2)
-    pygame.draw.circle(_screen,'#15252f',(x+3,y-9),2)
-    if frame['held']:
-        pygame.draw.line(_screen,frame['color'],(x+6,y+2),(x+14,y+7),4)
-        draw_item(pygame, _screen, frame['held'], x+17, y+2, .7)
-        pygame.draw.circle(_screen,'#fed7aa',(x+16,y+7),3)
+    if hero.config.get('large_map'):
+        draw_large_map(pygame, frame)
+    else:
+        draw_world(pygame, _screen, frame, tile, ox, oy, cols, rows)
+        for row in range(rows):
+            _screen.blit(small.render(str(row), True, '#8ba5b3'), (ox-22, oy+row*tile+tile//2-6))
+        for col in range(cols):
+            _screen.blit(small.render(str(col), True, '#8ba5b3'), (ox+col*tile+tile//2-4, 9))
     stats = f"HP {frame['health']}/10    Coins {frame['coins']}/{len(hero.config['coins'])}    Keys {frame['keys']}    Potions {frame['potions']}"
     if hero.config.get('inventory_mode'):
-        stats = f"HP {frame['health']}/10    Keys {frame['keys']}    Potions {frame['potions']}"
+        stats = f"HP {frame['health']}/10    Coins {frame['coins']}/{len(hero.config['coins'])}    Keys {frame['keys']}    Potions {frame['potions']}"
         targets = hero.config.get('deliveries', [])
         if targets:
             delivered = sum(t['item'] in frame['ground'].get((t['x'], t['y']), []) for t in targets)

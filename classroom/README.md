@@ -10,14 +10,14 @@ Class code: `CodeH@ven123`. Teacher solutions code: `T3acher123`.
 
 ## Course
 
-Week 2 has seven combined Variables & Numbers challenges. Each other week has six challenges:
+Week 2 has seven combined Variables & Numbers challenges. Week 6 is one large review expedition. Each other week has six challenges:
 
 1. Sequences
 2. Variables & Numbers
 3. Conditionals
 4. Loops
 5. Lists
-6. Functions
+6. Review — The grand expedition
 7. Combine your skills
 8. Final challenge
 
@@ -53,7 +53,7 @@ Use different names, such as `a`, `b`, `c`, and `d`, for different signs. Assign
 
 ## Checks
 
-Run `npm test` for syntax checks, interface state tests, Python runner/game tests, and all 49 decrypted teacher solutions through the real Python runner. Week 5 solutions are also checked for actual list indexing, blank starters, inventory capacity, and the correct held item before each attack, unlock, and heal. Interface tests use a small DOM stand-in; they do not verify browser rendering.
+Run `npm test` for syntax checks, interface state tests, Python runner/game tests, and all 44 decrypted teacher solutions through the real Python runner. Week 5 solutions are also checked for actual list indexing, blank starters, inventory capacity, and the correct held item before each attack, unlock, and heal. Interface tests use a small DOM stand-in; they do not verify browser rendering.
 
 ## Loops (Week 4)
 
@@ -91,7 +91,17 @@ Walking carries all inventory items; the selected one appears in the hero's hand
 
 Delivery goals require the correct gem to remain on its matching pad; merely carrying it across the pad does not count. The reorder challenge checks the final inventory order. Failed runs restore pickups, empty the inventory, and preserve student code and appearance.
 
-IDs are `5-inventory-1` through `5-inventory-6`. Retired hotbar and route drafts remain saved, while their completions do not count for these redesigned lessons. Returning to a retired hotbar lesson selects its blank replacement. Other weeks keep their existing maps, drafts, and IDs. Teacher solutions remain encrypted. Functions stays locked in Week 6.
+IDs are `5-inventory-1` through `5-inventory-6`. Retired hotbar and route drafts remain saved, while their completions do not count for these redesigned lessons. Returning to a retired hotbar lesson selects its blank replacement. Other weeks keep their existing maps, drafts, and IDs. Teacher solutions remain encrypted. Week 6 is now a single review expedition.
+
+## Review (Week 6)
+
+**The grand expedition** (`6-review-1`) replaces the six Functions challenges with one continuous 49 × 33 map: nine connected districts, 303 walkable tiles, 35 coins, six code doors, six colored key doors, three switches and gates, six guards, and three gem deliveries. Open http://localhost:8001/#week-6 for the local review preview.
+
+Students combine all five earlier weeks: sequences and switches, saved and reused sign variables, conditionals for changing guard health and healing, loops for repeated alcoves/doorways/stairs, and list indexing with a five-item physical inventory. Sign values and guards' 3/6/9 health change on each run. No functions or new Python topics are needed. The editor starts blank; an encrypted teacher solution is included. Topic usage is taught rather than enforced by source matching.
+
+The map uses the existing 640 × 560 canvas and keeps the inventory and feedback separate. **Follow hero** displays a readable 16 × 9 window, **Whole map** shows all nine districts, and arrow buttons pan without moving the hero. Click the overview to inspect a district. Controls work before and after playback; a new run returns to following the hero. Coordinate labels and the accessible map description cover the whole map. The review allows 1,800 turns (its solution uses approximately 515); other lessons retain their 450-turn limit.
+
+Old Functions drafts remain saved under their original IDs. Returning students open a fresh review draft, and old completions do not mark the review complete. Weeks 7 and 8 remain locked. There are 32 currently available challenges and 44 across the full course.
 
 ## GitHub Pages
 
@@ -119,12 +129,12 @@ After an unsuccessful or stopped curriculum run, the map resets to the start whi
 
 ## Release weeks
 
-Weeks 1–5 are currently available locally, including Week 5: Lists. To change availability, edit `course-settings.js`:
+Weeks 1–6 are currently available locally, including Week 6: Review. To change availability, edit `course-settings.js`:
 
 ```js
-const UNLOCKED_THROUGH_WEEK = 5;
+const UNLOCKED_THROUGH_WEEK = 6;
 ```
 
-Commit and publish that file to GitHub Pages. Setting 5 releases weeks 1 through 5, and 8 releases the entire course. Saved later-week selections and Next challenge buttons obey this setting. Free coding remains available.
+Commit and publish that file to GitHub Pages. Setting 6 releases weeks 1 through 6, and 8 releases the entire course. Saved later-week selections and Next challenge buttons obey this setting. Free coding remains available.
 
 Week 1 teaches sequences through six puzzles with matching colored keys and doors, switches, and gated rooms. Goals describe what to finish without providing a route. `hero.unlock(direction)` automatically uses a matching key; the wrong color cannot open a door. `hero.activate()` works while standing on a switch and opens gates of the same color. Teacher solutions have been updated for these puzzles. Old week 1 code is preserved, while completion of the old maps does not count for the new puzzles.

@@ -1,8 +1,9 @@
-const RUNTIME_REVISION = '20261105-inventory-1';
+const RUNTIME_REVISION = '20261109-review-1';
 let heroApi = null, stopRequested = false;
 let executionPromise = null, runTransition = false, lastRunSource = null;
 let pyodide = null, runtimeApi = null, runtimeReady = false, runtimeLoading = false, isRunning = false;
 function updateRunButtons() {
+    for(const id of ['mapFollow','mapOverview','mapLeft','mapUp','mapDown','mapRight']) $(id).disabled=!runtimeReady || isRunning || runTransition;
     $('runBtn').textContent=isRunning ? '↻ Restart' : '▶ Run';
     $('runBtn').disabled=!runtimeReady || runTransition || !selectedFile().name.endsWith('.py') || !!selectedFile().binary;
     $('stopBtn').disabled=!isRunning || stopRequested;
@@ -141,6 +142,26 @@ function previewLevel() {
 
 function previewHeroWorld(level) {
     heroApi.preview(JSON.stringify(level.world));
+    updateMapViewControls('follow');
     const world=typeof heroApi.world_config==='function' ? JSON.parse(heroApi.world_config()) : level.world;
     updateMapDescription(world);
 }
+
+function updateMapViewControls(mode) {
+    $('mapFollow').setAttribute('aria-pressed',String(mode==='follow'));
+    $('mapOverview').setAttribute('aria-pressed',String(mode==='overview'));
+    $('mapViewStatus').textContent=mode==='overview' ? 'Whole map · Click a district for detail' : mode==='follow' ? 'Following hero · 16 × 9 view' : 'Exploring · Follow hero to return';
+}
+function changeMapView(mode,dx=0,dy=0) {
+    if(!runtimeReady || isRunning || runTransition || course.mode!=='levels' || !currentLevel().world.large_map) return;
+    heroApi.set_map_view(mode,dx,dy);
+    updateMapViewControls(mode);
+}
+$('mapFollow').onclick=()=>changeMapView('follow');
+$('mapOverview').onclick=()=>changeMapView('overview');
+for(const [id,dx,dy] of [['mapLeft',-6,0],['mapRight',6,0],['mapUp',0,-4],['mapDown',0,4]]) $(id).onclick=()=>changeMapView('pan',dx,dy);
+$('canvas').addEventListener('click',event=>{
+    if(!runtimeReady || isRunning || runTransition || course.mode!=='levels' || !currentLevel().world.large_map || $('mapOverview').getAttribute('aria-pressed')!=='true') return;
+    const rect=$('canvas').getBoundingClientRect();
+    if(heroApi.focus_map((event.clientX-rect.left)*640/rect.width,(event.clientY-rect.top)*560/rect.height)) updateMapViewControls('pan');
+});
